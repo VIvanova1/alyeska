@@ -1,0 +1,26 @@
+<header>
+    <span class="menu-icons">
+    <a *ngIf="isToggled" (click)="isToggle()"><i class="fa-solid fa-ellipsis-vertical" ></i> </a>
+    <a *ngIf="!isToggled" (click)="isToggle()"><i class="fa-solid fa-x" ></i></a>
+    </span>
+    <nav>
+        <img class="logo" src="/assets/logo.png" alt="logo">
+        <span class="wrapper row" *ngIf="!isToggled">
+        <ul class="nav-links row">
+            <li><a href="">About Us</a></li>
+            <span *ngIf="isLogged" class="user row">
+                <li><a href="">Personal Info</a></li>
+                <li><a href="">Education</a></li>
+                <li><a href="">Time for fun</a></li>
+                <li><a><i class="fa-solid fa-door-open"></i></a></li>
+            </span>
+            <li><a *ngIf="!isLogged" href="" class="row">Careers</a></li>
+        </ul>
+
+        <div *ngIf="!isLogged" class="entry row">
+            <a class="entry-btn" href="">Register</a>
+            <a class="entry-btn" href="">Login</a>
+        </div>
+    </span>
+    </nav>
+</header>
