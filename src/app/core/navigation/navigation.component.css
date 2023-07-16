@@ -1,10 +1,12 @@
 header {
-  background-color: #24252a;
+  /* background-color: #24252a; */
+  background-color: white;
   height: fit-content;
 }
 
 i {
-  color: #ffffff;
+  /* color: #ffffff; */
+  color:#24252a;
   position: absolute;
   right: 0;
   margin: 20px;
@@ -33,7 +35,8 @@ nav {
 }
 
 a {
-  color: aliceblue;
+  /* color: aliceblue; */
+  color: #24252a;
   text-decoration: none;
   font-size: larger;
 }
@@ -43,7 +46,7 @@ a {
 }
 
 .nav-links li a:hover {
-  color: rgba(240, 248, 255, 0.752);
+  color: rgba(14, 51, 82, 0.752);
 }
 
 .entry {
@@ -54,6 +57,9 @@ a {
   flex-wrap: wrap;
   align-items: center;
   gap: 30px;
+}
+.entry a{
+  color: aliceblue;
 }
 
 .entry-btn {
