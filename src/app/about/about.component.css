@@ -1,0 +1,40 @@
+.container {
+  background: rgb(116, 107, 243);
+  background: radial-gradient(
+    circle,
+    rgba(116, 107, 243, 1) 0%,
+    rgba(15, 48, 84, 1) 75%
+  );
+  text-align: center;
+  display: flex;
+}
+
+.about {
+  width: 45%;
+  display: inline-block;
+}
+
+.about-picture {
+  text-align: end;
+}
+
+img {
+  width: 70%;
+}
+
+.about-info {
+    padding: 24.8vh 0;
+  color: rgba(15, 48, 84, 1);
+  background: white;
+
+}
+
+.about-info h2{
+    font-size: 40px;
+}
+.about-info h4 {
+    font-size: 20px;
+}
+.about-info  {
+    font-size: 18px;
+}
