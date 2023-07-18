@@ -9,12 +9,12 @@
         <ul class="nav-links row">
             <li><a routerLink="/about" >About Us</a></li>
             <span *ngIf="isLogged" class="user row">
-                <li><a href="">Personal Info</a></li>
-                <li><a href="">Education</a></li>
-                <li><a href="">Time for fun</a></li>
+                <li><a routerLink="user/profile" >Personal Info</a></li>
+                <li><a routerLink="/ed" >Education</a></li>
+                <li><a routerLink="/fun" >Time for fun</a></li>
                 <li><a><i class="fa-solid fa-door-open"></i></a></li>
             </span>
-            <li><a *ngIf="!isLogged" href="" class="row">Careers</a></li>
+            <li><a *ngIf="!isLogged" routerLink="/careers"  class="row">Careers</a></li>
         </ul>
 
         <div *ngIf="!isLogged" class="entry row">
