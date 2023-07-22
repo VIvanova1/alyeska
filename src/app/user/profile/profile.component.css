@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: rgb(116, 107, 243);
   background: radial-gradient(
     circle,
@@ -9,9 +9,12 @@
   );
   margin: 50px;
   border-radius: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.white-piece {
+.comp {
   margin: 20px 40px;
   padding: 20px 20px;
   background-color: #f7fff2;
@@ -20,37 +23,18 @@
   border-radius: 20px;
   box-shadow: 12px 13px 20px #ffffff47, inset 5px 3px 16px rgba(15, 48, 84, 1);
 }
-
 .profile-header {
   max-width: 30%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
-
 .profile-header img {
   border-radius: 50%;
   margin: 10px;
-  width: 40%;
-}
-
-.info-part {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
-p,
-li,
-span {
-  margin: 5px;
-}
-
-p {
-  border-bottom: 1px solid rgba(15, 48, 84, 1);
-  width: fit-content;
-}
-
-li {
-  list-style-type: none;
+  max-width: 40%;
 }
 h4,
 h5,
@@ -58,15 +42,11 @@ h6 {
   margin-top: 5px;
 }
 
-.person-nav ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+/* TODO: Upcoming */
 
 .profile-main {
   width: 30%;
-  text-align: end;
+  text-align: center;
 }
 
 .profile-main input,
@@ -83,10 +63,11 @@ label {
     rgba(15, 48, 84, 1) 95%
   );
   color: #f7fff2;
-  max-width: 80%;
+  max-width: -webkit-fill-available;
   border-radius: 15px;
-  padding: 5px;
+  padding: 5px 2px;
   text-align: center;
   font-weight: 600;
   text-shadow: -1px 1px black;
 }
+/* TODO: onboarding */
