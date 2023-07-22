@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TrainingsComponent } from './trainings/trainings.component';
 import { TrainingCardComponent } from './training-card/training-card.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,6 +12,7 @@ import { TrainingCardComponent } from './training-card/training-card.component';
     TrainingCardComponent
   ],
   imports: [
+    RouterModule,
     CommonModule
   ],
   exports:[TrainingsComponent]

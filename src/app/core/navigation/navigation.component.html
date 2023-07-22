@@ -7,9 +7,9 @@
         <img class="logo" src="/assets/logo.png" alt="logo">
         <span class="wrapper row" *ngIf="!isToggled">
         <ul class="nav-links row">
-            <li><a routerLink="/about" >About Us</a></li>
+            <li> <a [routerLink]="['/about']" >About Us</a></li>
             <span *ngIf="isLogged" class="user row">
-                <li><a routerLink="user/profile" >Personal Info</a></li>
+                <li><a routerLink="/user/profile" >Personal Info</a></li>
                 <li><a routerLink="/trainings" >Trainings</a></li>
                 <li><a routerLink="/fun" >Time for fun</a></li>
                 <li><a><i class="fa-solid fa-door-open"></i></a></li>

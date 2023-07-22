@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { AboutComponent } from './about/about.component';
 import { UserModule } from './user/user.module';
 import { CompanyEventsModule } from './company-events/company-events.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,10 @@ import { CompanyEventsModule } from './company-events/company-events.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule,
     CoreModule,
     UserModule,
+    AppRoutingModule,
     CompanyEventsModule
   ],
   providers: [],
