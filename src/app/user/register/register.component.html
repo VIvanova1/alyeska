@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="screen">
+		<div class="screen-content">
+			<form #registerForm="ngForm" class="register" (ngSubmit)="registerHandler(registerForm)">
+				<div class="register-field">
+					<i class="register-icon fa-solid fa-user"></i>
+					<input type="text" class="register-input" placeholder="Name" name="name" required ngModel
+						#nameInput="ngModel">
+					<div class="error" *ngIf="nameInput.touched">
+						<span *ngIf="nameInput.errors?.['required']">Please enter your name!</span>
+					</div>
+				</div>
+				<div class="register-field">
+					<i class="register-icon fa-solid fa-at"></i>
+					<input type="email" class="register-input" placeholder="Email" name="email" required email ngModel
+						#emailInput="ngModel">
+					<div class="error" *ngIf="emailInput.touched">
+						<span *ngIf="emailInput.errors?.['required']">Please enter your email!</span>
+						<span *ngIf="emailInput.errors?.['email']">Please enter a valid email!</span>
+					</div>
+				</div>
+				<div class="register-field">
+					<i class="register-icon fa-solid fa-lock"></i>
+					<input type="password" class="register-input" placeholder="Password" name="password" required
+						ngModel>
+				</div>
+				<div class="register-field">
+					<i class="register-icon fa-solid fa-lock"></i>
+					<input type="password" class="register-input" placeholder="Repeat password" name="repeat-password"
+						required ngModel>
+				</div>
+				<button class="button register-submit">
+					<span class="button-text">Log In Now</span>
+					<i class="button-icon fa-solid fa-chevron-right"></i>
+				</button>
+			</form>
+		</div>
+		<div class="screen-background">
+			<span class="screen-background-shape screen-background-shape4"></span>
+			<span class="screen-background-shape screen-background-shape3"></span>
+			<span class="screen-background-shape screen-background-shape2"></span>
+			<span class="screen-background-shape screen-background-shape1"></span>
+		</div>
+	</div>
+</div>

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent {
-  isLogged = true;
+  isLogged = false;
   isToggled = false; // true
   isToggle() {
     this.isToggled = !this.isToggled;
