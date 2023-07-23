@@ -4,13 +4,15 @@ import { AboutComponent } from './about/about.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { TrainingsComponent } from './company-events/trainings/trainings.component';
 import { RegisterComponent } from './user/register/register.component';
+import { LoginComponent } from './user/login/login.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', component: AboutComponent },
   {path: 'about', component: AboutComponent },
   {path: 'user/profile', component: ProfileComponent},
   {path: 'trainings', component: TrainingsComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

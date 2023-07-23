@@ -8,6 +8,8 @@ import { AboutComponent } from './about/about.component';
 import { UserModule } from './user/user.module';
 import { CompanyEventsModule } from './company-events/company-events.module';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule} from '@angular/fire/compat'
+import { environment } from 'src/environments/environment.development';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { RouterModule } from '@angular/router';
     CoreModule,
     UserModule,
     AppRoutingModule,
-    CompanyEventsModule
+    CompanyEventsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
