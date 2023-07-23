@@ -1,30 +1,29 @@
 <div class="container">
     <!-- <img src="" alt="employee img"> -->
     <h2>Add new employee</h2>
-    <form>
+    <form #createForm="ngForm">
         <div class="field">
-            <input type="text" class="employee-input" placeholder="Name" name="name" required ngModel
-                #nameInput="ngModel">
-            <input type="text" class="employee-input" placeholder="Email" name="email" required ngModel
-                #emailInput="ngModel">
-            <input type="text" class="employee-input" placeholder="Position" name="position" required ngModel
+            <input type="text" class="employee-input" placeholder="Name" name="name" ngModel #nameInput="ngModel">
+            <input type="text" class="employee-input" placeholder="Email" name="email" ngModel #emailInput="ngModel">
+            <input type="text" class="employee-input" placeholder="Position" name="position" ngModel
                 #positionInput="ngModel">
-            <input type="text" class="employee-input" placeholder="Company Id" name="companyId" required ngModel
+            <input type="text" class="employee-input" placeholder="Company Id" name="companyId" ngModel
                 #companyIdInput="ngModel">
-            <input type="text" class="employee-input" placeholder="Phone number" phoneNumber name="phone" required
-                ngModel #phoneInput="ngModel">
-            <input type="text" class="employee-input" placeholder="Location" phoneNumber name="location" required
-                ngModel #locationInput="ngModel">
+            <input type="text" class="employee-input" placeholder="Phone number" phoneNumber name="phone" ngModel
+                #phoneInput="ngModel">
+            <input type="text" class="employee-input" placeholder="Location" phoneNumber name="location" ngModel
+                #locationInput="ngModel">
         </div>
         <div class="field">
-            <input type="text" class="employee-input" placeholder="Department" phoneNumber name="department" required
-                ngModel #departmentInput="ngModel">
+            <input type="text" class="employee-input" placeholder="Department" phoneNumber name="department" ngModel
+                #departmentInput="ngModel">
             <input type="text" class="employee-input" placeholder="Employment type" phoneNumber name="employmentType"
-                required ngModel #employmentTypeInput="ngModel">
-            <input type="text" class="employee-input" placeholder="Role" phoneNumber name="role" required ngModel
+                ngModel #employmentTypeInput="ngModel">
+            <input type="text" class="employee-input" placeholder="Role" phoneNumber name="role" ngModel
                 #roleInput="ngModel">
-            <input type="text" class="employee-input" placeholder="manager" phoneNumber name="manager" required ngModel
+            <input type="text" class="employee-input" placeholder="manager" phoneNumber name="manager" ngModel
                 #managerInput="ngModel">
         </div>
+        <button (click)="createEmployee(createForm)">Create Employee</button>
     </form>
 </div>

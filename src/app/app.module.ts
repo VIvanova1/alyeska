@@ -18,12 +18,12 @@ import { environment } from 'src/environments/environment.development';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule,
     CoreModule,
     UserModule,
     AppRoutingModule,
     CompanyEventsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
