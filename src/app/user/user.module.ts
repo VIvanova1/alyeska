@@ -11,7 +11,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     ProfileComponent,
     RegisterComponent,
     LoginComponent,
-    AddEmployeeComponent,
+    AddEmployeeComponent
   ],
   imports: [CommonModule, FormsModule],
   exports: [

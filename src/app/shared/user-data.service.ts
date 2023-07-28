@@ -12,4 +12,15 @@ export class UserDataService {
     employee.id = this.firestore.createId();
     return this.firestore.collection('/Employees').add(employee);
   }
+
+  findEmployee(email: string) {
+    return new Promise<any>((resolve) => {
+      this.firestore
+        .collection('Employees', (ref) => ref.where('email', '==', email).limit(1))
+        .valueChanges()
+        .subscribe((employee) => resolve(employee));
+    });
+
+  }
+
 }

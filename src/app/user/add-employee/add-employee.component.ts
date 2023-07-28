@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { NgForm } from '@angular/forms';
-import { UserData } from 'src/app/model/user-data';
 import { UserDataService } from 'src/app/shared/user-data.service';
 
 @Component({

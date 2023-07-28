@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent {
-  isLogged = true;
+  isLogged = localStorage.getItem('user');
   isToggled = false; // true
   isAdmin = true;
   isToggle() {
