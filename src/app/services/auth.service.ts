@@ -14,6 +14,7 @@ export class AuthService {
       () => {
         localStorage.setItem('user', email);
         this.router.navigate(['/user/profile']);
+        isLogged()
       },
       err => {
         alert(err.message);
@@ -44,4 +45,7 @@ export class AuthService {
       }
     );
   }
+}
+function isLogged () {
+  throw new Error( 'Function not implemented.' );
 }

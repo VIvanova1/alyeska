@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDataService } from 'src/app/shared/user-data.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +17,5 @@ export class ProfileComponent implements OnInit {
       this.userData=await this.userService.findEmployee(email);
     }
   }
-
 
 }

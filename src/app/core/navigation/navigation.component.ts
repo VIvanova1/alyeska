@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -6,11 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent {
-  isLogged = localStorage.getItem('user');
+  constructor(private authService: AuthService) {}
+
+  isLogged() {
+    return localStorage.getItem('user');
+  }
+
   isToggled = false; // true
   isAdmin = true;
   isToggle() {
     this.isToggled = !this.isToggled;
+  }
+  logout() {
+    this.authService.logout();
   }
 }
 

@@ -10,4 +10,4 @@ import { UserDataService } from './user-data.service';
     CommonModule
   ],
 })
-export class SharedModule { }
+export class ServicesModule { }
