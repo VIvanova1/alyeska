@@ -10,6 +10,7 @@ import { CompanyEventsModule } from './company-events/company-events.module';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule} from '@angular/fire/compat'
 import { environment } from 'src/environments/environment.development';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { environment } from 'src/environments/environment.development';
     UserModule,
     AppRoutingModule,
     CompanyEventsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

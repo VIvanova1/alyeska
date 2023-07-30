@@ -1,14 +1,13 @@
-<div class="card">
+ <div class="card" >
     <div class="card-image"></div>
     <div class="card-text">
-        <span class="date">15 September 2023</span>
-        <h2>Course</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque deleniti rerum, quis quod voluptates enim
-            animi impedit minima exercitationem distinctio!</p>
+        <span class="date">{{training.date}}</span>
+        <h2>{{training.name}}</h2>
+        <p>{{training.description}}</p>
     </div>
     <div class="card-stats">
         <div class="duration stat" >
-            <span>30 min</span>
+            <span>{{training.time}}</span>
         </div>
         <div class="join-btn stat">
             <a href="">Join</a>
