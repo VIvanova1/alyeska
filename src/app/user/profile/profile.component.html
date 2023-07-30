@@ -1,25 +1,29 @@
-<div class="container" *ngIf="userData[0]" >
-    <div class="profile-header comp" >
+<div class="container" *ngIf="currentUser">
+    <div class="profile-header comp">
         <img src="/assets/user-img.png" alt="pic">
         <div class="main-part">
-            <h4>{{userData[0].name}}</h4>
-            <h5>{{userData[0].position}}</h5>
-            <h6>{{userData[0].companyId}}</h6>
+            <h4>{{currentUser.name}}</h4>
+            <h5>{{currentUser.position}}</h5>
+            <h6>{{currentUser.companyId}}</h6>
         </div>
 
         <div class="info-part">
-                <p>{{userData[0].position}}</p>
-                <p>{{userData[0].email}}</p>
-                <p>{{userData[0].location}}</p>
+            <p>{{currentUser.position}}</p>
+            <p>{{currentUser.email}}</p>
+            <p>{{currentUser.location}}</p>
         </div>
     </div>
 
-    <!-- <div class="calendar comp">
-        <p>CALENDAR</p>
-    </div> -->
 
     <div class="upcoming-events comp">
         <p>UPCOMING EVENTS</p>
+        <div class="trainingUser-card" *ngFor="let training of trainings">
+            <p>{{training.name}}</p>
+            <div>
+                <p>{{training.date}}</p>
+                <p>{{training.time}}h.</p>
+            </div>
+        </div>
     </div>
 
 
@@ -28,19 +32,20 @@
             <form action="">
                 <div id="department-label">
                     <label for="department">Department: </label>
-                    <input type="text" name="department" id="department" value="{{userData[0].department}}" disabled>
+                    <input type="text" name="department" id="department" value="{{currentUser.department}}" disabled>
                 </div>
                 <div id="employment-type-label">
                     <label for="employment-type">Employment type: </label>
-                    <input type="text" name="employment-type" id="employment-type" value="{{userData[0].department}}" disabled>
+                    <input type="text" name="employment-type" id="employment-type" value="{{currentUser.department}}"
+                        disabled>
                 </div>
                 <div id="access-role-label">
                     <label for="access-role">Access role: </label>
-                    <input type="text" name="access-role" id="access-role" value="{{userData[0].role}}" disabled>
+                    <input type="text" name="access-role" id="access-role" value="{{currentUser.role}}" disabled>
                 </div>
                 <div id="manager-label">
                     <label for="manager">Manager: </label>
-                    <input type="text" name="manager" id="manager" value="{{userData[0].manager}}" disabled>
+                    <input type="text" name="manager" id="manager" value="{{currentUser.manager}}" disabled>
                 </div>
             </form>
         </div>
@@ -48,5 +53,6 @@
 
     <div class="onboarding comp">
         <p>ONBOARDING</p>
+
     </div>
 </div>

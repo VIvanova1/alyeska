@@ -70,4 +70,24 @@ label {
   font-weight: 600;
   text-shadow: -1px 1px black;
 }
-/* TODO: onboarding */
+
+
+.upcoming-events {
+  text-align: center;
+  max-height: 200px;
+  overflow-y:scroll;
+  /* scroll type */
+}
+.trainingUser-card {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgba(15, 48, 84, 1);
+  margin: 10px;
+  padding-bottom: 10px;
+}
+.trainingUser-card div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 5px;
+}

@@ -10,4 +10,5 @@ export class TrainingCardComponent  {
   @Input( 'training' )
   training!: Training;
 
+
 }
