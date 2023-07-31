@@ -1,27 +1,14 @@
 # AlyeskaFashion
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+AlyeskaFashion is a application aimed at companies whose employees work from different locations. The purpose of the product is to create a place for HR, Payroll, management and all other employees.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Built With
+* Angular 16.1.4
+* HTML5
+* CSS3
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Usage
+1. For now only one admin can create an employee profile in the company. After filling in the information, a record is created in the database containing the basic information about the employee such as: names, email, phone number, etc.
+2. After that, each employee registers by submitting the same email that was provided for registration by the administrator.
+3. When there is a match and the employee is a real part of the company, he gets access to the menu of services such as: his personal profile and upcoming trainings in which he can take part.
