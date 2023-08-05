@@ -9,4 +9,5 @@ export interface UserData {
     email:string,
     location:string,
     departmentData:DepartmentData[],
+    trainingsGo: []
 }

@@ -16,7 +16,6 @@ export class RegisterComponent {
     }
 
     const registerData: { email: string, password: string } = form.value;
-    console.log({registerData});
     this.auth.register(registerData.email,registerData.password);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserData } from 'src/app/model/user-data';
 import { TrainingsService } from 'src/app/services/trainings.service';
 import { UserDataService } from 'src/app/services/user-data.service';
 
@@ -8,11 +9,8 @@ import { UserDataService } from 'src/app/services/user-data.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  userData: any;
+  profileInfo: UserData[] = [];
   currentUser: any;
-  usersTrainings: any;
-  documentRef: any;
-  trainingsArray: string[] = [];
   trainings: any[] = [];
 
   constructor(
@@ -27,22 +25,11 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  async getUser(email: string) {
-    this.userData = await this.userService.findEmployee(email);
-    this.currentUser = this.userData[0];
-
-    this.documentRef = this.currentUser.trainingsGo;
-    if (this.documentRef) {
-      this.documentRef.forEach((element: any) =>
-        this.trainingsArray?.push(element.path)
-      );
-    }
-
-    this.trainingsArray.forEach((trainingPath) => {
-      this.trainingService.getOneTraining(trainingPath).subscribe((data) => {
-        if (!this.trainings.includes(data)) {
-          this.trainings.push(data);
-        }
+  getUser(email: string) {
+    this.userService.findEmployee(email).subscribe((res) => {
+      res.forEach((user) => {
+        this.currentUser = user;
+        return this.currentUser;
       });
     });
   }

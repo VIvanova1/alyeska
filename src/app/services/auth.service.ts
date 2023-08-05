@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 })
 
 export class AuthService {
+  isLoggled: boolean = false;
   constructor(private fireAuth: AngularFireAuth, private router: Router) {}
 
   login(email: string, password: string) {
@@ -14,7 +15,6 @@ export class AuthService {
       () => {
         localStorage.setItem('user', email);
         this.router.navigate(['/user/profile']);
-        isLogged()
       },
       err => {
         alert(err.message);
@@ -26,6 +26,7 @@ export class AuthService {
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(
       () => {
         localStorage.setItem('user', email);
+        this.isLoggled=true;
         this.router.navigate(['/user/profile']);
       },
       err => {
@@ -38,6 +39,7 @@ export class AuthService {
     this.fireAuth.signOut().then(
       () => {
         localStorage.removeItem('user');
+        this.isLoggled=false;
         this.router.navigate(['/login']);
       },
       err => {
@@ -45,7 +47,4 @@ export class AuthService {
       }
     );
   }
-}
-function isLogged () {
-  throw new Error( 'Function not implemented.' );
 }

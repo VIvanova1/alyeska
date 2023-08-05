@@ -8,11 +8,23 @@ import { Training } from 'src/app/model/training';
   styleUrls: ['./trainings.component.css'],
 })
 export class TrainingsComponent implements OnInit {
-  trainings!: Training[];
+  trainingsList: Training[] = [];
   constructor(private trainingService: TrainingsService) {}
 
-  async ngOnInit(): Promise<void> {
-    this.trainings = await this.trainingService.getAllTrainings()
-    console.log(this.trainings);
+  ngOnInit(): void {
+    this.showAllTrainings();
+  }
+
+  showAllTrainings() {
+    this.trainingService.getAllTrainings().subscribe(
+      (res) => {
+        this.trainingsList = res.map((t: any) => {
+          const data = t.payload.doc.data();
+          data.id = t.payload.doc.id;
+          return data;
+        });
+      },
+      (err) => {}
+    );
   }
 }

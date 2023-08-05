@@ -14,13 +14,12 @@ export class UserDataService {
   }
 
   findEmployee(email: string) {
-    return new Promise<any>((resolve) => {
-      this.firestore
-        .collection('Employees', (ref) => ref.where('email', '==', email).limit(1))
-        .valueChanges()
-        .subscribe((employee) => resolve(employee));
-    });
+    return this.firestore
+      .collection('/Employees', (ref: any) =>
+        ref.where('email', '==', email).limit(1)
+      )
+      .valueChanges();
   }
 
-
+  addRefTrainings(path: string) {}
 }
