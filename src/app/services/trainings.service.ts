@@ -8,11 +8,11 @@ export class TrainingsService {
   constructor(private firestore: AngularFirestore) {}
 
   getAllTrainings() {
-   return this.firestore.collection('/Trainings').snapshotChanges()
+    return this.firestore.collection('/Trainings').snapshotChanges();
   }
 
   goTraining(trainingId: string) {
-    return this.firestore.doc('/Trainings/'+trainingId).ref.path;
+    return this.firestore.doc('/Trainings/' + trainingId).ref.path;
   }
 
   getOneTraining(path: string) {

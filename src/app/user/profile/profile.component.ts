@@ -9,7 +9,6 @@ import { UserDataService } from 'src/app/services/user-data.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  profileInfo: UserData[] = [];
   currentUser: any;
   trainings: any[] = [];
 
@@ -27,8 +26,9 @@ export class ProfileComponent implements OnInit {
 
   getUser(email: string) {
     this.userService.findEmployee(email).subscribe((res) => {
-      res.forEach((user) => {
+      res.forEach((user: any) => {
         this.currentUser = user;
+        localStorage.setItem('token', user.id);
         return this.currentUser;
       });
     });

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Training } from 'src/app/model/training';
-import {TrainingsService} from 'src/app/services/trainings.service';
+import { UserData } from 'src/app/model/user-data';
+import { TrainingsService } from 'src/app/services/trainings.service';
 import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
@@ -9,15 +10,21 @@ import { UserDataService } from 'src/app/services/user-data.service';
   styleUrls: ['./training-card.component.css'],
 })
 export class TrainingCardComponent {
-  constructor(private trainingService: TrainingsService, private userService: UserDataService) {
+  empl:any;
+  constructor(
+    private trainingService: TrainingsService,
+    private userService: UserDataService
+  ) {}
 
-  }
   @Input('training')
   training!: Training;
 
   goTraining() {
-    const id = this.training.id
-    const refPath = this.trainingService.goTraining(id);
-    this.userService.addRefTrainings(refPath);
+    // /Employees/tSo3ugJVXFoJWZydi3Kb
+    const id = localStorage.getItem('user');
+    const trPath = `/Trainings/${this.training.id}`
+    const res = this.userService.goTraining(id!,trPath);
+
+    // this.trainingService.goTraining(id);
   }
 }

@@ -6,10 +6,11 @@ import { UserData } from '../model/user-data';
   providedIn: 'root',
 })
 export class UserDataService {
+  user!: UserData[];
   constructor(private firestore: AngularFirestore) {}
 
   createEmployee(employee: UserData) {
-    employee.id = this.firestore.createId();
+    employee.id = this.firestore.createId()
     return this.firestore.collection('/Employees').add(employee);
   }
 
@@ -20,6 +21,7 @@ export class UserDataService {
       )
       .valueChanges();
   }
+  goTraining(id: string,trainignPath:string) {
 
-  addRefTrainings(path: string) {}
+  }
 }
