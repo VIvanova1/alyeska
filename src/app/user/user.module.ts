@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
     LoginComponent,
     AddEmployeeComponent
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SharedModule],
   exports: [
     ProfileComponent,
     RegisterComponent,

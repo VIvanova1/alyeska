@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { AngularFireModule} from '@angular/fire/compat'
 import { environment } from 'src/environments/environment.development';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CompanyEventsModule,
     HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
