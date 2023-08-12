@@ -1,25 +1,26 @@
 <div class="container">
 	<div class="screen">
 		<div class="screen-content">
-			<form class="register" formGroup="form" (ngSubmit)="registerHandler()">
+			<form class="register"  #registerForm="ngForm" (ngSubmit)="registerHandler(registerForm)">
 
 				<div class="register-field">
 					<i class="register-icon fa-solid fa-at"></i>
-					<input type="text" class="register-input" placeholder="Email" name="email" required
-						formControlName="email">
-					<div class="error" *ngIf="form.get('email')?.touched">
-						<span *ngIf="form.get('email')?.errors?.['required']">Please enter your email!</span>
-						<span *ngIf="form.get('email')?.errors?.['email']">Please enter a valid email!</span>
+					<input type="text" class="register-input" placeholder="Email" name="email" required email ngModel
+					#emailInput="ngModel" >
+					<div class="error" *ngIf="emailInput.touched">
+						<span *ngIf="emailInput.errors?.['required']">Please enter your email!</span>
+						<span *ngIf="emailInput.errors?.['email']">Please enter a valid email!</span>
 					</div>
 				</div>
 
 				<div class="register-field">
 					<i class="register-icon fa-solid fa-lock"></i>
 					<input type="password" class="register-input" placeholder="Password" name="password"
-						formControlName="password">
-					<div class="error" *ngIf="form.get('passGroup')?.get('password')?.touched">
-						<span *ngIf="form.get('password')?.errors?.['required']">Please enter your password!</span>
-						<span *ngIf="form.get('password')?.errors?.['minlength']">Your password must be at least 6
+					required password ngModel
+					#passwordInput="ngModel" >
+					<div class="error" *ngIf="passwordInput.touched">
+						<span *ngIf="passwordInput.errors?.['required']">Please enter your password!</span>
+						<span *ngIf="passwordInput.errors?.['minlength']">Your password must be at least 6
 							characters.</span>
 					</div>
 				</div>
@@ -27,14 +28,15 @@
 				<div class="register-field">
 					<i class="register-icon fa-solid fa-lock"></i>
 					<input type="password" class="register-input" placeholder="Repeat password" name="rePassword"
-						formControlName="rePassword">
-					<div class="error" *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
-						<span *ngIf="form.get('rePassword')?.errors?.['required']">Please repeat your password!</span>
-						<span *ngIf="form.get('rePassword')?.errors?.['matchPasswordsValidator']">Passwords do not
+					required rePassword ngModel
+					#rePasswordInput="ngModel">
+					<div class="error" *ngIf="rePasswordInput.touched">
+						<span *ngIf="rePasswordInput.errors?.['required']">Please repeat your password!</span>
+						<span *ngIf="rePasswordInput.errors?.['matchPasswordsValidator']">Passwords do not
 							match!.</span>
 					</div>
 				</div>
-				<button class="button register-submit">
+				<button class="button register-submit" [disabled]="registerForm.invalid">
 					<span class="button-text">Register</span>
 					<i class="button-icon fa-solid fa-chevron-right"></i>
 				</button>

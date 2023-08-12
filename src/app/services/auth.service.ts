@@ -13,8 +13,11 @@ export class AuthService {
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(
       () => {
+      this.fireAuth.authState.subscribe(u=>{
+        const user = JSON.parse(JSON.stringify(u));
         localStorage.setItem('user', email);
-        this.router.navigate(['/user/profile']);
+      })
+      this.router.navigate(['/']);
       },
       err => {
         alert(err.message);

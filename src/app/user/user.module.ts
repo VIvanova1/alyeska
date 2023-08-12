@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { SharedModule } from '../shared/shared.module';
@@ -12,9 +13,9 @@ import { SharedModule } from '../shared/shared.module';
     ProfileComponent,
     RegisterComponent,
     LoginComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
   ],
-  imports: [CommonModule, FormsModule, SharedModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, SharedModule],
   exports: [
     ProfileComponent,
     RegisterComponent,

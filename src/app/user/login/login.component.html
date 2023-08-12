@@ -14,8 +14,11 @@
 				</div>
 				<div class="login-field">
 					<i class="login-icon fa-solid fa-lock"></i>
-					<input type="password" class="login-input" placeholder="Password" name="password" required
-						ngModel>
+					<input type="password" class="login-input" placeholder="Password" name="password" required password
+						ngModel #passwordInput="ngModel">
+					<div class="error" *ngIf="passwordInput.touched">
+						<span *ngIf="passwordInput.errors?.['required']">Please enter your password!</span>
+					</div>
 				</div>
 				<button class="button login-submit">
 					<span class="button-text">Log In Now</span>

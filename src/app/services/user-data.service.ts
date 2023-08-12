@@ -9,8 +9,8 @@ export class UserDataService {
   user!: UserData[];
   constructor(private firestore: AngularFirestore) {}
 
-  createEmployee(employee: UserData) {
-    employee.id = this.firestore.createId()
+  createEmployee(employee: any) {
+    // employee.id = this.firestore.createId()
     return this.firestore.collection('/Employees').add(employee);
   }
 

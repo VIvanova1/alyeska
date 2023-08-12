@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { matchPasswordsValidator } from 'src/app/shared/validators/match-pass-validatos';
 
 @Component({
   selector: 'app-register',
@@ -17,19 +17,19 @@ export class RegisterComponent {
         rePassword: ['', [Validators.required, Validators.minLength(6)]],
       },
       {
-        validators: [matchPasswordsValidator('password', 'rePassword')],
+        // validators: [matchPasswordsValidator('password', 'rePassword')],
       }
     ),
   });
 
   constructor(private auth: AuthService, private formBuilder: FormBuilder) {}
 
-  registerHandler(): void {
-    if (this.form.invalid) {
+  registerHandler(form: NgForm): void {
+    if (form.invalid) {
       return;
     }
 
-    const registerData:any= this.form.value;
-    this.auth.register(registerData.email, registerData.password);
+    const registerData:any= form.value;
+    this.auth.register(registerData.email, registerData.password)
   }
 }
