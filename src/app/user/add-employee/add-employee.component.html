@@ -1,62 +1,79 @@
+<!-- <button [disabled]="form.invalid">Create Employee</button>-->
+
 <div class="container">
-    <!-- <img src="" alt="employee img"> -->
     <h2>Add new employee</h2>
-    <form  [formGroup]="form" (ngSubmit)="createEmployee()">
-        <div class="field">
-            <input type="text" class="employee-input" placeholder="Name" name="name" formControlName="name">
-            <span *ngIf="form.get('name')?.touched">
-                <span *ngIf="form.get('name')?.errors?.['required']">Name is required! </span>
-                <span *ngIf="form.get('name')?.errors?.['minlength']">Name should be minimum 8 characters! </span>
-            </span>
-            <input type="text" class="employee-input" placeholder="Email" name="email" formControlName="email">
-            <span *ngIf="form.get('email')?.touched">
-                <span *ngIf="form.get('email')?.errors?.['required']">Email is required! </span>
-                <span *ngIf="form.get('email')?.errors?.['minlength']">Email should be minimum 8 characters! </span>
-            </span>
-            <input type="text" class="employee-input" placeholder="Position" name="position" formControlName="position">
-            <span *ngIf="form.get('position')?.touched">
-                <span *ngIf="form.get('position')?.errors?.['required']">Position is required! </span>
-                <span *ngIf="form.get('position')?.errors?.['minlength']">Position should be minimum 4 characters! </span>
-            </span>
-            <input type="text" class="employee-input" placeholder="Company Id" name="companyId" formControlName="companyId">
-            <span *ngIf="form.get('companyId')?.touched">
-                <span *ngIf="form.get('companyId')?.errors?.['required']">Company Id is required! </span>
-                <span *ngIf="form.get('companyId')?.errors?.['minlength']">Company Id should be minimum 6 characters! </span>
-            </span>
-            <input type="text" class="employee-input" placeholder="Phone number"  name="phone" formControlName="phone">
-            <span *ngIf="form.get('phone')?.touched">
-                <span *ngIf="form.get('phone')?.errors?.['required']">Phone is required! </span>
-                <span *ngIf="form.get('phone')?.errors?.['minlength']">Phone should be minimum 8 characters! </span>
-            </span>
-            <input type="text" class="employee-input" placeholder="Location"  name="location" formControlName="location">
-            <span *ngIf="form.get('location')?.touched">
-                <span *ngIf="form.get('location')?.errors?.['required']">Location is required! </span>
-                <span *ngIf="form.get('location')?.errors?.['minlength']">Location should be minimum 3 characters! </span>
-            </span>
+    <form [formGroup]="form" (ngSubmit)="createEmployee()">
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" class="employee-input" name="name" formControlName="name">
+                <div class="underline"></div>
+                <label for="Name">Name</label>
+                <span *ngIf="form.get('name')?.touched">
+                    <span *ngIf="form.get('name')?.errors?.['required']">Name is required! </span>
+                    <span *ngIf="form.get('name')?.errors?.['minlength']">Name should be minimum 8 characters! </span>
+                </span>
+            </div>
+            <div class="input-data">
+                <input type="text" class="employee-input" name="email" formControlName="email">
+                <div class="underline"></div>
+                <label for="email">Email</label>
+                <span *ngIf="form.get('Email')?.touched">
+                    <span *ngIf="form.get('email')?.errors?.['required']">Email is required! </span>
+                    <span *ngIf="form.get('email')?.errors?.['minlength']">Email should be minimum 8 characters! </span>
+                </span>
+            </div>
         </div>
-        <div class="field">
-            <input type="text" class="employee-input" placeholder="Department"  name="department" formControlName="department">
-            <span *ngIf="form.get('department')?.touched">
-                <span *ngIf="form.get('department')?.errors?.['required']">Department is required! </span>
-                <span *ngIf="form.get('department')?.errors?.['minlength']">Department should be minimum 2 characters! </span>
-            </span>
-            <input type="text" class="employee-input" placeholder="Employment type"  name="employmentType"
-            formControlName="employmentType">
-            <span *ngIf="form.get('employmentType')?.touched">
-                <span *ngIf="form.get('employmentType')?.errors?.['required']">Employment type is required! </span>
-                <span *ngIf="form.get('employmentType')?.errors?.['minlength']">Employment type should be minimum 4 characters! </span>
-            </span>
-            <input type="text" class="employee-input" placeholder="Role"  name="role" formControlName="role">
-            <span *ngIf="form.get('role')?.touched">
-                <span *ngIf="form.get('role')?.errors?.['required']">Role is required! </span>
-                <span *ngIf="form.get('role')?.errors?.['minlength']">Role should be minimum 2 characters! </span>
-            </span>
-            <input type="text" class="employee-input" placeholder="manager" name="manager" formControlName="manager">
-            <span *ngIf="form.get('manager')?.touched">
-                <span *ngIf="form.get('manager')?.errors?.['required']">Manager is required! </span>
-                <span *ngIf="form.get('manager')?.errors?.['minlength']">Manager should be minimum 8 characters! </span>
-            </span>
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" class="employee-input" name="position" formControlName="position">
+                <div class="underline"></div>
+                <label for="position">Position</label>
+                <span *ngIf="form.get('position')?.touched">
+                    <span *ngIf="form.get('position')?.errors?.['required']">Position is required! </span>
+                    <span *ngIf="form.get('position')?.errors?.['minlength']">Position should be minimum 2 characters!
+                    </span>
+                </span>
+            </div>
+            <div class="input-data">
+                <input type="text" class="employee-input" name="companyId" formControlName="companyId">
+                <div class="underline"></div>
+                <label for="companyId">Company Id</label>
+                <span *ngIf="form.get('companyId')?.touched">
+                    <span *ngIf="form.get('companyId')?.errors?.['required']">Company Id is required! </span>
+                    <span *ngIf="form.get('companyId')?.errors?.['minlength']">Company Id should be minimum 6
+                        characters! </span>
+                </span>
+            </div>
         </div>
-        <button  [disabled]="form.invalid">Create Employee</button>
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" class="employee-input"  name="phone"
+                    formControlName="phone">
+                <div class="underline"></div>
+                <label for="">Phone number</label>
+                <span *ngIf="form.get('phone')?.touched">
+                    <span *ngIf="form.get('phone')?.errors?.['required']">Phone is required! </span>
+                    <span *ngIf="form.get('phone')?.errors?.['minlength']">Phone should be minimum 8 characters! </span>
+                </span>
+            </div>
+            <div class="input-data">
+                <input type="text" class="employee-input" name="location" formControlName="location">
+                <div class="underline"></div>
+                <label for="">Location</label>
+                <span *ngIf="form.get('location')?.touched">
+                    <span *ngIf="form.get('location')?.errors?.['required']">Location is required! </span>
+                    <span *ngIf="form.get('location')?.errors?.['minlength']">Location should be minimum 3 characters!
+                    </span>
+                </span>
+            </div>
+            <div class="input-data">
+            <div class="form-row submit-btn">
+                <div class="input-data">
+                   <div class="inner"></div>
+                   <button [disabled]="form.invalid">Create Employee</button>
+                </div>
+             </div>
+            </div>
+        </div>
     </form>
 </div>

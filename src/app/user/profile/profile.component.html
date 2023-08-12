@@ -2,30 +2,17 @@
     <div class="profile-header comp">
         <img src="/assets/user-img.png" alt="pic">
         <div class="main-part">
-            <h4>{{currentUser.name}}</h4>
-            <h5>{{currentUser.position}}</h5>
-            <h6>{{currentUser.companyId}}</h6>
+            <h4>Name: {{currentUser.name}}</h4>
+            <h5>Position: {{currentUser.position}}</h5>
+            <h6>Company Id: {{currentUser.companyId}}</h6>
         </div>
 
         <div class="info-part">
-            <p>{{currentUser.position}}</p>
-            <p>{{currentUser.email}}</p>
-            <p>{{currentUser.location}}</p>
+            <p>Position: {{currentUser.position}}</p>
+            <p>Email: {{currentUser.email}}</p>
+            <p>Location: {{currentUser.location}}</p>
         </div>
     </div>
-
-
-    <div class="upcoming-events comp">
-        <p>UPCOMING EVENTS</p>
-        <div class="trainingUser-card" *ngFor="let training of trainings">
-            <p>{{training.name}}</p>
-            <div>
-                <p>{{training.date}}</p>
-                <p>{{training.time}}h.</p>
-            </div>
-        </div>
-    </div>
-
 
     <div class="profile-main comp">
         <div class="general-information">
@@ -51,8 +38,4 @@
         </div>
     </div>
 
-    <div class="onboarding comp">
-        <p>ONBOARDING</p>
-
-    </div>
 </div>

@@ -71,11 +71,10 @@ label {
   text-shadow: -1px 1px black;
 }
 
-
 .upcoming-events {
   text-align: center;
   max-height: 200px;
-  overflow-y:scroll;
+  overflow-y: scroll;
   /* scroll type */
 }
 .trainingUser-card {
@@ -90,4 +89,9 @@ label {
   flex-direction: row;
   justify-content: space-around;
   margin: 5px;
+}
+
+.info-part {
+  padding-top: 25px;
+  text-align: center;
 }

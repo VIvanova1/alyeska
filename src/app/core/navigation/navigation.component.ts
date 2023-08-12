@@ -14,13 +14,18 @@ export class NavigationComponent {
   }
 
   isToggled = false; // true
-  isAdmin = true;
+  isAdmin() {
+    if (localStorage.getItem('user') == 'venetaivanova@alyeska.com') {
+      return true;
+    } else {
+      return false;
+    }
+  }
   isToggle() {
     this.isToggled = !this.isToggled;
   }
   logout() {
     this.authService.logout();
+    this.isLogged()
   }
 }
-
-//ToDo: make visible on laptop screen

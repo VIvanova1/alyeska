@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 })
 
 export class AuthService {
-  isLoggled: boolean = false;
   constructor(private fireAuth: AngularFireAuth, private router: Router) {}
 
   login(email: string, password: string) {
@@ -29,8 +28,7 @@ export class AuthService {
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(
       () => {
         localStorage.setItem('user', email);
-        this.isLoggled=true;
-        this.router.navigate(['/user/profile']);
+        this.router.navigate(['/']);
       },
       err => {
         alert(err.message);
@@ -41,10 +39,8 @@ export class AuthService {
   logout() {
     this.fireAuth.signOut().then(
       () => {
-        localStorage.clear();
-        //Fix: localStorage
-        this.isLoggled=false;
-        this.router.navigate(['/login']);
+        localStorage.removeItem('user');
+        this.router.navigate(['/']);
       },
       err => {
         alert(err.message);
