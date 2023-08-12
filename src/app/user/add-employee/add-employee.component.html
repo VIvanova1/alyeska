@@ -15,7 +15,7 @@
                 <input type="text" class="employee-input" name="email" formControlName="email">
                 <div class="underline"></div>
                 <label for="email">Email</label>
-                <span *ngIf="form.get('Email')?.touched">
+                <span *ngIf="form.get('email')?.touched">
                     <span *ngIf="form.get('email')?.errors?.['required']">Email is required! </span>
                     <span *ngIf="form.get('email')?.errors?.['minlength']">Email should be minimum 8 characters! </span>
                 </span>
@@ -45,8 +45,52 @@
         </div>
         <div class="form-row">
             <div class="input-data">
-                <input type="text" class="employee-input"  name="phone"
-                    formControlName="phone">
+                <input type="text" class="employee-input" name="department" formControlName="department">
+                <div class="underline"></div>
+                <label for="department">Department</label>
+                <span *ngIf="form.get('department')?.touched">
+                    <span *ngIf="form.get('department')?.errors?.['required']">Department is required! </span>
+                    <span *ngIf="form.get('department')?.errors?.['minlength']">Department should be minimum 2
+                        characters!
+                    </span>
+                </span>
+            </div>
+            <div class="input-data">
+                <input type="text" class="employee-input" name="employmentType" formControlName="employmentType">
+                <div class="underline"></div>
+                <label for="employmentType">Employment type</label>
+                <span *ngIf="form.get('employmentType')?.touched">
+                    <span *ngIf="form.get('employmentType')?.errors?.['required']">Employment type is required! </span>
+                    <span *ngIf="form.get('employmentType')?.errors?.['minlength']">Employment type should be minimum 4
+                        characters! </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" class="employee-input" name="role" formControlName="role">
+                <div class="underline"></div>
+                <label for="role">Role</label>
+                <span *ngIf="form.get('role')?.touched">
+                    <span *ngIf="form.get('role')?.errors?.['required']">Role is required! </span>
+                    <span *ngIf="form.get('role')?.errors?.['minlength']">Role should be minimum 2 characters!
+                    </span>
+                </span>
+            </div>
+            <div class="input-data">
+                <input type="text" class="employee-input" name="manager" formControlName="manager">
+                <div class="underline"></div>
+                <label for="manager">Manager</label>
+                <span *ngIf="form.get('manager')?.touched">
+                    <span *ngIf="form.get('manager')?.errors?.['required']">Manager is required! </span>
+                    <span *ngIf="form.get('manager')?.errors?.['minlength']">Manager should be minimum 8
+                        characters! </span>
+                </span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-data">
+                <input type="text" class="employee-input" name="phone" formControlName="phone">
                 <div class="underline"></div>
                 <label for="">Phone number</label>
                 <span *ngIf="form.get('phone')?.touched">
@@ -65,12 +109,12 @@
                 </span>
             </div>
             <div class="input-data">
-            <div class="form-row submit-btn">
-                <div class="input-data">
-                   <div class="inner"></div>
-                   <button [disabled]="form.invalid">Create Employee</button>
+                <div class="form-row submit-btn">
+                    <div class="input-data">
+                        <div class="inner"></div>
+                        <button [disabled]="form.invalid">Create Employee</button>
+                    </div>
                 </div>
-             </div>
             </div>
         </div>
     </form>
