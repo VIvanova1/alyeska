@@ -11,9 +11,6 @@ export class TrainingsService {
     return this.firestore.collection('/Trainings').snapshotChanges();
   }
 
-  goTraining(trainingId: string) {
-    return this.firestore.doc('/Trainings/' + trainingId).ref.path;
-  }
 
   getOneTraining(path: string) {
     return this.firestore.doc(path).valueChanges();

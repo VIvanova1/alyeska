@@ -19,12 +19,5 @@ export class TrainingCardComponent {
   @Input('training')
   training!: Training;
 
-  goTraining() {
-    // /Employees/tSo3ugJVXFoJWZydi3Kb
-    const id = localStorage.getItem('user');
-    const trPath = `/Trainings/${this.training.id}`
-    const res = this.userService.goTraining(id!,trPath);
 
-    // this.trainingService.goTraining(id);
-  }
 }
