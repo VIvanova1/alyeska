@@ -1,41 +1,52 @@
-<div class="container" *ngIf="currentUser" >
-    <div class="profile-header comp">
-        <img src="/assets/user-img.png" alt="pic">
-        <div class="main-part">
-            <h4>Name: {{currentUser.name}}</h4>
-            <h5>Position: {{currentUser.position}}</h5>
-            <h6>Company Id: {{currentUser.companyId}}</h6>
+<div class="container">
+    <div class="user" *ngIf="currentUser">
+        <div class="profile-header comp">
+            <img src="/assets/user-img.png" alt="pic">
+            <div class="main-part">
+                <h4>Name: {{currentUser.name}}</h4>
+                <h5>Position: {{currentUser.position}}</h5>
+                <h6>Company Id: {{currentUser.companyId}}</h6>
+            </div>
+
+            <div class="info-part">
+                <p>Phone: {{currentUser.phone}}</p>
+                <p>Email: {{currentUser.email}}</p>
+                <p>Location: {{currentUser.location}}</p>
+            </div>
         </div>
 
-        <div class="info-part">
-            <p>Phone: {{currentUser.phone}}</p>
-            <p>Email: {{currentUser.email}}</p>
-            <p>Location: {{currentUser.location}}</p>
+        <div class="profile-main comp">
+            <div class="general-information">
+                <form action="">
+                    <div id="department-label">
+                        <label for="department">Department: </label>
+                        <input type="text" name="department" id="department" value="{{currentUser.department}}"
+                            disabled>
+                    </div>
+                    <div id="employment-type-label">
+                        <label for="employment-type">Employment type: </label>
+                        <input type="text" name="employment-type" id="employment-type"
+                            value="{{currentUser.department}}" disabled>
+                    </div>
+                    <div id="access-role-label">
+                        <label for="access-role">Access role: </label>
+                        <input type="text" name="access-role" id="access-role" value="{{currentUser.role}}" disabled>
+                    </div>
+                    <div id="manager-label">
+                        <label for="manager">Manager: </label>
+                        <input type="text" name="manager" id="manager" value="{{currentUser.manager}}" disabled>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="not-user" *ngIf="!currentUser">
+        <div class="message">
+            <h1>You are not registered employee! </h1>
+            <h2>
+                Please contact HR department!
+            </h2>
         </div>
     </div>
-
-    <div class="profile-main comp">
-        <div class="general-information">
-            <form action="">
-                <div id="department-label">
-                    <label for="department">Department: </label>
-                    <input type="text" name="department" id="department" value="{{currentUser.department}}" disabled>
-                </div>
-                <div id="employment-type-label">
-                    <label for="employment-type">Employment type: </label>
-                    <input type="text" name="employment-type" id="employment-type" value="{{currentUser.department}}"
-                        disabled>
-                </div>
-                <div id="access-role-label">
-                    <label for="access-role">Access role: </label>
-                    <input type="text" name="access-role" id="access-role" value="{{currentUser.role}}" disabled>
-                </div>
-                <div id="manager-label">
-                    <label for="manager">Manager: </label>
-                    <input type="text" name="manager" id="manager" value="{{currentUser.manager}}" disabled>
-                </div>
-            </form>
-        </div>
-    </div>
-
 </div>
