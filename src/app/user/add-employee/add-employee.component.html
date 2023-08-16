@@ -109,6 +109,14 @@
                 </span>
             </div>
             <div class="input-data">
+                <input type="date" class="employee-input" name="brd" formControlName="brd">
+                <div class="underline"></div>
+                <label for="">Birthday </label>
+                <span *ngIf="form.get('brd')?.touched">
+                    <span *ngIf="form.get('brd')?.errors?.['required']">Birthday is required! </span>
+                </span>
+            </div>
+            <div class="input-data">
                 <div class="form-row submit-btn">
                     <div class="input-data">
                         <div class="inner"></div>

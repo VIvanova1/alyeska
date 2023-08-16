@@ -1,13 +1,13 @@
-import { DepartmentData } from "./department-data";
-
 export interface UserData {
-    id:string,
-    name:string,
-    position: string,
-    companyId:string,
-    phone: string,
-    email:string,
-    location:string,
-    departmentData:DepartmentData[],
-    trainingsGo: []
+  name: string;
+  position: string;
+  companyId: string;
+  phone: string;
+  email: string;
+  location: string;
+  department: string;
+  employmentType: string;
+  role: string;
+  manager: string;
+  brd:Date,
 }

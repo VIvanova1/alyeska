@@ -15,7 +15,7 @@ export class UserDataService {
       .collection('/Employees')
       .add(employee)
       .then((res) => {
-        return res;
+       console.log(res);
       })
       .catch((err) => {
         return alert(err);

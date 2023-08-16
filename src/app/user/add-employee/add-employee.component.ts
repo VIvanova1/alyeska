@@ -27,10 +27,24 @@ export class AddEmployeeComponent {
     employmentType: ['', [Validators.required, Validators.minLength(4)]],
     role: ['', [Validators.required, Validators.minLength(2)]],
     manager: ['', [Validators.required, Validators.minLength(8)]],
+    brd:[new Date, Validators.required]
   });
 
   createEmployee() {
-    this.userService.createEmployee(this.form.value);
+    const userData:UserData={
+      name: this.form.value.name!,
+      email: this.form.value.email!,
+      position: this.form.value.position!,
+      companyId: this.form.value.companyId!,
+      phone: this.form.value.phone!,
+      location: this.form.value.location!,
+      department: this.form.value.department!,
+      employmentType: this.form.value.employmentType!,
+      role: this.form.value.role!,
+      manager: this.form.value.manager!,
+      brd:this.form.value.brd!
+    }
+    this.userService.createEmployee(userData);
     alert('Successfully add new employee!')
     this.form.reset()
   }
