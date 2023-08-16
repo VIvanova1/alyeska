@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainingsService } from 'src/app/services/trainings.service';
+import { UserData } from 'src/app/model/user-data';
 import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UserDataService } from 'src/app/services/user-data.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  currentUser: any;
+  currentUser: UserData | undefined;
   trainings: any[] = [];
 
   constructor(private userService: UserDataService) {}
@@ -22,8 +22,8 @@ export class ProfileComponent implements OnInit {
 
   getUser(email: string) {
     this.userService.findEmployee(email).subscribe((res) => {
-      res.forEach((user: any) => {
-        this.currentUser = user;
+      res.map((user: any) => {
+        this.currentUser = user.data;
         return this.currentUser;
       });
     });

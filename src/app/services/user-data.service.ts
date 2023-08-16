@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { UserData } from '../model/user-data';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +11,11 @@ export class UserDataService {
   constructor(private firestore: AngularFirestore) {}
 
   createEmployee(employee: any) {
-    // employee.id = this.firestore.createId()
     this.firestore
       .collection('/Employees')
       .add(employee)
       .then((res) => {
-       console.log(res);
+        console.log(res);
       })
       .catch((err) => {
         return alert(err);
@@ -27,6 +27,15 @@ export class UserDataService {
       .collection('/Employees', (ref: any) =>
         ref.where('email', '==', email || email.toLowerCase()).limit(1)
       )
-      .valueChanges()
+      .snapshotChanges()
+      .pipe(
+        map((act) => {
+          return act.map((a) => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, data };
+          });
+        })
+      );
   }
 }
