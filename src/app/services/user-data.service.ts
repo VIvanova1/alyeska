@@ -11,7 +11,15 @@ export class UserDataService {
 
   createEmployee(employee: any) {
     // employee.id = this.firestore.createId()
-    return this.firestore.collection('/Employees').add(employee);
+    this.firestore
+      .collection('/Employees')
+      .add(employee)
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        return alert(err);
+      });
   }
 
   findEmployee(email: string) {
@@ -19,9 +27,6 @@ export class UserDataService {
       .collection('/Employees', (ref: any) =>
         ref.where('email', '==', email || email.toLowerCase()).limit(1)
       )
-      .valueChanges();
-  }
-  goTraining(id: string,trainignPath:string) {
-
+      .valueChanges()
   }
 }

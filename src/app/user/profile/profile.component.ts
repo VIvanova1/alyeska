@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserData } from 'src/app/model/user-data';
 import { TrainingsService } from 'src/app/services/trainings.service';
 import { UserDataService } from 'src/app/services/user-data.service';
 
@@ -12,10 +11,7 @@ export class ProfileComponent implements OnInit {
   currentUser: any;
   trainings: any[] = [];
 
-  constructor(
-    private userService: UserDataService,
-    private trainingService: TrainingsService
-  ) {}
+  constructor(private userService: UserDataService) {}
 
   ngOnInit() {
     const email = localStorage.getItem('user');
@@ -28,7 +24,6 @@ export class ProfileComponent implements OnInit {
     this.userService.findEmployee(email).subscribe((res) => {
       res.forEach((user: any) => {
         this.currentUser = user;
-        localStorage.setItem('token', user.id);
         return this.currentUser;
       });
     });
