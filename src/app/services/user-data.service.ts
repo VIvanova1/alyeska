@@ -2,20 +2,21 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { UserData } from '../model/user-data';
 import { map } from 'rxjs';
+import { Route } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService {
   user!: UserData[];
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore, private router:Route) {}
 
   createEmployee(employee: any) {
     this.firestore
       .collection('/Employees')
       .add(employee)
       .then((res) => {
-        console.log(res);
+        return res;
       })
       .catch((err) => {
         return alert(err);
@@ -37,5 +38,20 @@ export class UserDataService {
           });
         })
       );
+  }
+
+  getAll(){
+    return this.firestore
+    .collection('/Employees')
+    .snapshotChanges()
+    .pipe(
+      map((act) => {
+        return act.map((a) => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data };
+        });
+      })
+    );
   }
 }

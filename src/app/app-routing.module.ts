@@ -6,12 +6,14 @@ import { TrainingsComponent } from './company-events/trainings/trainings.compone
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { AddEmployeeComponent } from './user/add-employee/add-employee.component';
+import { UsersDashboardComponent } from './user/users-dashboard/users-dashboard.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', component: AboutComponent },
   {path: 'about', component: AboutComponent },
   {path: 'user/profile', component: ProfileComponent},
   {path: 'user/new', component: AddEmployeeComponent},
+  {path: 'user/personnel', component: UsersDashboardComponent},
   {path: 'trainings', component: TrainingsComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},

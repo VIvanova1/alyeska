@@ -1,0 +1,64 @@
+.container {
+  text-align: center;
+  background: rgb(116, 107, 243);
+  background: radial-gradient(
+    circle,
+    rgba(116, 107, 243, 1) 0%,
+    rgba(15, 48, 84, 1) 75%
+  );
+  color: white;
+}
+
+h2 {
+  margin: 15px;
+  padding: 10px 0;
+}
+.trainings-search label {
+  margin: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.trainings-search input {
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid rgb(235, 228, 252);
+  padding: 10px;
+  cursor: text;
+  border-radius: 10px;
+}
+.trainings-search input:focus {
+  outline: none;
+  border-bottom: 1px solid white;
+  border-radius: 10px;
+  background-color: rgb(244, 241, 251);
+  opacity: 0.9;
+}
+
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.list-wrapper .employee-card {
+  background-color: white;
+  color: black;
+  min-width: 70%;
+  margin: 5px 0;
+  padding: 15px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+.employee-card button{
+    background-color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.employee-card .info{
+  font-weight: 900;
+  font-style: italic;
+}
