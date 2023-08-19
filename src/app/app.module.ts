@@ -17,6 +17,7 @@ import { environment } from 'src/environments/environment.development';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
+
 @NgModule({
   declarations: [AppComponent, AboutComponent],
   imports: [

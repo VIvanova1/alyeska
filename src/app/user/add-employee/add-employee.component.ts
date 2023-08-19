@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Route } from '@angular/router';
 import { UserData } from 'src/app/model/user-data';
 import { UserDataService } from 'src/app/services/user-data.service';
 
@@ -15,7 +10,71 @@ import { UserDataService } from 'src/app/services/user-data.service';
   styleUrls: ['./add-employee.component.css'],
 })
 export class AddEmployeeComponent {
-  constructor(private userService: UserDataService, private fB: FormBuilder) {}
+  post: any;
+  postId: string = '';
+  formStatus: string = 'Add new';
+
+  constructor(
+    private userService: UserDataService,
+    private fB: FormBuilder,
+    private route: ActivatedRoute
+  ) {
+
+    this.route.queryParams.subscribe((val) => {
+      userService.getOneEmployee(val['id']).subscribe((post) => {
+        this.post = post;
+        this.postId = val['id'];
+
+        if (this.postId) {
+          this.form = this.fB.group({
+            name: [
+              this.post.name,
+              [Validators.required, Validators.minLength(8)],
+            ],
+            email: [this.post.email, []],
+            position: [
+              this.post.position,
+              [Validators.required, Validators.minLength(2)],
+            ],
+            companyId: [
+              this.post.companyId,
+              [Validators.required, Validators.minLength(6)],
+            ],
+            phone: [
+              this.post.phone,
+              [Validators.required, Validators.minLength(8)],
+            ],
+            location: [
+              this.post.location,
+              [Validators.required, Validators.minLength(3)],
+            ],
+            department: [
+              this.post.department,
+              [Validators.required, Validators.minLength(2)],
+            ],
+            employmentType: [
+              this.post.employmentType,
+              [Validators.required, Validators.minLength(4)],
+            ],
+            role: [
+              this.post.role,
+              [Validators.required, Validators.minLength(2)],
+            ],
+            manager: [
+              this.post.manager,
+              [Validators.required, Validators.minLength(8)],
+            ],
+            brd: [this.post.brd, Validators.required],
+          });
+
+        this.form.controls.email.disable();
+        this.formStatus = 'Edit';
+        }
+
+      });
+    });
+  }
+
   form = this.fB.group({
     name: ['', [Validators.required, Validators.minLength(8)]],
     email: ['', [Validators.required, Validators.minLength(8)]],
@@ -27,11 +86,11 @@ export class AddEmployeeComponent {
     employmentType: ['', [Validators.required, Validators.minLength(4)]],
     role: ['', [Validators.required, Validators.minLength(2)]],
     manager: ['', [Validators.required, Validators.minLength(8)]],
-    brd:[new Date, Validators.required]
+    brd: [new Date(), Validators.required],
   });
 
   createEmployee() {
-    const userData:UserData={
+    const userData: UserData = {
       name: this.form.value.name!,
       email: this.form.value.email!,
       position: this.form.value.position!,
@@ -42,10 +101,17 @@ export class AddEmployeeComponent {
       employmentType: this.form.value.employmentType!,
       role: this.form.value.role!,
       manager: this.form.value.manager!,
-      brd:this.form.value.brd!
+      brd: this.form.value.brd!,
+    };
+
+    if (this.formStatus == 'Add new') {
+      console.log('add');
+      this.userService.createEmployee(userData);
+      this.form.reset();
+    } else if (this.formStatus == 'Edit') {
+      console.log('edit');
+      this.userService.updateEmployee(this.form.getRawValue(), this.postId);
+      //Todo: rerender add new
     }
-    this.userService.createEmployee(userData);
-    alert('Successfully add new employee!')
-    this.form.reset()
   }
 }

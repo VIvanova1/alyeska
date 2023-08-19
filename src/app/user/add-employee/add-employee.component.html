@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Add new employee</h2>
+    <h2>{{formStatus}} employee</h2>
     <form [formGroup]="form" (ngSubmit)="createEmployee()">
         <div class="form-row">
             <div class="input-data">
@@ -120,7 +120,8 @@
                 <div class="form-row submit-btn">
                     <div class="input-data">
                         <div class="inner"></div>
-                        <button [disabled]="form.invalid">Create Employee</button>
+                        <button >{{formStatus}} Employee</button>
+                        <!-- [disabled]="form.invalid" -->
                     </div>
                 </div>
             </div>

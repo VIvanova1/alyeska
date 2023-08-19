@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { SharedModule } from '../shared/shared.module';
 import { UsersDashboardComponent } from './users-dashboard/users-dashboard.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,9 @@ import { UsersDashboardComponent } from './users-dashboard/users-dashboard.compo
     LoginComponent,
     AddEmployeeComponent,
     UsersDashboardComponent,
+
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, SharedModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, SharedModule, RouterModule],
   exports: [
     ProfileComponent,
     RegisterComponent,
