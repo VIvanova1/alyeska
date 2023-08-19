@@ -13,7 +13,12 @@
   justify-content: center;
   align-items: center;
 }
-
+.user{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .comp {
   margin: 20px 40px;
   padding: 20px 20px;
@@ -41,11 +46,15 @@ h5,
 h6 {
   margin-top: 5px;
 }
+span{
+  display: inline;
+  font-weight: 300;
+}
 
 /* TODO: Upcoming */
 
 .profile-main {
-  width: 30%;
+  width: 40%;
   text-align: center;
 }
 

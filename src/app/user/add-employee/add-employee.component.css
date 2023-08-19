@@ -41,7 +41,8 @@ form .form-row .textarea{
   border-bottom: 2px solid rgba(0,0,0, 0.12);
 }
 .input-data input:focus ~ label, .textarea textarea:focus ~ label,
-.input-data input:valid ~ label, .textarea textarea:valid ~ label{
+.input-data input:valid ~ label, .textarea textarea:valid ~ label,
+.input-data input:disabled ~ label, .textarea textarea:disabled ~ label{
   transform: translateY(-20px);
   font-size: 14px;
   color: #3498db;
@@ -51,7 +52,7 @@ form .form-row .textarea{
   padding-top: 10px;
 }
 .input-data label{
-  position: absolute;
+  position: initial;
   pointer-events: none;
   bottom: 10px;
   font-size: 16px;
@@ -81,7 +82,8 @@ form .form-row .textarea{
 .input-data input:focus ~ .underline:before,
 .input-data input:valid ~ .underline:before,
 .textarea textarea:focus ~ .underline:before,
-.textarea textarea:valid ~ .underline:before{
+.textarea textarea:valid ~ .underline:before,
+.textarea textarea:disabled ~ .underline:before{
   transform: scale(1);
 }
 .submit-btn .input-data{
@@ -107,6 +109,7 @@ form .form-row .textarea{
   cursor: pointer;
   position: relative;
   z-index: 2;
+  padding: 5px 14px;
 }
 
 input:focus{
