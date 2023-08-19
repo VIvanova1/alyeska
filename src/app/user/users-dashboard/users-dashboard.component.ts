@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { UserDataService } from 'src/app/services/user-data.service';
+import UserDataService from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-users-dashboard',
@@ -16,5 +16,12 @@ export class UsersDashboardComponent implements OnInit {
       this.employees = res;
 
     });
+  }
+
+  onDelete(id:string){
+    const confirm = window.confirm('Do you want to delete this employee?');
+    if(confirm){
+      this.us.delete(id)
+    }
   }
 }

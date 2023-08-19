@@ -9,7 +9,10 @@
             <p>Name: <span class="info">{{employee.data.name}}</span></p>
             <p>Company Id: <span class="info">{{employee.data.companyId}}</span> </p>
             <p>Email: <span class="info">{{employee.data.email}}</span></p>
-            <button routerLink="/user/new" [queryParams]="{id: employee.id}"><i class="fa-solid fa-user-pen"></i></button>
+            <div class="btn">
+                <button routerLink="/user/new" [queryParams]="{id: employee.id}"><i class="fa-solid fa-user-pen"></i></button>
+                <button (click)="onDelete(employee.id)"><i class="fa-solid fa-trash"></i></button>
+            </div>
         </div>
     </div>
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Route } from '@angular/router';
 import { UserData } from 'src/app/model/user-data';
-import { UserDataService } from 'src/app/services/user-data.service';
+import UserDataService from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-add-employee',

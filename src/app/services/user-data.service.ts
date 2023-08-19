@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { UserData } from '../model/user-data';
 import { map } from 'rxjs';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserDataService {
+export default class UserDataService {
   user!: UserData[];
-  constructor(private firestore: AngularFirestore, private router: Router) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private router: Router
+  ) {}
 
   createEmployee(employee: any) {
     this.firestore
@@ -60,17 +63,22 @@ export class UserDataService {
     return this.firestore.collection('/Employees').doc(id).valueChanges();
   }
 
-  updateEmployee( data: object,id:string) {
+  updateEmployee(data: object, id: string) {
     this.firestore
       .collection('/Employees')
       .doc(id)
       .update(data)
       .then(() => {
-        alert('Employee information is updated successfully!');
+        alert('Employee information is UPDATED successfully!');
         this.router.navigate(['/user/personnel']);
       })
       .catch((err) => {
         return alert(err);
       });
+  }
+
+  async delete(id: string) {
+    await this.firestore.collection( '/Employees' ).doc( id ).delete();
+    alert( 'Employee information is DELETED successfully!');
   }
 }
