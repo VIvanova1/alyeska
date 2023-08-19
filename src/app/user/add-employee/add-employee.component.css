@@ -115,6 +115,13 @@ form .form-row .textarea{
 input:focus{
     outline: none;
 }
+
+.err-msg{
+  position: absolute;
+    right: 0;
+    font-size: 14px;
+    color: #9f01ea;
+}
 @media (max-width: 700px) {
   .container .text{
     font-size: 30px;

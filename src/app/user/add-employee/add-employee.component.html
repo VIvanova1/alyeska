@@ -6,7 +6,7 @@
                 <input type="text" class="employee-input" name="name" formControlName="name">
                 <div class="underline"></div>
                 <label for="Name">Name</label>
-                <span *ngIf="form.get('name')?.touched">
+                <span class="err-msg" *ngIf="form.get('name')?.touched">
                     <span *ngIf="form.get('name')?.errors?.['required']">Name is required! </span>
                     <span *ngIf="form.get('name')?.errors?.['minlength']">Name should be minimum 8 characters! </span>
                 </span>
@@ -15,7 +15,7 @@
                 <input type="text" class="employee-input" name="email" formControlName="email">
                 <div class="underline"></div>
                 <label for="email">Email</label>
-                <span *ngIf="form.get('email')?.touched">
+                <span class="err-msg" *ngIf="form.get('email')?.touched">
                     <span *ngIf="form.get('email')?.errors?.['required']">Email is required! </span>
                     <span *ngIf="form.get('email')?.errors?.['minlength']">Email should be minimum 8 characters! </span>
                 </span>
@@ -26,7 +26,7 @@
                 <input type="text" class="employee-input" name="position" formControlName="position">
                 <div class="underline"></div>
                 <label for="position">Position</label>
-                <span *ngIf="form.get('position')?.touched">
+                <span class="err-msg" *ngIf="form.get('position')?.touched">
                     <span *ngIf="form.get('position')?.errors?.['required']">Position is required! </span>
                     <span *ngIf="form.get('position')?.errors?.['minlength']">Position should be minimum 2 characters!
                     </span>
@@ -36,7 +36,7 @@
                 <input type="text" class="employee-input" name="companyId" formControlName="companyId">
                 <div class="underline"></div>
                 <label for="companyId">Company Id</label>
-                <span *ngIf="form.get('companyId')?.touched">
+                <span class="err-msg" *ngIf="form.get('companyId')?.touched">
                     <span *ngIf="form.get('companyId')?.errors?.['required']">Company Id is required! </span>
                     <span *ngIf="form.get('companyId')?.errors?.['minlength']">Company Id should be minimum 6
                         characters! </span>
@@ -48,7 +48,7 @@
                 <input type="text" class="employee-input" name="department" formControlName="department">
                 <div class="underline"></div>
                 <label for="department">Department</label>
-                <span *ngIf="form.get('department')?.touched">
+                <span class="err-msg" *ngIf="form.get('department')?.touched">
                     <span *ngIf="form.get('department')?.errors?.['required']">Department is required! </span>
                     <span *ngIf="form.get('department')?.errors?.['minlength']">Department should be minimum 2
                         characters!
@@ -59,7 +59,7 @@
                 <input type="text" class="employee-input" name="employmentType" formControlName="employmentType">
                 <div class="underline"></div>
                 <label for="employmentType">Employment type</label>
-                <span *ngIf="form.get('employmentType')?.touched">
+                <span class="err-msg" *ngIf="form.get('employmentType')?.touched">
                     <span *ngIf="form.get('employmentType')?.errors?.['required']">Employment type is required! </span>
                     <span *ngIf="form.get('employmentType')?.errors?.['minlength']">Employment type should be minimum 4
                         characters! </span>
@@ -71,7 +71,7 @@
                 <input type="text" class="employee-input" name="role" formControlName="role">
                 <div class="underline"></div>
                 <label for="role">Role</label>
-                <span *ngIf="form.get('role')?.touched">
+                <span class="err-msg" *ngIf="form.get('role')?.touched">
                     <span *ngIf="form.get('role')?.errors?.['required']">Role is required! </span>
                     <span *ngIf="form.get('role')?.errors?.['minlength']">Role should be minimum 2 characters!
                     </span>
@@ -81,7 +81,7 @@
                 <input type="text" class="employee-input" name="manager" formControlName="manager">
                 <div class="underline"></div>
                 <label for="manager">Manager</label>
-                <span *ngIf="form.get('manager')?.touched">
+                <span class="err-msg" *ngIf="form.get('manager')?.touched">
                     <span *ngIf="form.get('manager')?.errors?.['required']">Manager is required! </span>
                     <span *ngIf="form.get('manager')?.errors?.['minlength']">Manager should be minimum 8
                         characters! </span>
@@ -93,7 +93,7 @@
                 <input type="text" class="employee-input" name="phone" formControlName="phone">
                 <div class="underline"></div>
                 <label for="">Phone number</label>
-                <span *ngIf="form.get('phone')?.touched">
+                <span class="err-msg" *ngIf="form.get('phone')?.touched">
                     <span *ngIf="form.get('phone')?.errors?.['required']">Phone is required! </span>
                     <span *ngIf="form.get('phone')?.errors?.['minlength']">Phone should be minimum 8 characters! </span>
                 </span>
@@ -102,7 +102,7 @@
                 <input type="text" class="employee-input" name="location" formControlName="location">
                 <div class="underline"></div>
                 <label for="">Location</label>
-                <span *ngIf="form.get('location')?.touched">
+                <span class="err-msg" *ngIf="form.get('location')?.touched">
                     <span *ngIf="form.get('location')?.errors?.['required']">Location is required! </span>
                     <span *ngIf="form.get('location')?.errors?.['minlength']">Location should be minimum 3 characters!
                     </span>
@@ -112,7 +112,7 @@
                 <input type="date" class="employee-input" name="brd" formControlName="brd">
                 <div class="underline"></div>
                 <label for="">Birthday </label>
-                <span *ngIf="form.get('brd')?.touched">
+                <span class="err-msg" *ngIf="form.get('brd')?.touched">
                     <span *ngIf="form.get('brd')?.errors?.['required']">Birthday is required! </span>
                 </span>
             </div>
