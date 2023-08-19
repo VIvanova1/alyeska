@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { matchPasswordsValidator } from 'src/app/shared/validators/match-pass-validator';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import UserDataService from 'src/app/services/user-data.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +12,6 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-
   form = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     passwordsGroup: this.formBuilder.group(
@@ -24,22 +25,29 @@ export class RegisterComponent {
     ),
   });
 
-  constructor(private auth: AuthService, private formBuilder: FormBuilder) {}
+  constructor(
+    private auth: AuthService,
+    private formBuilder: FormBuilder,
+    private userService: UserDataService,
+    private toastr: ToastrService
+  ) {}
 
   registerHandler(): void {
-
+    const userEmails: any[] = [];
     const regData = {
       email: this.form.value.email,
-      passwordsGroup:{
-        password:this.form.value.passwordsGroup?.password,
-        rePassword: this.form.value.passwordsGroup?.rePassword
-      }
+      passwordsGroup: {
+        password: this.form.value.passwordsGroup?.password,
+        rePassword: this.form.value.passwordsGroup?.rePassword,
+      },
     };
 
     if (this.form.invalid) {
+      this.toastr.error('Something went wrong!');
       return;
     }
 
-    this.auth.register(regData.email!, regData.passwordsGroup.password!)
+
+    this.auth.register(regData.email!, regData.passwordsGroup.password!);
   }
 }
