@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -6,12 +7,10 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css'],
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
-  isLogged() {
-    return localStorage.getItem('user');
-  }
+  ngOnInit(): void {}
 
   isToggled = false; // true
   isAdmin() {
@@ -26,6 +25,9 @@ export class NavigationComponent {
   }
   logout() {
     this.authService.logout();
-    this.isLogged()
+  }
+
+  isLogged(){
+    return localStorage.getItem('user')
   }
 }
