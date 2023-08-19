@@ -10,9 +10,9 @@ import UserDataService from 'src/app/services/user-data.service';
   styleUrls: ['./add-employee.component.css'],
 })
 export class AddEmployeeComponent {
+  formStatus: string = 'Add new';
   post: any;
   postId: string = '';
-  formStatus: string = 'Add new';
 
   constructor(
     private userService: UserDataService,
@@ -105,11 +105,9 @@ export class AddEmployeeComponent {
     };
 
     if (this.formStatus == 'Add new') {
-      console.log('add');
       this.userService.createEmployee(userData);
       this.form.reset();
     } else if (this.formStatus == 'Edit') {
-      console.log('edit');
       this.userService.updateEmployee(this.form.getRawValue(), this.postId);
       //Todo: rerender add new
     }
