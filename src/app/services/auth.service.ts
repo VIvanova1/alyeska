@@ -8,8 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   loggedIn: boolean = false;
-  isLogged: boolean = false;
-
+  // isLogged: boolean = false;
 
   constructor(
     private fireAuth: AngularFireAuth,
@@ -22,8 +21,8 @@ export class AuthService {
       () => {
         localStorage.setItem('user', email);
         this.loggedIn = true;
-        this.isLogged = true;
-        this.router.navigate(['/']);
+        // this.isLogged = true;
+        this.router.navigate(['/user/profile']);
       },
       (err) => {
         this.toastr.error('Email or password is incorrect!');
@@ -36,8 +35,8 @@ export class AuthService {
       () => {
         localStorage.setItem('user', email);
         this.loggedIn = true;
-        this.isLogged = true;
-        this.router.navigate(['/']);
+        // this.isLogged = true;
+        this.router.navigate(['/user/profile']);
       },
       (err) => {
         this.toastr.error(err.message);
@@ -50,7 +49,7 @@ export class AuthService {
       () => {
         localStorage.removeItem('user');
         this.loggedIn = false;
-        this.isLogged = false;
+        // this.isLogged = false;
         this.router.navigate(['/']);
       },
       (err) => {
@@ -62,6 +61,14 @@ export class AuthService {
   isAdmin(){
     const user = localStorage.getItem('user');
     if(user && user == 'venetaivanova@alyeska.com'){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  isLogged(){
+    if(localStorage.getItem('user')){
       return true;
     }else{
       return false;

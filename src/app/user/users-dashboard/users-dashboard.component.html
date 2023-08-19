@@ -1,9 +1,6 @@
 <div class="container">
     <h2>PERSONNEL</h2>
-    <div class="trainings-search">
-        <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
-        <input type="text" name="search" id="search">
-    </div>
+
     <div class="list-wrapper" *ngFor="let employee of employees">
         <div class="employee-card">
             <p>Name: <span class="info">{{employee.data.name}}</span></p>

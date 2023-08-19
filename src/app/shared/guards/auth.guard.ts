@@ -20,6 +20,6 @@ export class authGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    return this.authService.isLogged
+    return this.authService.isLogged()
   }
 }
