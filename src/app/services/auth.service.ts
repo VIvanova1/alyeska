@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class AuthService {
-  constructor(private fireAuth: AngularFireAuth, private router: Router) {}
+  constructor(private fireAuth: AngularFireAuth, private router: Router,  private toastr: ToastrService) {}
 
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(
@@ -19,7 +21,7 @@ export class AuthService {
       this.router.navigate(['/']);
       },
       err => {
-        alert(err.message);
+        this.toastr.error(err.message)
       }
     );
   }
@@ -31,7 +33,7 @@ export class AuthService {
         this.router.navigate(['/']);
       },
       err => {
-        alert(err.message);
+        this.toastr.error(err.message)
       }
     );
   }
@@ -43,7 +45,7 @@ export class AuthService {
         this.router.navigate(['/']);
       },
       err => {
-        alert(err.message);
+        this.toastr.error(err.message)
       }
     );
   }

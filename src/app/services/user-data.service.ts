@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { UserData } from '../model/user-data';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,8 @@ export default class UserDataService {
   user!: UserData[];
   constructor(
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
   ) {}
 
   createEmployee(employee: any) {
@@ -19,7 +21,7 @@ export default class UserDataService {
       .collection('/Employees')
       .add(employee)
       .then((res) => {
-        alert('Successfully add new employee!');
+        this.toastr.success('Successfully add new employee!')
         return res;
       })
       .catch((err) => {
@@ -69,7 +71,7 @@ export default class UserDataService {
       .doc(id)
       .update(data)
       .then(() => {
-        alert('Employee information is UPDATED successfully!');
+        this.toastr.success('Employee information is UPDATED successfully!')
         this.router.navigate(['/user/personnel']);
       })
       .catch((err) => {
@@ -79,6 +81,6 @@ export default class UserDataService {
 
   async delete(id: string) {
     await this.firestore.collection( '/Employees' ).doc( id ).delete();
-    alert( 'Employee information is DELETED successfully!');
+    this.toastr.success('Employee information is DELETED successfully!')
   }
 }
