@@ -21,12 +21,13 @@ export class AuthService {
       this.router.navigate(['/']);
       },
       err => {
-        this.toastr.error(err.message)
+        this.toastr.error('Email or password is incorrect!')
       }
     );
   }
 
   register(email: string, password: string) {
+
     this.fireAuth.createUserWithEmailAndPassword(email, password).then(
       () => {
         localStorage.setItem('user', email);
