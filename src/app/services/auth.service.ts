@@ -8,6 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   loggedIn: boolean = false;
+  isLogged: boolean = false;
+
 
   constructor(
     private fireAuth: AngularFireAuth,
@@ -20,6 +22,7 @@ export class AuthService {
       () => {
         localStorage.setItem('user', email);
         this.loggedIn = true;
+        this.isLogged = true;
         this.router.navigate(['/']);
       },
       (err) => {
@@ -33,6 +36,7 @@ export class AuthService {
       () => {
         localStorage.setItem('user', email);
         this.loggedIn = true;
+        this.isLogged = true;
         this.router.navigate(['/']);
       },
       (err) => {
@@ -46,6 +50,7 @@ export class AuthService {
       () => {
         localStorage.removeItem('user');
         this.loggedIn = false;
+        this.isLogged = false;
         this.router.navigate(['/']);
       },
       (err) => {
@@ -54,5 +59,12 @@ export class AuthService {
     );
   }
 
-
+  isAdmin(){
+    const user = localStorage.getItem('user');
+    if(user && user == 'venetaivanova@alyeska.com'){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

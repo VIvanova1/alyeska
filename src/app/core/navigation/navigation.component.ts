@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,13 +12,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {}
 
   isToggled = false; // true
-  isAdmin() {
-    if (localStorage.getItem('user') == 'venetaivanova@alyeska.com') {
-      return true;
-    } else {
-      return false;
-    }
-  }
+
   isToggle() {
     this.isToggled = !this.isToggled;
   }
@@ -29,5 +22,13 @@ export class NavigationComponent implements OnInit {
 
   isLogged(){
     return localStorage.getItem('user')
+  }
+
+  isAuth(){
+    return this.isLogged();
+  }
+
+  isAdmin(){
+    return this.authService.isAdmin()
   }
 }
