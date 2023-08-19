@@ -77,7 +77,7 @@ export class AddEmployeeComponent {
 
   form = this.fB.group({
     name: ['', [Validators.required, Validators.minLength(8)]],
-    email: ['', [Validators.required, Validators.minLength(8)]],
+    email: ['', [Validators.required,Validators.email ,Validators.minLength(8)]],
     position: ['', [Validators.required, Validators.minLength(2)]],
     companyId: ['', [Validators.required, Validators.minLength(6)]],
     phone: ['', [Validators.required, Validators.minLength(8)]],

@@ -17,6 +17,7 @@
                 <label for="email">Email</label>
                 <span class="err-msg" *ngIf="form.get('email')?.touched">
                     <span *ngIf="form.get('email')?.errors?.['required']">Email is required! </span>
+                    <span *ngIf="form.get('email')?.errors?.['email']">Email is not valid! </span>
                     <span *ngIf="form.get('email')?.errors?.['minlength']">Email should be minimum 8 characters! </span>
                 </span>
             </div>
