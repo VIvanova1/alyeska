@@ -21,13 +21,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     const email = localStorage.getItem('user');
+    let user: any = '';
     if (email) {
-      const user: any = this.getUser(email);
-      if (!user) {
-        this.toastr.error('You are not registered employee! Please contact HR department!');
-        this.authS.logout();
-      }
+      user = this.getUser( email );
     }
+    // if (!user) {
+    //   this.toastr.error('You are not registered employee! Please contact HR department!');
+    //   this.authS.logout();
+    // }
   }
 
   getUser(email: string) {

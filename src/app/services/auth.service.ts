@@ -22,7 +22,8 @@ export class AuthService {
         localStorage.setItem('user', email);
         this.loggedIn = true;
         // this.isLogged = true;
-        this.router.navigate(['/user/profile']);
+        this.router.navigate(['/']);
+        this.toastr.show('Welcome')
       },
       (err) => {
         this.toastr.error('Email or password is incorrect!');
@@ -36,7 +37,8 @@ export class AuthService {
         localStorage.setItem('user', email);
         this.loggedIn = true;
         // this.isLogged = true;
-        this.router.navigate(['/user/profile']);
+        this.router.navigate(['/']);
+        this.toastr.show('Welcome')
       },
       (err) => {
         this.toastr.error(err.message);
