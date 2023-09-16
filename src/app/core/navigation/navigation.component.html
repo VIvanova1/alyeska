@@ -1,26 +1,33 @@
-<header>
-    <span class="menu-icons">
-    <a *ngIf="isToggled" (click)="isToggle()"><i class="fa-solid fa-ellipsis-vertical" ></i> </a>
-    <a *ngIf="!isToggled" (click)="isToggle()"><i class="fa-solid fa-x" ></i></a>
-    </span>
-    <nav>
-        <img class="logo" src="/assets/logo.png" alt="logo">
-        <span class="wrapper row" *ngIf="!isToggled">
-        <ul class="nav-links row">
-            <li> <a routerLink="/about" >About Us</a></li>
-            <span *ngIf="isLogged()" class="user row">
-                <li><a routerLink="/user/profile" >Personal Info</a></li>
-                <li><a routerLink="/user/new" *ngIf="isAdmin()">New Employee</a></li>
-                <li><a routerLink="/user/personnel" >Personnel</a></li>
-                <li><a (click)="logout()"><i class="fa-solid fa-door-open"></i></a></li>
-            </span>
-            <li><a *ngIf="!isLogged()" routerLink="/trainings" >Trainings</a></li>
-        </ul>
+<nav class="menu-container">
+    <!-- burger menu -->
+    <input type="checkbox" aria-label="Toggle menu" />
+    <span></span>
+    <span></span>
+    <span></span>
 
-        <div *ngIf="!isLogged()" class="entry row">
-            <a class="entry-btn" routerLink="/register">Register</a>
-            <a class="entry-btn" routerLink="/login">Login</a>
-        </div>
-    </span>
-    </nav>
-</header>
+    <!-- logo -->
+    <a href="#" class="menu-logo">
+        <img src="../../../assets/logo.png" alt="Logo" />
+    </a>
+
+    <!-- menu items -->
+    <div class="menu">
+        <ul *ngIf="isLogged()">
+            <li><a routerLink="/user/profile">Personal Info</a></li>
+            <li *ngIf="isAdmin()"><a routerLink="/user/new"> New Employee</a></li>
+            <li><a routerLink="/user/personnel">Personnel </a></li>
+            <li><a (click)="logout()">Log out</a></li>
+        </ul>
+        <ul *ngIf="!isLogged()">
+            <li><a routerLink="/register">Register</a></li>
+            <li><a routerLink="/login">Login </a></li>
+        </ul>
+        <ul class="sub-menu">
+            <li><a routerLink="">Careers</a></li>
+            <li><a routerLink="">Contact us</a></li>
+            <li><a><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a><i class="fa-brands fa-linkedin-in"></i></a></li>
+        </ul>
+    </div>
+</nav>

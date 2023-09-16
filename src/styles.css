@@ -1,7 +1,22 @@
-@import 'ngx-toastr/toastr';
+@import "ngx-toastr/toastr";
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap');
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --crl-light: rgba(212, 254, 239,1);
+  --clr-white: rgba(229, 255, 252,1);
+  --clr-black: rgb(0, 0, 0);
+  --clr-primary: rgba(15, 48, 84, 1);
+}
+
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
