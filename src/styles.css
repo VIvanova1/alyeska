@@ -20,3 +20,7 @@ a{
 li{
   list-style: none;
 }
+
+.container{
+min-height: 100vh;
+}
