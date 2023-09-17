@@ -1,5 +1,4 @@
 .container {
-  background: rgb(116, 107, 243);
   background: radial-gradient(
     circle,
     rgba(116, 107, 243, 1) 0%,
@@ -7,37 +6,63 @@
   );
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
-
 .about-picture {
-  text-align: end;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 img {
   width: 50vh;
-  text-align: end;
+  border-radius: 15px
 }
 
 .about-info {
   color: rgba(15, 48, 84, 1);
-  background: white;
+  background: #f3ebe9;
   display: flex;
-  width: 35%;
+  width: 80%;
   text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  place-self: center;
+  margin-bottom: 30px;
+  border-radius: 15px
 }
 
-.about-info h2{
-    font-size: 40px;
+.about-info h2 {
+  font-size: 40px;
 }
 .about-info h4 {
-    font-size: 20px;
+  font-size: 20px;
 }
-.about-info p  {
-    font-size: 18px;
-    padding: 30px 60px;
+.about-info p {
+  font-size: 18px;
+  padding: 30px 60px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .about-info {
+    width: 50%;
+    margin: 0;
+    padding: 20px;
+    height: 50vh;
+    border-radius: 20px;
+    background: none;
+    color: #f3ebe9;
+    letter-spacing: 1px;
+  }
+
+  img{
+
+  }
 }
