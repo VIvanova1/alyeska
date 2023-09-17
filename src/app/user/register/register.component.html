@@ -1,55 +1,49 @@
 <div class="container">
-	<div class="screen">
-		<div class="screen-content">
-			<form class="register" [formGroup]="form" (ngSubmit)="registerHandler()">
 
+	<div class="user-img">
+		<img src="/assets/register-img.png" alt="register-img">
+	</div>
+
+	<div class="wrapper">
+		<form class="register" [formGroup]="form" (ngSubmit)="registerHandler()">
+			<div class="user-title">
+				<h2>Welcome</h2>
+			</div>
+			<div class="register-field">
+
+				<input type="text" class="register-input" placeholder="Email" name="email" formControlName="email">
+				<div class="error" *ngIf="form.get('email')?.touched">
+					<span *ngIf="form.get('email')?.errors?.['required']">Please enter your email!</span>
+					<span *ngIf="form.get('email')?.errors?.['email']">Please enter a valid email!</span>
+				</div>
+			</div>
+
+			<ng-container formGroupName="passwordsGroup">
 				<div class="register-field">
-					<i class="register-icon fa-solid fa-at"></i>
-					<input type="text" class="register-input" placeholder="Email" name="email" formControlName="email">
-					<div class="error" *ngIf="form.get('email')?.touched">
-						<span *ngIf="form.get('email')?.errors?.['required']">Please enter your email!</span>
-						<span *ngIf="form.get('email')?.errors?.['email']">Please enter a valid email!</span>
+					<input type="password" class="register-input" placeholder="Password" name="password"
+						formControlName="password">
+					<div class="error" *ngIf="form.get('passwordsGroup')?.get('password')?.touched">
+						<span *ngIf="form.get('passwordsGroup')?.get('password')?.errors?.['required']">Please enter
+							your password!</span>
+						<span *ngIf="form.get('passwordsGroup')?.get('password')?.errors?.['minlength']">Your
+							password must be at least 6 characters.</span>
 					</div>
 				</div>
 
-				<ng-container formGroupName="passwordsGroup">
-					<div class="register-field">
-						<i class="register-icon fa-solid fa-lock"></i>
-						<input type="password" class="register-input" placeholder="Password" name="password"
-							formControlName="password">
-						<div class="error" *ngIf="form.get('passwordsGroup')?.get('password')?.touched">
-							<span *ngIf="form.get('passwordsGroup')?.get('password')?.errors?.['required']">Please enter
-								your password!</span>
-							<span *ngIf="form.get('passwordsGroup')?.get('password')?.errors?.['minlength']">Your
-								password must be at least 6 characters.</span>
-						</div>
-					</div>
+				<div class="register-field">
+					<input type="password" class="register-input" placeholder="Repeat password" name="rePassword"
+						formControlName="rePassword">
+					<div class="error" *ngIf="form.get('passwordsGroup')?.get('rePassword')?.touched">
+						<span *ngIf="form.get('passwordsGroup')?.get('rePassword')?.errors?.['required']">Please
+							repeat your password!</span>
+						<span *ngIf="form.get('passwordsGroup')?.errors?.['matchPasswordsValidator']">Passwords
+							do not match!</span>
 
-					<div class="register-field">
-						<i class="register-icon fa-solid fa-lock"></i>
-						<input type="password" class="register-input" placeholder="Repeat password" name="rePassword"
-							formControlName="rePassword">
-						<div class="error" *ngIf="form.get('passwordsGroup')?.get('rePassword')?.touched">
-							<span *ngIf="form.get('passwordsGroup')?.get('rePassword')?.errors?.['required']">Please
-								repeat your password!</span>
-							<span *ngIf="form.get('passwordsGroup')?.errors?.['matchPasswordsValidator']">Passwords
-								do not match!</span>
-
-						</div>
 					</div>
-				</ng-container>
-				<button class="button register-submit">
-					<!-- [disabled]="form.invalid" -->
-					<span class="button-text">Register</span>
-					<i class="button-icon fa-solid fa-chevron-right"></i>
-				</button>
-			</form>
-		</div>
-		<div class="screen-background">
-			<span class="screen-background-shape screen-background-shape4"></span>
-			<span class="screen-background-shape screen-background-shape3"></span>
-			<span class="screen-background-shape screen-background-shape2"></span>
-			<span class="screen-background-shape screen-background-shape1"></span>
-		</div>
+				</div>
+			</ng-container>
+			<button class="button register-submit">Register</button>
+			<!-- [disabled]="form.invalid" -->
+		</form>
 	</div>
 </div>

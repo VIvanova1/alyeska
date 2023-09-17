@@ -1,36 +1,28 @@
 <div class="container">
-	<div class="screen">
-		<div class="screen-content">
-			<form #loginForm="ngForm" class="login" (ngSubmit)="loginHandler(loginForm)">
-
-				<div class="login-field">
-					<i class="login-icon fa-solid fa-at"></i>
-					<input type="email" class="login-input" placeholder="Email" name="email" required email ngModel
-						#emailInput="ngModel">
-					<div class="error" *ngIf="emailInput.touched">
-						<span *ngIf="emailInput.errors?.['required']">Please enter your email!</span>
-						<span *ngIf="emailInput.errors?.['email']">Please enter a valid email!</span>
-					</div>
+	<div class="user-img">
+		<img src="/assets/login-img.png" alt="register-img">
+	</div>
+	<div class="wrapper">
+		<form #loginForm="ngForm" class="login" (ngSubmit)="loginHandler(loginForm)">
+			<div class="user-title">
+				<h2>Welcome</h2>
+			</div>
+			<div class="login-field">
+				<input type="email" class="login-input" placeholder="Email" name="email" required email ngModel
+					#emailInput="ngModel">
+				<div class="error" *ngIf="emailInput.touched">
+					<span *ngIf="emailInput.errors?.['required']">Please enter your email!</span>
+					<span *ngIf="emailInput.errors?.['email']">Please enter a valid email!</span>
 				</div>
-				<div class="login-field">
-					<i class="login-icon fa-solid fa-lock"></i>
-					<input type="password" class="login-input" placeholder="Password" name="password" required password
-						ngModel #passwordInput="ngModel">
-					<div class="error" *ngIf="passwordInput.touched">
-						<span *ngIf="passwordInput.errors?.['required']">Please enter your password!</span>
-					</div>
+			</div>
+			<div class="login-field">
+				<input type="password" class="login-input" placeholder="Password" name="password" required password
+					ngModel #passwordInput="ngModel">
+				<div class="error" *ngIf="passwordInput.touched">
+					<span *ngIf="passwordInput.errors?.['required']">Please enter your password!</span>
 				</div>
-				<button class="button login-submit">
-					<span class="button-text">Log In Now</span>
-					<i class="button-icon fa-solid fa-chevron-right"></i>
-				</button>
-			</form>
-		</div>
-		<div class="screen-background">
-			<span class="screen-background-shape screen-background-shape4"></span>
-			<span class="screen-background-shape screen-background-shape3"></span>
-			<span class="screen-background-shape screen-background-shape2"></span>
-			<span class="screen-background-shape screen-background-shape1"></span>
-		</div>
+			</div>
+			<button class="button login-submit">Log In</button>
+		</form>
 	</div>
 </div>
