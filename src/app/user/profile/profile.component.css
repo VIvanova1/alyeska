@@ -1,114 +1,96 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  background: rgb(116, 107, 243);
   background: radial-gradient(
     circle,
     rgba(116, 107, 243, 1) 0%,
     rgba(15, 48, 84, 1) 75%
   );
-  margin: 50px;
-  border-radius: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  padding: 65px 0;
 }
-.user{
+
+.wrapper {
+  width: 80%;
+  min-height: 80%;
+  background: white;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  flex-direction: column;
   align-items: center;
-}
-.comp {
-  margin: 20px 40px;
-  padding: 20px 20px;
-  background-color: #f7fff2;
-  color: rgba(15, 48, 84, 1);
-  font-weight: 600;
-  border-radius: 20px;
-  box-shadow: 12px 13px 20px #ffffff47, inset 5px 3px 16px rgba(15, 48, 84, 1);
-}
-.profile-header {
-  max-width: 30%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-.profile-header img {
-  border-radius: 50%;
-  margin: 10px;
-  max-width: 40%;
-}
-h4,
-h5,
-h6 {
-  margin-top: 5px;
-}
-span{
-  display: inline;
-  font-weight: 300;
+  box-shadow: 9px 5px 10px 0 rgb(115 145 201);
 }
 
-/* TODO: Upcoming */
-
-.profile-main {
-  width: 40%;
-  text-align: center;
+.wrapper > * {
+  width: 80%;
+  border-bottom: 1px solid rgba(15, 48, 84, 1);
 }
 
-.profile-main input,
-label {
-  margin: 5px 10px;
-}
-
-.profile-main input {
-  border: none;
-  background: rgb(116, 107, 243);
-  background: radial-gradient(
-    circle,
-    rgba(116, 107, 243, 1) 30%,
-    rgba(15, 48, 84, 1) 95%
-  );
-  color: #f7fff2;
-  max-width: -webkit-fill-available;
-  border-radius: 15px;
-  padding: 5px 2px;
-  text-align: center;
-  font-weight: 600;
-  text-shadow: -1px 1px black;
-}
-
-.upcoming-events {
-  text-align: center;
-  max-height: 200px;
-  overflow-y: scroll;
-  /* scroll type */
-}
-.trainingUser-card {
+.main-profile {
+  padding: 50px;
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid rgba(15, 48, 84, 1);
-  margin: 10px;
-  padding-bottom: 10px;
+  align-items: center;
+  max-width: 100%;
 }
-.trainingUser-card div {
+
+.main-profile img {
+  width: 110px;
+  height: 110px;
+}
+
+.main-profile h3,
+.main-profile h4,
+.main-profile h5 {
+  margin-bottom: 5px;
+}
+
+/* Form */
+.form h4 {
+  text-align: center;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+.form .btn {
+  margin: 10px 0;
+}
+
+.form-wrapper .form {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 5px;
+  flex-direction: column;
 }
 
-.info-part {
-  padding-top: 25px;
-  text-align: center;
+
+.form-wrapper input {
+  width: 100%;
 }
 
-.message h1,
-h2 {
-  padding: 50px;
-  padding-top: 20px;
-  color: white;
-  text-align: center;
+/* .form-wrapper input[type="date"]{
+  width: 100%;
+} */
+.form-wrapper .date-input{
+width: 40%;
+}
+
+
+/* --Global-- */
+/* Buttons */
+.btn {
+  border: none;
+  padding: 7px 21px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .wrapper > * {
+    width: 40%;
+    border-right: 1px solid rgba(15, 48, 84, 1);
+    border-bottom: none;
+  }
 }

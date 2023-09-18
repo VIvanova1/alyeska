@@ -1,47 +1,78 @@
 <div class="container">
-    <div class="user" *ngIf="currentUser">
-        <div class="profile-header comp">
-            <img src="/assets/user-img.png" alt="pic">
-            <div class="main-part">
-                <h4><span>Name: </span>
-                    {{currentUser.name}}</h4>
-                <h5><span>Position: </span>
-                    {{currentUser.position}}</h5>
-                <h6><span>Company Id: </span>
-                    {{currentUser.companyId}}</h6>
-            </div>
-
-            <div class="info-part">
-                <p><span>Phone: </span>{{currentUser.phone}}</p>
-                <p> <span>Email: </span>{{currentUser.email}}</p>
-                <p><span>Location: </span>{{currentUser.location}}</p>
-            </div>
+    <div class="wrapper" *ngIf="currentUser">
+        <div class="main-profile">
+            <img src="/assets/user-icon.png" alt="profile-img">
+            <h3>{{currentUser.name}}</h3>
+            <h4>{{currentUser.email}}</h4>
+            <h5>{{currentUser.companyId}}</h5>
         </div>
 
-        <div class="profile-main comp">
-            <div class="general-information">
-                <form action="">
-                    <div id="department-label">
-                        <label for="department">Department: </label>
-                        <input type="text" name="department" id="department" value="{{currentUser.department}}"
-                            disabled>
-                    </div>
-                    <div id="employment-type-label">
-                        <label for="employment-type">Employment type: </label>
-                        <input type="text" name="employment-type" id="employment-type"
-                            value="{{currentUser.department}}" disabled>
-                    </div>
-                    <div id="access-role-label">
-                        <label for="access-role">Access role: </label>
-                        <input type="text" name="access-role" id="access-role" value="{{currentUser.role}}" disabled>
-                    </div>
-                    <div id="manager-label">
-                        <label for="manager">Manager: </label>
-                        <input type="text" name="manager" id="manager" value="{{currentUser.manager}}" disabled>
-                    </div>
+        <div class="external form">
+            <h4>External Job Experience</h4>
+            <button class="button-edit btn">Edit</button>
+            <div class="form-wrapper">
+                <form class="ex-ex-form form">
+                    <input type="text" name="location" placeholder="Location">
+                    <input type="text" name="company-name" placeholder="Company name">
+                    <input type="text" name="position" placeholder="Position">
+                    <input type="text" name="start-date" placeholder="Start Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+                    <input type="text" name="end-date" placeholder="End Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+                    <input type="text" name="responsibilities" placeholder="Responsibilities">
                 </form>
             </div>
         </div>
 
+        <div class="Internal form">
+            <h4>internal Job Experience</h4>
+            <button class="button-edit btn">Edit</button>
+            <div class="form-wrapper">
+                <form class="ex-ex-form form">
+                    <input type="text" name="location" placeholder="Location">
+                    <input type="text" name="company-name" placeholder="Company name">
+                    <input type="text" name="position" placeholder="Position">
+                    <input type="text" name="start-date" placeholder="Start Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+                    <input type="text" name="end-date" placeholder="End Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+                    <input type="text" name="responsibilities" placeholder="Responsibilities">
+                </form>
+            </div>
+        </div>
+
+        <div class="education form">
+            <h4>Education</h4>
+            <button class="button-edit btn">Edit</button>
+            <div class="form-wrapper">
+                <form class=" form">
+                    <input type="text" name="location" placeholder="Type">
+                    <input type="text" name="company-name" placeholder="Company name">
+                    <input type="text" name="position" placeholder="Position">
+                    <input type="text" name="start-date" placeholder="Start Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+                    <input type="text" name="end-date" placeholder="End Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+                    <input type="text" name="responsibilities" placeholder="Responsibilities">
+                </form>
+            </div>
+        </div>
+
+        <div class="certifications form">
+            <h4>Certifications</h4>
+            <button class="button-edit btn">Edit</button>
+            <div class="form-wrapper">
+                <form class=" form">
+                    <input type="text" name="location" placeholder="Type">
+                    <input type="text" name="company-name" placeholder="Company name">
+                    <input type="text" name="position" placeholder="Position">
+                    <input type="text" name="start-date" placeholder="Start Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+                    <input type="text" name="end-date" placeholder="End Date" onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+                    <input type="text" name="responsibilities" placeholder="Responsibilities">
+                </form>
+            </div>
+        </div>
     </div>
 </div>
