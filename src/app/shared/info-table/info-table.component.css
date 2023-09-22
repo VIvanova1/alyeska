@@ -1,0 +1,54 @@
+.table {
+  min-width: 100%;
+  margin: 20px 0;
+  border-radius: 10px;
+  min-height: 10vh;
+  box-shadow: 9px 5px 10px 0 rgb(21 68 155);
+  padding: 10px;
+  border-collapse: collapse;
+}
+.table .table-head,
+.table-body {
+  text-align: left;
+  height: 50px;
+}
+
+.table .table-head {
+  background-color: rgba(15, 48, 84, 1);
+  color: white;
+}
+
+.table .table-head th:first-child,
+.table .table-body td:first-child {
+  padding: 0 8px;
+}
+
+.table td,
+.table th {
+  border: none;
+  min-width: 100px;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.table .table-name {
+    background-color: white !important;
+}
+
+.table .table-name td {
+  padding: 10px 0;
+  text-align: center;
+  padding-left: 46px;
+}
+
+.table .table-name .btn-add{
+    text-align: center;
+    width: 36px;
+    height: 24px;
+    color: white;
+    background:rgba(15, 48, 84, 1) ;
+    font-weight: 900;
+    cursor: pointer;
+}

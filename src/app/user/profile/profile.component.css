@@ -20,7 +20,7 @@
 
 .wrapper > * {
   width: 80%;
-  border-bottom: 1px solid rgba(15, 48, 84, 1);
+  /* border-bottom: 1px solid rgba(15, 48, 84, 1); */
 }
 
 .main-profile {
@@ -42,55 +42,7 @@
   margin-bottom: 5px;
 }
 
-/* Form */
-.form h4 {
-  text-align: center;
-  margin: 10px 0;
-  text-transform: uppercase;
-}
-
-.form .btn {
-  margin: 10px 0;
-}
-
-.form-wrapper .form {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.form-wrapper input {
-  width: 100%;
-}
-
-/* .form-wrapper input[type="date"]{
-  width: 100%;
-} */
-.form-wrapper .date-input{
-width: 40%;
-}
-
-
-/* --Global-- */
-/* Buttons */
-.btn {
-  border: none;
-  padding: 7px 21px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-radius: 8px;
-}
-
-@media only screen and (min-width: 768px) {
-  .wrapper{
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .wrapper > * {
-    width: 40%;
-    border-right: 1px solid rgba(15, 48, 84, 1);
-    border-bottom: none;
-  }
+app-info-table{
+  overflow-x: auto;
+  scroll-behavior:smooth;
 }

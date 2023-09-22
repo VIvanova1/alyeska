@@ -17,9 +17,14 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     AddEmployeeComponent,
     UsersDashboardComponent,
-
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, SharedModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    RouterModule,
+  ],
   exports: [
     ProfileComponent,
     RegisterComponent,
