@@ -10,4 +10,5 @@ export interface UserData {
   role: string;
   manager: string;
   brd:Date,
+  experienceInfo:any,
 }

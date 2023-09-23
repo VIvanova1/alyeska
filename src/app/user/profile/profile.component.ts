@@ -7,29 +7,27 @@ import UserDataService from 'src/app/services/user-data.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   currentUser: UserData | undefined;
   trainings: any[] = [];
+  id!: string;
+  moreInfo:any;
 
-  constructor(private userService: UserDataService) {}
-
-  ngOnInit() {
+  constructor(private userService: UserDataService) {
     const email = localStorage.getItem('user');
-    let user: any = '';
+    let user: any;
     if (email) {
       user = this.getUser(email);
     }
-    // if (!user) {
-    //   this.toastr.error('You are not registered employee! Please contact HR department!');
-    //   this.authS.logout();
-    // }
   }
 
   getUser(email: string) {
     this.userService.findEmployee(email).subscribe((res) => {
       res.map((user: any) => {
+        this.id = user.id;
+        this.id;
         this.currentUser = user.data;
-        return this.currentUser;
+        this.currentUser;
       });
     });
   }

@@ -34,7 +34,7 @@
 }
 
 .table .table-name {
-    background-color: white !important;
+  background-color: white !important;
 }
 
 .table .table-name td {
@@ -43,12 +43,44 @@
   padding-left: 46px;
 }
 
-.table .table-name .btn-add{
-    text-align: center;
-    width: 36px;
-    height: 24px;
-    color: white;
-    background:rgba(15, 48, 84, 1) ;
-    font-weight: 900;
-    cursor: pointer;
+.table .table-name .btn-add {
+  text-align: center;
+  width: 36px;
+  height: 24px;
+  color: white;
+  background: rgba(15, 48, 84, 1);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+/* Dialog Form */
+.dialog-form {
+  width: 65%;
+  border: none;
+  text-align: end;
+  color: white;
+  background: rgba(15, 48, 84, 1);
+  left: 27vw;
+  position: absolute;
+  top: 22vh;
+  z-index: 100;
+  border-radius: 25px;
+}
+.dialog-form .input-data {
+  padding: 10px 35px;
+}
+
+.dialog-form .input-data input, textarea{
+  max-width: 100%;
+}
+
+.close-btn,
+.send-btn{
+  padding: 10px 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .dialog-form {
+    width: 50%;
+  }
 }

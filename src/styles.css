@@ -48,3 +48,6 @@ input[type="date"]:active,
 input[type="password"]:active {
   border: 2px solid #3e9eff;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

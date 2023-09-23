@@ -70,7 +70,6 @@ export class AddEmployeeComponent {
         this.form.controls.email.disable();
         this.formStatus = 'Edit';
         }
-
       });
     });
   }
@@ -102,6 +101,7 @@ export class AddEmployeeComponent {
       role: this.form.value.role!,
       manager: this.form.value.manager!,
       brd: this.form.value.brd!,
+      experienceInfo:[],
     };
 
     if (this.formStatus == 'Add new') {
