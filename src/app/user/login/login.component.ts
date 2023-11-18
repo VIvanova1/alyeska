@@ -26,6 +26,7 @@ export class LoginComponent {
         const token = res.user?.refreshToken;
         const uid = res.user?.uid;
         localStorage.setItem('uid', uid!);
+        localStorage.setItem('user', loginData.email!);
         this.router.navigate(['user/profile'])
       })
       .catch((err) => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import UserDataService from 'src/app/services/user-data.service';
+import EmployeeDataService from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-users-dashboard',
@@ -10,7 +10,7 @@ import UserDataService from 'src/app/services/user-data.service';
 })
 export class UsersDashboardComponent implements OnInit {
   employees: any;
-  constructor(private us: UserDataService, private authService: AuthService) {}
+  constructor(private us: EmployeeDataService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.us.getAll().subscribe((res) => {

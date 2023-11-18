@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { UserData } from '../model/user-data';
+import { EmployeeData } from '../model/user-data';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -8,8 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root',
 })
-export default class UserDataService {
-  user!: UserData[];
+export default class EmployeeDataService {
+  user!: EmployeeData[];
   constructor(
     private firestore: AngularFirestore,
     private router: Router,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import UserDataService from 'src/app/services/user-data.service';
+import EmployeeDataService from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-info-table',
@@ -14,7 +14,7 @@ export class InfoTableComponent {
   formInfo: any;
 
   constructor(
-    private userService: UserDataService,
+    private userService: EmployeeDataService,
     private fB: FormBuilder,
     private route: ActivatedRoute
   ) {
@@ -66,7 +66,7 @@ export class InfoTableComponent {
   });
 
   // addInfo() {
-  //   const userData: UserData = {
+  //   const EmployeeData: EmployeeData = {
   //     name: this.form.value.name!,
   //     email: this.form.value.email!,
   //     position: this.form.value.position!,
@@ -82,7 +82,7 @@ export class InfoTableComponent {
   //   };
 
   //   if (this.formStatus == 'Add new') {
-  //     this.userService.createEmployee(userData);
+  //     this.userService.createEmployee(EmployeeData);
   //     this.form.reset();
   //   } else if (this.formStatus == 'Edit') {
   //     this.userService.updateEmployee(this.form.getRawValue(), this.postId);

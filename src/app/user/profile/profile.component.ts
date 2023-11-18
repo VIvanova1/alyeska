@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { UserData } from 'src/app/model/user-data';
-import UserDataService from 'src/app/services/user-data.service';
+import { EmployeeData } from 'src/app/model/user-data';
+import EmployeeDataService from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
-export class ProfileComponent {
-  currentUser: UserData | undefined;
+export class ProfileComponent implements OnInit {
+  currentEmployee: EmployeeData | undefined;
   trainings: any[] = [];
   id!: string;
   moreInfo:any;
 
-  constructor(private userService: UserDataService) {
+  constructor(private userService: EmployeeDataService) {  }
+
+  ngOnInit (): void {
     const email = localStorage.getItem('user');
     let user: any;
     if (email) {
@@ -26,8 +28,8 @@ export class ProfileComponent {
       res.map((user: any) => {
         this.id = user.id;
         this.id;
-        this.currentUser = user.data;
-        this.currentUser;
+        this.currentEmployee = user.data;
+        this.currentEmployee;
       });
     });
   }

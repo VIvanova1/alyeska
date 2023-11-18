@@ -1,4 +1,4 @@
-export interface UserData {
+export interface EmployeeData {
   name: string;
   position: string;
   companyId: string;
