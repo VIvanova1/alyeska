@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
 
-    constructor(private auth: AuthService,  private toastr: ToastrService) {}
+    constructor(private auth: AuthService,  private toastr: ToastrService, private router: Router) {}
 
   loginHandler(form: NgForm): void {
     if (form.invalid) {
@@ -22,10 +23,10 @@ export class LoginComponent {
     this.auth
       .login(loginData.email, loginData.password)
       .then((res) => {
-        console.log(res);
         const token = res.user?.refreshToken;
         const uid = res.user?.uid;
-        localStorage.setItem('uid', uid!)
+        localStorage.setItem('uid', uid!);
+        this.router.navigate(['user/profile'])
       })
       .catch((err) => {
         this.toastr.error('The user or password is incorect!');

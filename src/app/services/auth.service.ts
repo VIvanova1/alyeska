@@ -17,35 +17,11 @@ export class AuthService {
   ) {}
 
   login(email: string, password: string) {
-    return this.fireAuth.signInWithEmailAndPassword(email, password)
-//     .then(
-//       (res) => {
-// console.log(res.user);
-//         // localStorage.setItem('user', email);
-//         // this.loggedIn = true;
-//         // // this.isLogged = true;
-//         // this.router.navigate(['/']);
-//         // this.toastr.show('Welcome')
-//       },
-//       (err) => {
-//         this.toastr.error('Email or password is incorrect!');
-//       }
-//     );
+    return this.fireAuth.signInWithEmailAndPassword(email, password);
   }
 
   register(email: string, password: string) {
-    this.fireAuth.createUserWithEmailAndPassword(email, password).then(
-      () => {
-        localStorage.setItem('user', email);
-        this.loggedIn = true;
-        // this.isLogged = true;
-        this.router.navigate(['/']);
-        this.toastr.show('Welcome')
-      },
-      (err) => {
-        this.toastr.error(err.message);
-      }
-    );
+    return this.fireAuth.createUserWithEmailAndPassword(email, password);
   }
 
   logout() {
@@ -72,7 +48,7 @@ export class AuthService {
   }
 
   isLogged(){
-    if(localStorage.getItem('user')){
+    if(localStorage.getItem('uid')){
       return true;
     }else{
       return false;

@@ -5,45 +5,43 @@
 	</div>
 
 	<div class="wrapper">
-		<form class="register" [formGroup]="form" (ngSubmit)="registerHandler()">
+		<form class="register" appPassMatch #form="ngForm" (ngSubmit)="registerHandler(form)">
 			<div class="user-title">
 				<h2>Welcome</h2>
 			</div>
-			<div class="register-field">
 
-				<input type="text" class="register-input" placeholder="Email" name="email" formControlName="email">
-				<div class="error" *ngIf="form.get('email')?.touched">
-					<span *ngIf="form.get('email')?.errors?.['required']">Please enter your email!</span>
-					<span *ngIf="form.get('email')?.errors?.['email']">Please enter a valid email!</span>
-				</div>
+			<div class="register-field">
+				<input type="text" class="register-input" placeholder="Email" name="email" id="email"
+					#inputemail="ngModel" required ngModel>
+			</div>
+			<div class="error" *ngIf="form.controls['email']?.touched">
+				<span *ngIf="form.controls['email']?.errors?.['required']">Please enter your email!</span>
 			</div>
 
-			<ng-container formGroupName="passwordsGroup">
-				<div class="register-field">
-					<input type="password" class="register-input" placeholder="Password" name="password"
-						formControlName="password">
-					<div class="error" *ngIf="form.get('passwordsGroup')?.get('password')?.touched">
-						<span *ngIf="form.get('passwordsGroup')?.get('password')?.errors?.['required']">Please enter
-							your password!</span>
-						<span *ngIf="form.get('passwordsGroup')?.get('password')?.errors?.['minlength']">Your
-							password must be at least 6 characters.</span>
-					</div>
-				</div>
 
-				<div class="register-field">
-					<input type="password" class="register-input" placeholder="Repeat password" name="rePassword"
-						formControlName="rePassword">
-					<div class="error" *ngIf="form.get('passwordsGroup')?.get('rePassword')?.touched">
-						<span *ngIf="form.get('passwordsGroup')?.get('rePassword')?.errors?.['required']">Please
-							repeat your password!</span>
-						<span *ngIf="form.get('passwordsGroup')?.errors?.['matchPasswordsValidator']">Passwords
-							do not match!</span>
+			<div class="register-field">
+				<input type="password" class="register-input" placeholder="Password" #inputpassword="ngModel"
+					name="password" id="password" minlength="6" required ngModel>
+			</div>
+			<div class="error" *ngIf="form.controls['password']?.touched">
+				<span *ngIf="form.controls['password']?.errors?.['required']">Please
+					enter
+					your password!</span>
+				<span *ngIf="form.controls['password']?.errors?.['minlength']">Your
+					password must be at least 6 characters.</span>
+			</div>
 
-					</div>
-				</div>
-			</ng-container>
-			<button class="button register-submit">Register</button>
-			<!-- [disabled]="form.invalid" -->
+			<div class="register-field">
+				<input type="password" class="register-input" placeholder="Repeat password" #inputrePassword
+					name="rePassword" id="rePassword" required ngModel>
+			</div>
+			<div class="error" *ngIf="form.controls['rePassword']?.touched">
+				<span *ngIf="form.errors?.['passwordMatch']">
+					Passwords do not match.
+				</span>
+			</div>
+
+			<button class="button register-submit" type="submit">Register</button>
 		</form>
 	</div>
 </div>
