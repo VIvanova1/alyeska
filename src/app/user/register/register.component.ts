@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { matchPasswordsValidator } from 'src/app/shared/validators/match-pass-validator';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import EmployeeDataService from 'src/app/services/user-data.service';
+import UserDataService from 'src/app/services/user-data.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 

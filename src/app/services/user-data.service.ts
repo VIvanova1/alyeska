@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root',
 })
-export default class EmployeeDataService {
+export default class UserDataService {
   user!: EmployeeData[];
   constructor(
     private firestore: AngularFirestore,

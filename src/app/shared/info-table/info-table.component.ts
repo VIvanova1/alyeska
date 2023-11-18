@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import EmployeeDataService from 'src/app/services/user-data.service';
+import UserDataService from 'src/app/services/user-data.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class InfoTableComponent {
   formInfo: any;
 
   constructor(
-    private employeeService: EmployeeDataService,
+    private employeeService: UserDataService,
     private fB: FormBuilder,
     private route: ActivatedRoute
   ) {

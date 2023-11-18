@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeData } from 'src/app/model/user-data';
-import EmployeeDataService from 'src/app/services/user-data.service';
+import UserDataService from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   id!: string;
   moreInfo:any;
 
-  constructor(private userService: EmployeeDataService) {  }
+  constructor(private userService: UserDataService) {  }
 
   ngOnInit (): void {
     const email = localStorage.getItem('user');

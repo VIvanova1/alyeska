@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Route } from '@angular/router';
 import { EmployeeData } from 'src/app/model/user-data';
-import EmployeeDataService from 'src/app/services/user-data.service';
+import UserDataService from 'src/app/services/user-data.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -15,7 +15,7 @@ export class AddEmployeeComponent {
   postId: string = '';
 
   constructor(
-    private userService: EmployeeDataService,
+    private userService: UserDataService,
     private fB: FormBuilder,
     private route: ActivatedRoute
   ) {
