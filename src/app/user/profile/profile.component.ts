@@ -35,4 +35,10 @@ export class ProfileComponent implements OnInit {
   }
 
 
+  experienceInput!: {
+    type: 'Experience',
+    location: 'Company',
+    place: 'Position'
+  };
+
 }

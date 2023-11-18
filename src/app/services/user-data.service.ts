@@ -13,7 +13,7 @@ export default class UserDataService {
   constructor(
     private firestore: AngularFirestore,
     private router: Router,
-    private toastr: ToastrService,
+    private toastr: ToastrService
   ) {}
 
   createEmployee(employee: any) {
@@ -21,7 +21,7 @@ export default class UserDataService {
       .collection('/Employees')
       .add(employee)
       .then((res) => {
-        this.toastr.success('Successfully add new employee!')
+        this.toastr.success('Successfully add new employee!');
         return res;
       })
       .catch((err) => {
@@ -71,7 +71,7 @@ export default class UserDataService {
       .doc(id)
       .update(data)
       .then(() => {
-        this.toastr.success('Employee information is UPDATED successfully!')
+        this.toastr.success('Employee information is UPDATED successfully!');
         this.router.navigate(['/user/personnel']);
       })
       .catch((err) => {
@@ -80,7 +80,11 @@ export default class UserDataService {
   }
 
   async delete(id: string) {
-    await this.firestore.collection( '/Employees' ).doc( id ).delete();
-    this.toastr.success('Employee information is DELETED successfully!')
+    await this.firestore.collection('/Employees').doc(id).delete();
+    this.toastr.success('Employee information is DELETED successfully!');
+  }
+
+  addAditionalInfo(subCollectionName:string,data:object) {
+   return this.firestore.collection('/Employees').doc('5aC0m0Fn8B8Sj1L9pVJl').collection(subCollectionName).add(data);
   }
 }

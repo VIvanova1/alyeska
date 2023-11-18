@@ -1,6 +1,6 @@
 <table class="table">
     <tr class="table-name">
-        <td colspan="5 ">Exprerience</td>
+        <td colspan="5 ">Experience</td>
         <td><button class="btn-add btn" (click)="myDialog.show()">+</button></td>
     </tr>
     <tr class="table-head">
@@ -22,24 +22,24 @@
 </table>
 
 <dialog #myDialog class="dialog-form">
-    <form [formGroup]="formInfo ? formInfo : form" (ngSubmit)="onSubmit()">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="input-data">
             <label for="company">Company Name
             </label>
-            <input type="text" class="employee-input" name="company" formControlName="company">
-            <span class="err-msg" *ngIf="form.get('company')?.touched">
-                    <span *ngIf="form.get('company')?.errors?.['required']">Company Name is required! </span>
-                    <span *ngIf="form.get('company')?.errors?.['minlength']">Company Name should be minimum 8
+            <input type="text" class="employee-input" name="company" #inputcompany="ngModel" required ngModel>
+            <span class="err-msg" *ngIf="form.controls['company']?.touched">
+                    <span *ngIf="form.controls['company']?.errors?.['required']">Company Name is required! </span>
+                    <span *ngIf="form.controls['company']?.errors?.['minlength']">Company Name should be minimum 8
                         characters! </span>
                 </span>
         </div>
         <div class="input-data">
             <label for="location">Location
             </label>
-            <input type="text" class="employee-input" name="location" formControlName="location">
-            <span class="err-msg" *ngIf="form.get('location')?.touched">
-                    <span *ngIf="form.get('location')?.errors?.['required']">Location is required! </span>
-                    <span *ngIf="form.get('location')?.errors?.['minlength']">Location should be minimum 8 characters!
+            <input type="text" class="employee-input" name="location" #inputlocation="ngModel" required ngModel >
+            <span class="err-msg" *ngIf="form.controls['location']?.touched">
+                    <span *ngIf="form.controls['location']?.errors?.['required']">Location is required! </span>
+                    <span *ngIf="form.controls['location']?.errors?.['minlength']">Location should be minimum 8 characters!
                     </span>
                 </span>
         </div>
@@ -47,20 +47,20 @@
         <div class="input-data">
             <label for="position">Position
             </label>
-            <input type="text" class="employee-input" name="position" formControlName="position">
-            <span class="err-msg" *ngIf="form.get('position')?.touched">
-                    <span *ngIf="form.get('position')?.errors?.['required']">Position is required! </span>
-                    <span *ngIf="form.get('position')?.errors?.['minlength']">Position should be minimum 2 characters!
+            <input type="text" class="employee-input" name="position" #inputposition="ngModel" required ngModel>
+            <span class="err-msg" *ngIf="form.controls['position']?.touched">
+                    <span *ngIf="form.controls['position']?.errors?.['required']">Position is required! </span>
+                    <span *ngIf="form.controls['position']?.errors?.['minlength']">Position should be minimum 2 characters!
                     </span>
                 </span>
         </div>
         <div class="input-data">
             <label for="startDate">Start Date
             </label>
-            <input type="text" class="employee-input" name="startDate" formControlName="startDate">
-            <span class="err-msg" *ngIf="form.get('startDate')?.touched">
-                    <span *ngIf="form.get('startDate')?.errors?.['required']">Start Date is required! </span>
-                    <span *ngIf="form.get('startDate')?.errors?.['minlength']">Start Date should be minimum 6
+            <input type="text" class="employee-input" name="startDate" #inputstartDate="ngModel" required ngModel>
+            <span class="err-msg" *ngIf="form.controls['startDate']?.touched">
+                    <span *ngIf="form.controls['startDate']?.errors?.['required']">Start Date is required! </span>
+                    <span *ngIf="form.controls['startDate']?.errors?.['minlength']">Start Date should be minimum 6
                         characters! </span>
                 </span>
         </div>
@@ -68,10 +68,10 @@
         <div class="input-data">
             <label for="end-date">End Date
             </label>
-            <input type="text" class="employee-input" name="end-date" formControlName="endDate">
-            <span class="err-msg" *ngIf="form.get('end-date')?.touched">
-                    <span *ngIf="form.get('end-date')?.errors?.['required']">End Date is required! </span>
-                    <span *ngIf="form.get('end-date')?.errors?.['minlength']">End Date should be minimum 2
+            <input type="text" class="employee-input" name="end-date" #inputendDate="ngModel" required ngModel>
+            <span class="err-msg" *ngIf="form.controls['end-date']?.touched">
+                    <span *ngIf="form.controls['end-date']?.errors?.['required']">End Date is required! </span>
+                    <span *ngIf="form.controls['end-date']?.errors?.['minlength']">End Date should be minimum 2
                         characters!
                     </span>
                 </span>
@@ -79,10 +79,10 @@
         <div class="input-data">
             <label for="description">Description
             </label>
-            <textarea type="text" class="employee-input" name="description" formControlName="description"></textarea>
-            <span class="err-msg" *ngIf="form.get('description')?.touched">
-                    <span *ngIf="form.get('description')?.errors?.['required']">Description is required! </span>
-                    <span *ngIf="form.get('description')?.errors?.['minlength']">Description should be minimum 4
+            <textarea type="text" class="employee-input" name="description" #inputdescription="ngModel" required ngModel></textarea>
+            <span class="err-msg" *ngIf="form.controls['description']?.touched">
+                    <span *ngIf="form.controls['description']?.errors?.['required']">Description is required! </span>
+                    <span *ngIf="form.controls['description']?.errors?.['minlength']">Description should be minimum 4
                         characters! </span>
                 </span>
         </div>

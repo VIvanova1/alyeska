@@ -40,7 +40,7 @@ export class AuthService {
 
   isAdmin(){
     const user = localStorage.getItem('user');
-    if(user && user == 'venetaivanova@alyeska.com'){
+    if(user && user == 'admin@admin.com'){
       return true;
     }else{
       return false;

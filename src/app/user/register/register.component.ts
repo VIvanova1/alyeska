@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { matchPasswordsValidator } from 'src/app/shared/validators/match-pass-validator';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import UserDataService from 'src/app/services/user-data.service';
