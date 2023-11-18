@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import EmployeeDataService from 'src/app/services/user-data.service';
+
 
 @Component({
   selector: 'app-info-table',
   templateUrl: './info-table.component.html',
-  styleUrls: ['./info-table.component.css']
+  styleUrls: ['./info-table.component.css'],
 })
 export class InfoTableComponent {
   post: any;
@@ -14,13 +15,13 @@ export class InfoTableComponent {
   formInfo: any;
 
   constructor(
-    private userService: EmployeeDataService,
+    private employeeService: EmployeeDataService,
     private fB: FormBuilder,
     private route: ActivatedRoute
   ) {
 
     this.route.queryParams.subscribe((val) => {
-      userService.getOneEmployee(val['id']).subscribe((post) => {
+      employeeService.getOneEmployee(val['id']).subscribe((post) => {
         this.post = post;
         this.postId = val['id'];
 
@@ -58,35 +59,43 @@ export class InfoTableComponent {
 
   form = this.fB.group({
     company: ['', [Validators.required, Validators.minLength(8)]],
-    position: ['', [Validators.required,Validators.email ,Validators.minLength(8)]],
+    position: ['', [Validators.required,Validators.minLength(2)]],
     location: ['', [Validators.required, Validators.minLength(2)]],
     startDate: ['', [Validators.required, Validators.minLength(6)]],
     endDate: ['', [Validators.required, Validators.minLength(8)]],
     description: ['', [Validators.required, Validators.minLength(3)]],
   });
 
-  // addInfo() {
-  //   const EmployeeData: EmployeeData = {
-  //     name: this.form.value.name!,
-  //     email: this.form.value.email!,
-  //     position: this.form.value.position!,
-  //     companyId: this.form.value.companyId!,
-  //     phone: this.form.value.phone!,
-  //     location: this.form.value.location!,
-  //     department: this.form.value.department!,
-  //     employmentType: this.form.value.employmentType!,
-  //     role: this.form.value.role!,
-  //     manager: this.form.value.manager!,
-  //     brd: this.form.value.brd!,
-  //     experienceInfo:[],
-  //   };
 
-  //   if (this.formStatus == 'Add new') {
-  //     this.userService.createEmployee(EmployeeData);
-  //     this.form.reset();
-  //   } else if (this.formStatus == 'Edit') {
-  //     this.userService.updateEmployee(this.form.getRawValue(), this.postId);
-  //     //Todo: rerender add new
-  //   }
-  // }
+
+
+  onSubmit() {
+    const formToSubmit = this.formInfo ? this.formInfo : this.form;
+
+    if (formToSubmit.valid) {
+      const formData = formToSubmit.value;
+      console.log('Form Data:', formData);
+      // Process or submit the form data as needed.
+    } else {
+      this.markFormAsTouched(formToSubmit);
+    }
+  }
+
+
+    // Helper method to mark all form controls as touched
+    private markFormAsTouched(formGroup: FormGroup | FormControl): void {
+      if (formGroup instanceof FormGroup) {
+        Object.values(formGroup.controls).forEach((control) => {
+          if (control instanceof FormControl) {
+            control.markAsTouched();
+          } else if (control instanceof FormGroup) {
+            this.markFormAsTouched(control);
+          }
+        });
+      } else if (formGroup instanceof FormControl) {
+        formGroup.markAsTouched();
+      }
+    }
+
+
 }

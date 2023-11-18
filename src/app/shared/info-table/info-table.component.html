@@ -1,7 +1,7 @@
 <table class="table">
     <tr class="table-name">
         <td colspan="5 ">Exprerience</td>
-        <td><button class="btn-add btn" (click)="myDialog.show()" >+</button></td>
+        <td><button class="btn-add btn" (click)="myDialog.show()">+</button></td>
     </tr>
     <tr class="table-head">
         <th>Location</th>
@@ -22,73 +22,73 @@
 </table>
 
 <dialog #myDialog class="dialog-form">
-    <form >
-            <div class="input-data">
-                <label for="company">Company Name
-                </label>
-                    <input type="text" class="employee-input" name="company" formControlName="company">
-                <!-- <span class="err-msg" *ngIf="form.get('company')?.touched">
+    <form [formGroup]="formInfo ? formInfo : form" (ngSubmit)="onSubmit()">
+        <div class="input-data">
+            <label for="company">Company Name
+            </label>
+            <input type="text" class="employee-input" name="company" formControlName="company">
+            <span class="err-msg" *ngIf="form.get('company')?.touched">
                     <span *ngIf="form.get('company')?.errors?.['required']">Company Name is required! </span>
                     <span *ngIf="form.get('company')?.errors?.['minlength']">Company Name should be minimum 8
                         characters! </span>
-                </span> -->
-            </div>
-            <div class="input-data">
-                <label for="location">Location
-                </label>
-                    <input type="text" class="employee-input" name="location" formControlName="location">
-                <!-- <span class="err-msg" *ngIf="form.get('location')?.touched">
+                </span>
+        </div>
+        <div class="input-data">
+            <label for="location">Location
+            </label>
+            <input type="text" class="employee-input" name="location" formControlName="location">
+            <span class="err-msg" *ngIf="form.get('location')?.touched">
                     <span *ngIf="form.get('location')?.errors?.['required']">Location is required! </span>
                     <span *ngIf="form.get('location')?.errors?.['minlength']">Location should be minimum 8 characters!
                     </span>
-                </span> -->
-            </div>
+                </span>
+        </div>
 
-            <div class="input-data">
-                <label for="position">Position
-                </label>
-                    <input type="text" class="employee-input" name="position" formControlName="position">
-                <!-- <span class="err-msg" *ngIf="form.get('position')?.touched">
+        <div class="input-data">
+            <label for="position">Position
+            </label>
+            <input type="text" class="employee-input" name="position" formControlName="position">
+            <span class="err-msg" *ngIf="form.get('position')?.touched">
                     <span *ngIf="form.get('position')?.errors?.['required']">Position is required! </span>
                     <span *ngIf="form.get('position')?.errors?.['minlength']">Position should be minimum 2 characters!
                     </span>
-                </span> -->
-            </div>
-            <div class="input-data">
-                <label for="startDate">Start Date
-                </label>
-                    <input type="text" class="employee-input" name="startDate" formControlName="startDate">
-                <!-- <span class="err-msg" *ngIf="form.get('startDate')?.touched">
+                </span>
+        </div>
+        <div class="input-data">
+            <label for="startDate">Start Date
+            </label>
+            <input type="text" class="employee-input" name="startDate" formControlName="startDate">
+            <span class="err-msg" *ngIf="form.get('startDate')?.touched">
                     <span *ngIf="form.get('startDate')?.errors?.['required']">Start Date is required! </span>
                     <span *ngIf="form.get('startDate')?.errors?.['minlength']">Start Date should be minimum 6
                         characters! </span>
-                </span> -->
-            </div>
+                </span>
+        </div>
 
-            <div class="input-data">
-                <label for="end-date">End Date
-                </label>
-                    <input type="text" class="employee-input" name="end-date" formControlName="end-date">
-                <!-- <span class="err-msg" *ngIf="form.get('end-date')?.touched">
+        <div class="input-data">
+            <label for="end-date">End Date
+            </label>
+            <input type="text" class="employee-input" name="end-date" formControlName="endDate">
+            <span class="err-msg" *ngIf="form.get('end-date')?.touched">
                     <span *ngIf="form.get('end-date')?.errors?.['required']">End Date is required! </span>
                     <span *ngIf="form.get('end-date')?.errors?.['minlength']">End Date should be minimum 2
                         characters!
                     </span>
-                </span> -->
-            </div>
-            <div class="input-data">
-                <label for="description">Description
-                </label>
-                    <textarea type="text" class="employee-input" name="description" formControlName="description"></textarea>
-                <!-- <span class="err-msg" *ngIf="form.get('description')?.touched">
+                </span>
+        </div>
+        <div class="input-data">
+            <label for="description">Description
+            </label>
+            <textarea type="text" class="employee-input" name="description" formControlName="description"></textarea>
+            <span class="err-msg" *ngIf="form.get('description')?.touched">
                     <span *ngIf="form.get('description')?.errors?.['required']">Description is required! </span>
                     <span *ngIf="form.get('description')?.errors?.['minlength']">Description should be minimum 4
                         characters! </span>
-                </span> -->
-            </div>
-            <div class="input-data">
-                <button class="close-btn btn" (click)="myDialog.close()">Close</button>
-                <button class="send-btn btn">Send</button>
-            </div>
+                </span>
+        </div>
+        <div class="input-data">
+            <button type="button" class="close-btn btn" (click)="myDialog.close()">Close</button>
+            <button type="submit" class="send-btn btn">Send</button>
+        </div>
     </form>
 </dialog>

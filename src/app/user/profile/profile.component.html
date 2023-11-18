@@ -2,10 +2,14 @@
     <div class="wrapper" *ngIf="currentEmployee">
         <div class="main-profile">
             <img src="/assets/user-icon.png" alt="profile-img">
-            <h3>{{currentEmployee.name}}</h3>
-            <h4>{{currentEmployee.email}}</h4>
-            <h5>{{currentEmployee.companyId}}</h5>
-            <button>Click</button>
+            <h3>Names: {{currentEmployee.name}}</h3>
+            <h4>Email: {{currentEmployee.email}}</h4>
+            <h4>Department: {{currentEmployee.department}}</h4>
+            <h4>Position: {{currentEmployee.position}}</h4>
+            <h4>Employment Type: {{currentEmployee.employmentType}}</h4>
+            <h5>Company ID: {{currentEmployee.companyId}}</h5>
+            <h5>Location: {{currentEmployee.location}}</h5>
+            <h5>Role: {{currentEmployee.role}}</h5>
         </div>
 
         <app-info-table></app-info-table>
