@@ -13,14 +13,20 @@ export class ProfileComponent implements OnInit {
   id!: string;
   moreInfo:any;
   experienceInput:any;
+  schoolInput:any;
 
   constructor(private userService: UserDataService) {
     this.experienceInput = {
       type: 'Experience',
       institution: 'Company',
       activity: 'Position',
-      id:this.id
     };
+
+    this.schoolInput ={
+      type: 'Education',
+      institution: 'School',
+      activity: 'School major',
+    }
    }
 
   ngOnInit (): void {

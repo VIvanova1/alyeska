@@ -17,7 +17,7 @@
         <td>{{res.activity}}</td>
         <td>{{res.startDate}}</td>
         <td>{{res.endDate}}</td>
-        <td>{{res.explanation}}</td>
+        <td>{{res.description}}</td>
     </tr>
 </table>
 
@@ -68,7 +68,7 @@
         <div class="input-data">
             <label for="end-date">End Date
             </label>
-            <input type="text" class="employee-input" name="end-date" #inputendDate="ngModel" required ngModel>
+            <input type="text" class="employee-input" name="endDate" #inputendDate="ngModel" required ngModel>
             <span class="err-msg" *ngIf="form.controls['end-date']?.touched">
                     <span *ngIf="form.controls['end-date']?.errors?.['required']">End Date is required! </span>
                     <span *ngIf="form.controls['end-date']?.errors?.['minlength']">End Date should be minimum 2
