@@ -12,8 +12,16 @@ export class ProfileComponent implements OnInit {
   trainings: any[] = [];
   id!: string;
   moreInfo:any;
+  experienceInput:any;
 
-  constructor(private userService: UserDataService) {  }
+  constructor(private userService: UserDataService) {
+    this.experienceInput = {
+      type: 'Experience',
+      institution: 'Company',
+      activity: 'Position',
+      id:this.id
+    };
+   }
 
   ngOnInit (): void {
     const email = localStorage.getItem('user');
@@ -28,6 +36,7 @@ export class ProfileComponent implements OnInit {
       res.map((user: any) => {
         this.id = user.id;
         this.id;
+        this.experienceInput.id=user.id
         this.currentEmployee = user.data;
         this.currentEmployee;
       });
@@ -35,10 +44,6 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  experienceInput!: {
-    type: 'Experience',
-    location: 'Company',
-    place: 'Position'
-  };
+
 
 }

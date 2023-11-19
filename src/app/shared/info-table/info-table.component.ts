@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -7,6 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 import UserDataService from 'src/app/services/user-data.service';
 
 @Component({
@@ -14,48 +16,44 @@ import UserDataService from 'src/app/services/user-data.service';
   templateUrl: './info-table.component.html',
   styleUrls: ['./info-table.component.css'],
 })
-export class InfoTableComponent {
-  formInfo: any;
+export class InfoTableComponent implements OnInit, OnChanges {
   @Input() infoData: any;
-
-  constructor(
-    private employeeService: UserDataService,
-    private fB: FormBuilder,
-    private route: ActivatedRoute
-  ) {}
+  userId!: string;
+  type!:string;
+  currentResult:any;
 
 
-  onSubmit(form:NgForm) {
-    const formToSubmit = form.value;
+  constructor(private employeeService: UserDataService, private  toastr:ToastrService ) {}
 
-    if (formToSubmit.valid) {
-      const formData = formToSubmit.value;
-      console.log('Form Data:', formData);
-
-      this.employeeService
-        .addAditionalInfo('Experience', formData)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      this.markFormAsTouched(formToSubmit);
-    }
+  ngOnChanges ( changes: SimpleChanges ): void {
+   this.type=this.infoData.type;
+   console.log("this.type", this.type);
   }
 
-  private markFormAsTouched(formGroup: FormGroup | FormControl): void {
-    if (formGroup instanceof FormGroup) {
-      Object.values(formGroup.controls).forEach((control) => {
-        if (control instanceof FormControl) {
-          control.markAsTouched();
-        } else if (control instanceof FormGroup) {
-          this.markFormAsTouched(control);
-        }
-      });
-    } else if (formGroup instanceof FormControl) {
-      formGroup.markAsTouched();
-    }
+  ngOnInit(): void {
+    this.userId = this.infoData.id
+    this.employeeService.getAditionalInfo(this.userId , this.type).valueChanges().subscribe((res)=>{
+      this.currentResult=res;
+     })
   }
+
+
+  onSubmit(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+    const formData = form.value;
+
+    this.employeeService.addAditionalInfo(this.userId , this.type, formData)
+    .then((res) => {
+      this.toastr.success('Successfully added')
+    })
+    .catch((err) => {
+      this.toastr.error(err)
+    });
+  }
+
+
+
+
 }

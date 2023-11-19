@@ -84,7 +84,11 @@ export default class UserDataService {
     this.toastr.success('Employee information is DELETED successfully!');
   }
 
-  addAditionalInfo(subCollectionName:string,data:object) {
-   return this.firestore.collection('/Employees').doc('5aC0m0Fn8B8Sj1L9pVJl').collection(subCollectionName).add(data);
+  addAditionalInfo(id:string, subCollectionName:string,data:object) {
+   return this.firestore.collection('/Employees').doc(id).collection(subCollectionName).add(data);
+  }
+
+  getAditionalInfo(id:string, subCollectionName:string){
+   return this.firestore.collection('/Employees').doc(id).collection(subCollectionName);
   }
 }
