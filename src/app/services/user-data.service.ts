@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root',
 })
 export default class UserDataService {
+  userId!:string;
   user!: EmployeeData[];
   constructor(
     private firestore: AngularFirestore,
@@ -40,6 +41,8 @@ export default class UserDataService {
           return act.map((a) => {
             const data = a.payload.doc.data();
             const id = a.payload.doc.id;
+            this.userId=id;
+            console.log('id', id);
             return { id, data };
           });
         })

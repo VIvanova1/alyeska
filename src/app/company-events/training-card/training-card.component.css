@@ -8,7 +8,7 @@
   margin: auto;
 }
 
-.card-image {
+/* .card-image {
   grid-area: image;
   background: url("/assets/courses-img.jpg");
   background-size: cover;
@@ -16,7 +16,14 @@
   background-repeat: no-repeat;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+} */
+
+.card-image img{
+  width: 100%;
+  aspect-ratio: 1;
+  height: -webkit-fill-available;
 }
+
 
 .card-text {
   grid-area: text;
@@ -63,7 +70,7 @@
   cursor: pointer;
 }
 
-.card-stats a {
+.card-stats button {
   text-decoration: none;
   color: white;
   background: radial-gradient(

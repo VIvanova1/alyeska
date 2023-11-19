@@ -10,7 +10,6 @@ import UserDataService from 'src/app/services/user-data.service';
   styleUrls: ['./training-card.component.css'],
 })
 export class TrainingCardComponent {
-  empl:any;
   constructor(
     private trainingService: TrainingsService,
     private userService: UserDataService

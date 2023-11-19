@@ -15,4 +15,6 @@ export class TrainingsService {
   getOneTraining(path: string) {
     return this.firestore.doc(path).valueChanges();
   }
+
+
 }
