@@ -10,6 +10,7 @@
             <h5>Company ID: {{currentEmployee.companyId}}</h5>
             <h5>Location: {{currentEmployee.location}}</h5>
             <h5>Role: {{currentEmployee.role}}</h5>
+            <button routerLink="/user/new" [queryParams]="{id: id}">Edit</button>
         </div>
 
         <app-info-table [infoData]="experienceInput" [id]="id"></app-info-table>

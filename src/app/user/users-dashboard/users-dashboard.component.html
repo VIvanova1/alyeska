@@ -7,7 +7,7 @@
             <p>Department: <span class="info">{{employee.data.department}}</span> </p>
             <p>Email: <span class="info">{{employee.data.email}}</span></p>
             <div class="btn" *ngIf="isAdmin()">
-                <button routerLink="/user/new" [queryParams]="{id: employee.id}"><i class="fa-solid fa-user-pen"></i></button>
+                <button routerLink="/user/profile" [queryParams]="{id: employee.id}"><i class="fa-solid fa-user-pen"></i></button>
                 <button (click)="onDelete(employee.id)"><i class="fa-solid fa-trash"></i></button>
             </div>
         </div>
