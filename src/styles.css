@@ -1,5 +1,6 @@
 @import "ngx-toastr/toastr";
 @import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&display=swap');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 * {
   box-sizing: border-box;
@@ -48,6 +49,9 @@ input[type="date"]:active,
 input[type="password"]:active {
   border: 2px solid #3e9eff;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

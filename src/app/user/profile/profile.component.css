@@ -42,7 +42,10 @@
   margin-bottom: 5px;
 }
 
-app-info-table{
-  overflow-x: auto;
-  scroll-behavior:smooth;
+.btn{
+  text-align: center;
+  color: white;
+  background: rgba(15, 48, 84, 1);
+  cursor: pointer;
+  padding: 7px 17px;
 }

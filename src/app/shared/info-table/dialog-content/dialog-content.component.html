@@ -1,36 +1,12 @@
-<table class="table">
-    <tr class="table-name">
-        <td colspan="5 ">{{infoData.type}}</td>
-        <!-- <td><button  (click)="myDialog.show()">+</button></td> -->
-        <td><button class="btn-add btn" (click)="openDialog()">+</button></td>
-    </tr>
-    <tr class="table-head">
-        <th>{{infoData.institution}} Name</th>
-        <th>Location</th>
-        <th>{{infoData.activity}}</th>
-        <th>Start date</th>
-        <th>End date</th>
-        <th>Explanation</th>
-    </tr>
-    <tr class="table-body" *ngFor="let res of currentResult">
-        <td>{{res.institution}}</td>
-        <td>{{res.location}}</td>
-        <td>{{res.activity}}</td>
-        <td>{{res.startDate}}</td>
-        <td>{{res.endDate}}</td>
-        <td>{{res.description}}</td>
-    </tr>
-</table>
-
-<!-- <dialog #myDialog class="dialog-form">
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+<div>
+    <form  #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="input-data">
-            <label for="company">{{infoData.institution}} Name
+            <label for="company">{{data.infoData.institution}} Name
             </label>
             <input type="text" class="employee-input" name="institution" #inputinstitution="ngModel" required ngModel>
             <span class="err-msg" *ngIf="form.controls['institution']?.touched">
-                    <span *ngIf="form.controls['institution']?.errors?.['required']">{{infoData.institution}} Name is required! </span>
-                    <span *ngIf="form.controls['institution']?.errors?.['minlength']">{{infoData.institution}}Name should be minimum 8
+                    <span *ngIf="form.controls['institution']?.errors?.['required']">{{data.infoData.institution}} Name is required! </span>
+                    <span *ngIf="form.controls['institution']?.errors?.['minlength']">{{data.infoData.institution}}Name should be minimum 8
                         characters! </span>
                 </span>
         </div>
@@ -46,12 +22,12 @@
         </div>
 
         <div class="input-data">
-            <label for="position">{{infoData.activity}}
+            <label for="position">{{data.infoData.activity}}
             </label>
             <input type="text" class="employee-input" name="activity" #inputactivity="ngModel" required ngModel>
             <span class="err-msg" *ngIf="form.controls['activity']?.touched">
-                    <span *ngIf="form.controls['activity']?.errors?.['required']">{{infoData.activity}} is required! </span>
-                    <span *ngIf="form.controls['activity']?.errors?.['minlength']">{{infoData.activity}} should be minimum 2 characters!
+                    <span *ngIf="form.controls['activity']?.errors?.['required']">{{data.infoData.activity}} is required! </span>
+                    <span *ngIf="form.controls['activity']?.errors?.['minlength']">{{data.infoData.activity}} should be minimum 2 characters!
                     </span>
                 </span>
         </div>
@@ -88,8 +64,9 @@
                 </span>
         </div>
         <div class="input-data">
-            <button type="button" class="close-btn btn" (click)="myDialog.close()">Close</button>
             <button type="submit" class="send-btn btn">Send</button>
+            <button mat-button mat-dialog-close (click)="onCloseClick()">Close</button>
         </div>
     </form>
-</dialog> -->
+
+</div>

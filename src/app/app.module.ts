@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment.development';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 
+import { MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, AboutComponent],
@@ -37,6 +38,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,6 +11,8 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 import UserDataService from 'src/app/services/user-data.service';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
 
 @Component({
   selector: 'app-info-table',
@@ -28,8 +30,19 @@ export class InfoTableComponent implements OnInit, OnChanges {
 
   constructor(
     private employeeService: UserDataService,
-    private toastr: ToastrService
-  ) {}
+    private toastr: ToastrService,
+    private matDialog: MatDialog
+    ) {}
+
+   openDialog(): void {
+    const dialogRef = this.matDialog.open(DialogContentComponent, {
+      width: '600px', // Set the width as per your requirement
+      data: {
+        'infoData':this.infoData,
+        'id': this.id
+      },
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.type = this.infoData.type;
@@ -66,7 +79,6 @@ export class InfoTableComponent implements OnInit, OnChanges {
         this.toastr.error(err);
       });
   }
-
 
   //ToDo: prevent top scroll page
 }
