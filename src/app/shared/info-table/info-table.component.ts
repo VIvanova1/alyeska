@@ -24,6 +24,8 @@ export class InfoTableComponent implements OnInit, OnChanges {
   @Input() id: any;
   @ViewChild('myDialog') myDialog!: ElementRef<HTMLDialogElement>;
 
+  isTableCollapsed = true;
+
   userId!: string;
   type!: string;
   currentResult: any;
@@ -78,6 +80,10 @@ export class InfoTableComponent implements OnInit, OnChanges {
       .catch((err) => {
         this.toastr.error(err);
       });
+  }
+
+  toggleTable() {
+    this.isTableCollapsed = !this.isTableCollapsed;
   }
 
   //ToDo: prevent top scroll page
