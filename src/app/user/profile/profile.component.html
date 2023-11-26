@@ -7,17 +7,33 @@
         <h4>{{currentEmployee.position}}</h4>
     </div>
 
-    <div class="wrapper" >
+    <div class="wrapper">
         <div class="profile">
             <div class="main-profile">
-                <h4>Department: {{currentEmployee.department}}</h4>
-                <h4>Employment Type: {{currentEmployee.employmentType}}</h4>
-                <h5>Company ID: {{currentEmployee.companyId}}</h5>
-                <h5>Location: {{currentEmployee.location}}</h5>
-                <h5>Role: {{currentEmployee.role}}</h5>
-                <button class="btn" routerLink="/user/new" [queryParams]="{id: id}">Edit</button>
+                <div class="table">
+                    <div class="labels">
+                        <h4>Department:</h4>
+                        <h4>Employment Type:</h4>
+                        <h5>Company ID:</h5>
+                        <h5>Location:</h5>
+                        <h5>Role:</h5>
+                    </div>
+                    <div class="inputs">
+                        <h4>{{currentEmployee.department}}</h4>
+                        <h4>{{currentEmployee.employmentType}}</h4>
+                        <h5>{{currentEmployee.companyId}}</h5>
+                        <h5>{{currentEmployee.location}}</h5>
+                        <h5>{{currentEmployee.role}}</h5>
+                    </div>
+
+                    <div class="btns">
+                        <button class="btn" routerLink="/user/new" [queryParams]="{id: id}">Edit</button>
+                        <button class="btn">Export contract</button>
+                    </div>
+                </div>
             </div>
 
+            <app-info-table [infoData]="adressInput" [id]="id"></app-info-table>
             <app-info-table [infoData]="experienceInput" [id]="id"></app-info-table>
             <app-info-table [infoData]="schoolInput" [id]="id"></app-info-table>
         </div>

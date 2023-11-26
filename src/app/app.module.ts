@@ -38,7 +38,8 @@ import { MatDialogModule} from '@angular/material/dialog';
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

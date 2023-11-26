@@ -21,21 +21,28 @@ export class ProfileComponent implements OnInit, OnChanges, OnDestroy {
   moreInfo: any;
   experienceInput: any;
   schoolInput: any;
+  adressInput: any;
   editId: any;
 
   constructor(
     private userService: UserDataService,
     private router: ActivatedRoute
   ) {
+    this.adressInput = {
+      type: 'Address',
+      institution: 'Address type',
+      activity: 'Address',
+    };
+
     this.experienceInput = {
       type: 'Experience',
-      institution: 'Company',
+      institution: 'Company name',
       activity: 'Position',
     };
 
     this.schoolInput = {
       type: 'Education',
-      institution: 'School',
+      institution: 'School name',
       activity: 'School major',
     };
   }
