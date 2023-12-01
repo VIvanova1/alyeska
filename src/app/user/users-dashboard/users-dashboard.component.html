@@ -1,7 +1,7 @@
 <div class="container">
     <h2>PERSONNEL</h2>
 
-    <div class="list-wrapper" *ngFor="let employee of employees">
+    <div class="list-wrapper" *ngFor="let employee of paginatedItems ">
         <div class="employee-card">
             <p>Name: <span class="info">{{employee.data.name}}</span></p>
             <p>Department: <span class="info">{{employee.data.department}}</span> </p>
@@ -12,5 +12,9 @@
             </div>
         </div>
     </div>
-
+    <div class="pagination">
+        <button class="pagination-numbers" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">&#171;</button>
+        <span>{{ currentPage }}</span>
+        <button class="pagination-numbers" (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === maxPage">&#187;</button>
+      </div>
 </div>

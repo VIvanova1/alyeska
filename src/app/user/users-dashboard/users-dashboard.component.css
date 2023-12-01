@@ -38,27 +38,45 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-}
-.list-wrapper .employee-card {
+  margin: auto;
+  width: 70%;
   background-color: white;
+}
+
+.list-wrapper .employee-card {
   color: black;
-  min-width: 70%;
+  width: 100%;
   margin: 5px 0;
-  padding: 15px;
+  padding: 10px;
   display: flex;
-  border-radius: 10px;
   justify-content: space-around;
   align-items: center;
 }
-.employee-card button{
-    background-color: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
+.employee-card button {
+  background-color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-.employee-card .info{
+.employee-card .info {
   font-weight: 900;
   font-style: italic;
+}
+
+.list-wrapper:nth-child(odd) {
+  background-color: red;
+  background-color: #f2f2f2;
+}
+
+.pagination-numbers {
+  padding: 6px;
+  margin: 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 30px;
+}
+.pagination span{
+  font-size: 20px;
 }
