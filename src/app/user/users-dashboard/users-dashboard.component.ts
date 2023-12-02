@@ -13,9 +13,11 @@ export class UsersDashboardComponent implements OnInit {
   currentPage: number = 1;
   maxPage: number = 0;
 
+  filteredResults: any;
+  searchTerm: any;
+  displayList: any;
 
   constructor(private us: UserDataService, private authService: AuthService) {}
-
 
   ngOnInit(): void {
     this.getAllEmployees();
@@ -32,28 +34,52 @@ export class UsersDashboardComponent implements OnInit {
     }
   }
 
-  getAllEmployees(){
-    this.us.getAll().subscribe((res) => {
-      this.employees = res;
-      this.maxPage = Math.ceil(this.employees.length / this.itemsPerPage);
-    },(err)=>{
-      console.log(err);
-    });
-  }
-
-  get paginatedItems(): any[] {
-    if (!this.employees) {
-      return [];
-    }
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    return this.employees.slice(
-      startIndex,
-      Math.min(endIndex, this.employees.length)
+  getAllEmployees() {
+    this.us.getAll().subscribe(
+      (res) => {
+        this.employees = res;
+        this.updateDisplayList();
+      },
+      (err) => {
+        console.log(err);
+      }
     );
   }
 
   onPageChange(page: number): void {
     this.currentPage = page;
+    this.updateDisplayList();
+  }
+
+  searchEmployee(searchTerm: string): void {
+    this.searchTerm = searchTerm;
+    this.updateDisplayList();
+  }
+
+  paginateItems(itemsForPaginate: any): any {
+    if (!itemsForPaginate) {
+      return [];
+    }
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.maxPage = Math.ceil(itemsForPaginate.length / this.itemsPerPage);
+    return itemsForPaginate.slice(
+      startIndex,
+      Math.min(endIndex, itemsForPaginate.length)
+    );
+  }
+
+  updateDisplayList(): void {
+    if (this.searchTerm) {
+      this.filteredResults = this.employees.filter(
+        (res: any) =>
+          res.data.name &&
+          res.data.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+      this.displayList = this.paginateItems(this.filteredResults);
+    } else {
+      this.displayList = this.paginateItems(this.employees);
+      return this.displayList;
+    }
   }
 }

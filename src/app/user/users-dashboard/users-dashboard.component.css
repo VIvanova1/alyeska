@@ -13,33 +13,13 @@ h2 {
   margin: 15px;
   padding: 10px 0;
 }
-.trainings-search label {
-  margin: 5px;
-  font-size: 20px;
-  cursor: pointer;
-}
-.trainings-search input {
-  font-size: 20px;
-  border: none;
-  border-bottom: 1px solid rgb(235, 228, 252);
-  padding: 10px;
-  cursor: text;
-  border-radius: 10px;
-}
-.trainings-search input:focus {
-  outline: none;
-  border-bottom: 1px solid white;
-  border-radius: 10px;
-  background-color: rgb(244, 241, 251);
-  opacity: 0.9;
-}
 
 .list-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
-  width: 70%;
+  width: 90%;
   background-color: white;
 }
 
@@ -49,15 +29,52 @@ h2 {
   margin: 5px 0;
   padding: 10px;
   display: flex;
+
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.employee-card .info-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.employee-card .info-row p {
+  margin-bottom: 0;
+  padding: 0 3px;
+  overflow: hidden;
+}
+
+.employee-card .info-label {
+  margin-right: 10px;
+}
+
+.employee-card .btn-row {
+  display: flex;
   justify-content: space-around;
-  align-items: center;
+  /* margin-top: 8px; */
 }
-.employee-card button {
-  background-color: white;
+
+
+.btn{
   border: none;
-  font-size: 24px;
   cursor: pointer;
+  background-color: transparent;
+  color: white;
 }
+
+.employee-card .pagination-numbers {
+  font-size: 24px;
+  padding: 0 10px;
+
+}
+
+.employee-card .btn-row button{
+color: black;
+font-size: 22px;
+padding: 0 10px;
+}
+
 
 .employee-card .info {
   font-weight: 900;
@@ -77,6 +94,37 @@ h2 {
   cursor: pointer;
   font-size: 30px;
 }
-.pagination span{
+
+.pagination-numbers:disabled{
+  color: #0f3054;
+}
+
+.pagination span {
   font-size: 20px;
+}
+
+.search {
+  margin-bottom: 20px;
+}
+
+.search-box,
+.search-box:focus {
+  border: none;
+}
+
+.search i {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .list-wrapper .employee-card {
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .employee-card .info-row {
+    width: 25%;
+  }
 }
