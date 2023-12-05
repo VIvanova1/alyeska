@@ -9,6 +9,7 @@ import { AddEmployeeComponent } from './user/add-employee/add-employee.component
 import { UsersDashboardComponent } from './user/users-dashboard/users-dashboard.component';
 import { authGuard } from './shared/guards/auth.guard';
 import { adminGuard } from './shared/guards/admin.guard';
+import { EmployeeContractComponent } from './shared/documentsExport/employee-contract/employee-contract.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', component: AboutComponent},
@@ -19,6 +20,8 @@ const routes: Routes = [
   {path: 'trainings', component: TrainingsComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'user/profile/:id/contract', component: EmployeeContractComponent},
+
 ];
 
 @NgModule({

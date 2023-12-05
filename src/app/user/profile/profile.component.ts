@@ -26,7 +26,8 @@ export class ProfileComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(
     private userService: UserDataService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private Router:Router,
   ) {
     this.adressInput = {
       type: 'Address',
@@ -67,6 +68,10 @@ export class ProfileComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('change', changes);
+  }
+
+  exportContract() {
+    this.Router.navigate(['user/profile', this.id, 'contract'])
   }
 
   // getUser(email: string) {
