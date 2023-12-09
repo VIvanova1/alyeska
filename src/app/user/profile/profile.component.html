@@ -5,6 +5,12 @@
         <h3>{{currentEmployee.name}}</h3>
         <h4>{{currentEmployee.email}}</h4>
         <h4>{{currentEmployee.position}}</h4>
+
+        <div class="btns">
+            <button class="btn" routerLink="/user/new" [queryParams]="{id: id}">Edit</button>
+            <input type="file" class="btn" placeholder="Import documents"/>
+            <button (click)="exportContract()" class="btn">Export contract</button>
+        </div>
     </div>
 
     <div class="wrapper">
@@ -26,10 +32,6 @@
                         <h5>{{currentEmployee.role}}</h5>
                     </div>
 
-                    <div class="btns">
-                        <button class="btn" routerLink="/user/new" [queryParams]="{id: id}">Edit</button>
-                        <button (click)="exportContract()" class="btn">Export contract</button>
-                    </div>
                 </div>
             </div>
 

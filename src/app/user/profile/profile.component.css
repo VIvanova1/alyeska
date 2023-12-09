@@ -65,7 +65,7 @@
   border-top-right-radius: 12px;
 }
 
-.main-profile .table .btns{
+.profile-menu .btns{
   display: flex;
   flex-direction: column;
   padding: 0 30px;
