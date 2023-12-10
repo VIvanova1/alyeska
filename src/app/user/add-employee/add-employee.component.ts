@@ -56,8 +56,8 @@ export class AddEmployeeComponent {
               this.post.employmentType,
               [Validators.required, Validators.minLength(4)],
             ],
-            role: [
-              this.post.role,
+            salary: [
+              this.post.salary,
               [Validators.required, Validators.minLength(2)],
             ],
             manager: [
@@ -83,7 +83,7 @@ export class AddEmployeeComponent {
     location: ['', [Validators.required, Validators.minLength(3)]],
     department: ['', [Validators.required, Validators.minLength(2)]],
     employmentType: ['', [Validators.required, Validators.minLength(4)]],
-    role: ['', [Validators.required, Validators.minLength(2)]],
+    salary: ['', [Validators.required, Validators.minLength(2)]],
     manager: ['', [Validators.required, Validators.minLength(8)]],
     brd: [new Date(), Validators.required],
   });
@@ -98,7 +98,8 @@ export class AddEmployeeComponent {
       location: this.form.value.location!,
       department: this.form.value.department!,
       employmentType: this.form.value.employmentType!,
-      role: this.form.value.role!,
+      salary: Number(this.form.value.salary)!,
+      role: 'regular',
       manager: this.form.value.manager!,
       brd: this.form.value.brd!,
       experienceInfo:[],

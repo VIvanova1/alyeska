@@ -69,12 +69,12 @@
         </div>
         <div class="form-row">
             <div class="input-data">
-                <input type="text" class="employee-input" name="role" formControlName="role">
+                <input type="number" class="employee-input" name="salary" formControlName="salary">
                 <div class="underline"></div>
-                <label for="role">Role</label>
-                <span class="err-msg" *ngIf="form.get('role')?.touched">
-                    <span *ngIf="form.get('role')?.errors?.['required']">Role is required! </span>
-                    <span *ngIf="form.get('role')?.errors?.['minlength']">Role should be minimum 2 characters!
+                <label for="salary">Salary</label>
+                <span class="err-msg" *ngIf="form.get('salary')?.touched">
+                    <span *ngIf="form.get('salary')?.errors?.['required']">Salary is required! </span>
+                    <span *ngIf="form.get('salary')?.errors?.['minlength']">Salary should be minimum 2 characters!
                     </span>
                 </span>
             </div>
