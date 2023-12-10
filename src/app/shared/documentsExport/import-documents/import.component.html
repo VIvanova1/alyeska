@@ -1,0 +1,12 @@
+<div class="imports">
+    <button type="button" class="button">
+        <i class="fa-solid fa-upload"></i> Upload file
+        <input type="file" (change)="uploadFile($event)" class="btn" placeholder="Import documents" />
+    </button>
+
+    <ul> Files
+        <li *ngFor="let url of urls">
+            <a [href]="url.url" download="{{ url.name }}" target="_blank">{{ url.name }}</a>
+        </li>
+    </ul>
+</div>

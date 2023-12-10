@@ -94,4 +94,12 @@ export default class UserDataService {
   getAditionalInfo(id:string, subCollectionName:string){
    return this.firestore.collection('/Employees').doc(id).collection(subCollectionName);
   }
+
+  addDocUrls(id:string, subCollectionName:string,data:object) {
+    return this.firestore.collection('/Employees').doc(id).collection(subCollectionName).add(data);
+  }
+
+  getDocUrls(id:string, subCollectionName:string){
+    return this.firestore.collection('/Employees').doc(id).collection(subCollectionName);
+  }
 }

@@ -10,6 +10,7 @@ import { CompanyEventsModule } from './company-events/company-events.module';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
@@ -39,7 +40,7 @@ import { MatDialogModule} from '@angular/material/dialog';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     MatDialogModule,
-
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

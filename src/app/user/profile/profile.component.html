@@ -8,9 +8,10 @@
 
         <div class="btns">
             <button class="btn" routerLink="/user/new" [queryParams]="{id: id}">Edit</button>
-            <input type="file" class="btn" placeholder="Import documents"/>
             <button (click)="exportContract()" class="btn">Export contract</button>
         </div>
+
+        <app-import></app-import>
     </div>
 
     <div class="wrapper">

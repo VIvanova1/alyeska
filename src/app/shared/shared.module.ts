@@ -5,6 +5,7 @@ import { PassMatchDirective } from './validators/pass-match.directive';
 import { FormsModule } from '@angular/forms';
 import { DialogContentComponent } from './info-table/dialog-content/dialog-content.component';
 import { EmployeeContractComponent } from './documentsExport/employee-contract/employee-contract.component';
+import { ImportComponent } from './documentsExport/import-documents/import.component';
 
 
 @NgModule({
@@ -12,9 +13,10 @@ import { EmployeeContractComponent } from './documentsExport/employee-contract/e
     InfoTableComponent,
     PassMatchDirective,
     DialogContentComponent,
-    EmployeeContractComponent
+    EmployeeContractComponent,
+    ImportComponent,
   ],
   imports: [CommonModule, FormsModule],
-  exports:[InfoTableComponent, PassMatchDirective]
+  exports:[InfoTableComponent, PassMatchDirective, ImportComponent]
 })
 export class SharedModule {}

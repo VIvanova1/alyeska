@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit, OnChanges, OnDestroy {
   constructor(
     private userService: UserDataService,
     private router: ActivatedRoute,
-    private Router:Router,
+    private Router: Router
   ) {
     this.adressInput = {
       type: 'Address',
@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   exportContract() {
-    this.Router.navigate(['user/profile', this.id, 'contract'])
+    this.Router.navigate(['user/profile', this.id, 'contract']);
   }
 
   // getUser(email: string) {
