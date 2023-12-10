@@ -6,7 +6,9 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
+import { finalize } from 'rxjs';
 import { EmployeeData } from 'src/app/model/user-data';
+import { DocumentsService } from 'src/app/services/documents.service';
 import UserDataService from 'src/app/services/user-data.service';
 
 @Component({
@@ -23,11 +25,14 @@ export class ProfileComponent implements OnInit, OnChanges, OnDestroy {
   schoolInput: any;
   adressInput: any;
   editId: any;
+  downloadURL:any
+  profileImgurl:any;
 
   constructor(
     private userService: UserDataService,
     private router: ActivatedRoute,
-    private Router: Router
+    private Router: Router,
+    private docService: DocumentsService
   ) {
     this.adressInput = {
       type: 'Address',
@@ -53,6 +58,7 @@ export class ProfileComponent implements OnInit, OnChanges, OnDestroy {
       this.id = params.get('id');
     });
     this.fintUserForEdit(this.id);
+    this.loadProfileImage()
   }
 
   fintUserForEdit(id: string) {
@@ -73,6 +79,47 @@ export class ProfileComponent implements OnInit, OnChanges, OnDestroy {
   exportContract() {
     this.Router.navigate(['user/profile', this.id, 'contract']);
   }
+
+  uploadFile($event: Event) {
+    const htmlElement = $event.target! as HTMLInputElement;
+    const file = htmlElement.files![0];
+    const filePath = `profileImg/${this.id}`;
+    const fileRef = this.docService.getRef(filePath);
+    const task = this.docService.uploadProfileImage(filePath, file);
+
+    this.profileImgurl = ''
+    task
+      .snapshotChanges()
+      .pipe(
+        finalize(
+          () =>
+            (this.downloadURL = fileRef.getDownloadURL().subscribe((url: any)=>{
+              this.profileImgurl=url;
+            }))
+
+        )
+      )
+      .subscribe();
+  }
+
+loadProfileImage(){
+this.docService.getProfileImage(`profileImg/${this.id}`).getDownloadURL().subscribe(
+  (url: any) => {
+    if (url) {
+      this.profileImgurl = url;
+    }
+  },
+  (error: any) => {
+    console.error('Error getting profile image URL', error);
+    this.docService.getProfileImage('assets/no-image.png').getDownloadURL().subscribe(
+      (defaultUrl: any) => {
+        this.profileImgurl = defaultUrl;
+      }
+    );
+  }
+);
+
+}
 
   // getUser(email: string) {
   //   this.userService.findEmployee(email).subscribe((res) => {

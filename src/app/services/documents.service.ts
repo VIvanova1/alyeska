@@ -15,4 +15,11 @@ export class DocumentsService {
     return this.fireStorage.ref(filePath);
   }
 
+  uploadProfileImage(path: any, file: any){
+    return this.fireStorage.upload(path, file);
+  }
+
+  getProfileImage(filePath: any) {
+    return this.fireStorage.ref(filePath);
+  }
 }

@@ -1,7 +1,11 @@
 <div class="container" *ngIf="currentEmployee">
 
     <div class="profile-menu">
-        <img src="https://i.ibb.co/bRcKhK4/user-icon.png" alt="profile-img">
+        <img [src]="profileImgurl" alt="profile-img">
+        <div class="profile-img">
+            <i class="fa-solid fa-camera"></i> Upload Image
+            <input type="file" (change)="uploadFile($event)">
+        </div>
         <h3>{{currentEmployee.name}}</h3>
         <h4>{{currentEmployee.email}}</h4>
         <h4>{{currentEmployee.position}}</h4>

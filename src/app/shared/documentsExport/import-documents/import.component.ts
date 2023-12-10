@@ -31,10 +31,8 @@ export class ImportComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.router.queryParamMap.subscribe((params) => {
       this.id = params.get('id');
-      console.log('id', this.id);
     });
     this.allUrls();
-    console.log(this.urls);
   }
 
   uploadFile($event: Event) {
