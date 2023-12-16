@@ -1,6 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, NgIterable, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, finalize } from 'rxjs';
+import { Observable, finalize, from } from 'rxjs';
 import { DocumentsService } from 'src/app/services/documents.service';
 import UserDataService from 'src/app/services/user-data.service';
 
@@ -10,12 +10,10 @@ import UserDataService from 'src/app/services/user-data.service';
   styleUrls: ['./import.component.css'],
 })
 export class ImportComponent implements OnInit, OnChanges {
-  id: any;
-  // uploadPercent!: Observable<number>;
-  // downloadURL: Observable<string>;
-  uploadPercent: any;
-  downloadURL: any;
-  urls: any;
+  id!: string | null;
+  uploadPercent!: Observable<number> |undefined;
+  downloadURL!: Observable<string> | undefined;
+  urls!: NgIterable<any> | null | undefined;
 
   constructor(
     private docService: DocumentsService,
@@ -43,28 +41,28 @@ export class ImportComponent implements OnInit, OnChanges {
     const fileRef = this.docService.getRef(filePath);
     const task = this.docService.uploadDoc(filePath, file);
 
-    this.uploadPercent = task.percentageChanges();
+    this.uploadPercent = task.percentageChanges()  as Observable<number>;
 
     task
-      .snapshotChanges()
-      .pipe(
-        finalize(
-          () =>
-            (this.downloadURL = fileRef.getDownloadURL().forEach((url: any) => {
-              this.userService.addDocUrls(this.id, 'documentsUrls', {
-                'url': url,
-                'name': fileName
-              });
-              this.allUrls();
-            }))
-        )
-      )
-      .subscribe();
+    .snapshotChanges()
+    .pipe(
+      finalize(() => {
+        from(fileRef.getDownloadURL())
+          .subscribe((url: string) => {
+            this.userService.addDocUrls(this.id!, 'documentsUrls', {
+              'url': url,
+              'name': fileName
+            });
+            this.allUrls();
+          });
+      })
+    )
+    .subscribe();
   }
 
   allUrls() {
     this.userService
-      .getDocUrls(this.id, 'documentsUrls')
+      .getDocUrls(this.id!, 'documentsUrls')
       .valueChanges()
       .subscribe((res)=>{
         this.urls = res;

@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+import { EmployeeData } from 'src/app/model/user-data';
 import UserDataService from 'src/app/services/user-data.service';
 
 @Component({
@@ -11,9 +12,8 @@ import UserDataService from 'src/app/services/user-data.service';
 })
 export class EmployeeContractComponent implements OnInit {
   @ViewChild('pdfContent') pdfContent!: ElementRef;
-  id: any;
-  data: any;
-  employee: any;
+  id!: string | null;
+  employee: EmployeeData | null = null;
 
   constructor(
     private router: ActivatedRoute,
@@ -24,10 +24,15 @@ export class EmployeeContractComponent implements OnInit {
     this.router.paramMap.subscribe((params) => {
       this.id = params.get('id');
     });
-    this.userService.getOneEmployee(this.id).subscribe((user) => {
-      this.employee = user;
-      console.log(user);
-    });
+    if (this.id !== null) {
+      this.userService.getOneEmployee(this.id).subscribe((user:any) =>{
+        console.log(user);
+        this.employee = user;
+      },
+      (error:any)=>{
+        console.error('Eroor', error);
+      });
+    }
   }
 
   public async SavePDF(name: string) {

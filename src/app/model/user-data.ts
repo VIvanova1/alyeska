@@ -7,9 +7,17 @@ export interface EmployeeData {
   location: string;
   department: string;
   employmentType: string;
-  salary:number;
+  salary: number;
   role: string;
   manager: string;
-  brd:Date,
-  experienceInfo:any,
+  brd: Date;
+}
+
+export interface AdditionalInfo {
+  institution: string;
+  location: string;
+  activity: string;
+  startDate: string;
+  endDate: string;
+  description: string;
 }

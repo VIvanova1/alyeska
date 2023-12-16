@@ -102,7 +102,6 @@ export class AddEmployeeComponent {
       role: 'regular',
       manager: this.form.value.manager!,
       brd: this.form.value.brd!,
-      experienceInfo:[],
     };
 
     if (this.formStatus == 'Add new') {
@@ -110,7 +109,6 @@ export class AddEmployeeComponent {
       this.form.reset();
     } else if (this.formStatus == 'Edit') {
       this.userService.updateEmployee(this.form.getRawValue(), this.postId);
-      //Todo: rerender add new
     }
   }
 }

@@ -110,7 +110,6 @@ this.docService.getProfileImage(`profileImg/${this.id}`).getDownloadURL().subscr
     }
   },
   (error: any) => {
-    console.error('Error getting profile image URL', error);
     this.docService.getProfileImage('assets/no-image.png').getDownloadURL().subscribe(
       (defaultUrl: any) => {
         this.profileImgurl = defaultUrl;
