@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Route } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeData } from 'src/app/model/user-data';
 import UserDataService from 'src/app/services/user-data.service';
 
@@ -9,106 +9,46 @@ import UserDataService from 'src/app/services/user-data.service';
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css'],
 })
-export class AddEmployeeComponent {
+export class AddEmployeeComponent implements OnInit {
   formStatus: string = 'Add new';
-  post: any;
+  post!: EmployeeData;
   postId: string = '';
+  employeeData!: EmployeeData;
+  employee: any;
 
   constructor(
     private userService: UserDataService,
-    private fB: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
-
     this.route.queryParams.subscribe((val) => {
-      userService.getOneEmployee(val['id']).subscribe((post) => {
-        this.post = post;
-        this.postId = val['id'];
+      this.userService.getOneEmployee(val['id']).subscribe((post) => {
+        if(post){
+          this.post={...(post as EmployeeData)}
+          this.postId = val['id'];
+        }
+
 
         if (this.postId) {
-          this.form = this.fB.group({
-            name: [
-              this.post.name,
-              [Validators.required, Validators.minLength(8)],
-            ],
-            email: [this.post.email, []],
-            position: [
-              this.post.position,
-              [Validators.required, Validators.minLength(2)],
-            ],
-            companyId: [
-              this.post.companyId,
-              [Validators.required, Validators.minLength(6)],
-            ],
-            phone: [
-              this.post.phone,
-              [Validators.required, Validators.minLength(8)],
-            ],
-            location: [
-              this.post.location,
-              [Validators.required, Validators.minLength(3)],
-            ],
-            department: [
-              this.post.department,
-              [Validators.required, Validators.minLength(2)],
-            ],
-            employmentType: [
-              this.post.employmentType,
-              [Validators.required, Validators.minLength(4)],
-            ],
-            salary: [
-              this.post.salary,
-              [Validators.required, Validators.minLength(2)],
-            ],
-            manager: [
-              this.post.manager,
-              [Validators.required, Validators.minLength(8)],
-            ],
-            brd: [this.post.brd, Validators.required],
-          });
-
-        this.form.controls.email.disable();
-        this.formStatus = 'Edit';
+          this.employeeData = { ...this.post };
+          this.formStatus = 'Edit';
         }
       });
     });
   }
 
-  form = this.fB.group({
-    name: ['', [Validators.required, Validators.minLength(8)]],
-    email: ['', [Validators.required,Validators.email ,Validators.minLength(8)]],
-    position: ['', [Validators.required, Validators.minLength(2)]],
-    companyId: ['', [Validators.required, Validators.minLength(6)]],
-    phone: ['', [Validators.required, Validators.minLength(8)]],
-    location: ['', [Validators.required, Validators.minLength(3)]],
-    department: ['', [Validators.required, Validators.minLength(2)]],
-    employmentType: ['', [Validators.required, Validators.minLength(4)]],
-    salary: ['', [Validators.required, Validators.minLength(2)]],
-    manager: ['', [Validators.required, Validators.minLength(8)]],
-    brd: [new Date(), Validators.required],
-  });
+  ngOnInit(): void {}
 
-  createEmployee() {
-    const EmployeeData: EmployeeData = {
-      name: this.form.value.name!,
-      email: this.form.value.email!,
-      position: this.form.value.position!,
-      companyId: this.form.value.companyId!,
-      phone: this.form.value.phone!,
-      location: this.form.value.location!,
-      department: this.form.value.department!,
-      employmentType: this.form.value.employmentType!,
-      salary: Number(this.form.value.salary)!,
-      role: 'regular',
-      manager: this.form.value.manager!,
-      brd: this.form.value.brd!,
-    };
+  createEmployee(newEmployeeForm:NgForm) {
+    this.employeeData  = newEmployeeForm.value;
 
     if (this.formStatus == 'Add new') {
-      this.userService.createEmployee(EmployeeData);
-      this.form.reset();
+      this.userService.createEmployee(this.employeeData);
+
     } else if (this.formStatus == 'Edit') {
-      this.userService.updateEmployee(this.form.getRawValue(), this.postId);
+      this.userService.updateEmployee(this.employeeData, this.postId);
     }
+
+    this.router.navigate(['user/personnel']);
   }
 }

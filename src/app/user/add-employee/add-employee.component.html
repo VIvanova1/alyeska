@@ -1,127 +1,127 @@
 <div class="container">
     <h2>{{formStatus}} employee</h2>
-    <form [formGroup]="form" (ngSubmit)="createEmployee()">
+    <form #form = "ngForm" (ngSubmit)="createEmployee(form)">
         <div class="form-row">
             <div class="input-data">
-                <input type="text" class="employee-input" name="name" formControlName="name">
+                <input type="text" class="employee-input" name="name" #name='ngModel' ngModel  [ngModel]="(this.post?.name) ?? ''">
                 <div class="underline"></div>
                 <label for="Name">Name</label>
-                <span class="err-msg" *ngIf="form.get('name')?.touched">
-                    <span *ngIf="form.get('name')?.errors?.['required']">Name is required! </span>
-                    <span *ngIf="form.get('name')?.errors?.['minlength']">Name should be minimum 8 characters! </span>
+                <span class="err-msg" *ngIf="name.touched">
+                    <span *ngIf="name.errors?.['required']">Name is required! </span>
+                    <span *ngIf="name.errors?.['minlength']">Name should be minimum 8 characters! </span>
                 </span>
             </div>
             <div class="input-data">
-                <input type="text" class="employee-input" name="email" formControlName="email">
+                <input type="email" class="employee-input" name="email" #email='ngModel' ngModel [ngModel]="(this.post?.email) ?? ''">
                 <div class="underline"></div>
                 <label for="email">Email</label>
-                <span class="err-msg" *ngIf="form.get('email')?.touched">
-                    <span *ngIf="form.get('email')?.errors?.['required']">Email is required! </span>
-                    <span *ngIf="form.get('email')?.errors?.['email']">Email is not valid! </span>
-                    <span *ngIf="form.get('email')?.errors?.['minlength']">Email should be minimum 8 characters! </span>
+                <span class="err-msg" *ngIf="email.touched">
+                    <span *ngIf="name.errors?.['required']">Email is required! </span>
+                    <span *ngIf="name.errors?.['email']">Email is not valid! </span>
+                    <span *ngIf="name.errors?.['minlength']">Email should be minimum 8 characters! </span>
                 </span>
             </div>
         </div>
         <div class="form-row">
             <div class="input-data">
-                <input type="text" class="employee-input" name="position" formControlName="position">
+                <input type="text" class="employee-input" name="position" #position='ngModel' ngModel [ngModel]="(this.post?.position) ?? ''">
                 <div class="underline"></div>
                 <label for="position">Position</label>
-                <span class="err-msg" *ngIf="form.get('position')?.touched">
-                    <span *ngIf="form.get('position')?.errors?.['required']">Position is required! </span>
-                    <span *ngIf="form.get('position')?.errors?.['minlength']">Position should be minimum 2 characters!
+                <span class="err-msg" *ngIf="position.touched">
+                    <span *ngIf="position.errors?.['required']">Position is required! </span>
+                    <span *ngIf="position.errors?.['minlength']">Position should be minimum 2 characters!
                     </span>
                 </span>
             </div>
             <div class="input-data">
-                <input type="text" class="employee-input" name="companyId" formControlName="companyId">
+                <input type="text" class="employee-input" name="companyId" #companyId='ngModel'ngModel [ngModel]="(this.post?.companyId) ?? ''">
                 <div class="underline"></div>
                 <label for="companyId">Company Id</label>
-                <span class="err-msg" *ngIf="form.get('companyId')?.touched">
-                    <span *ngIf="form.get('companyId')?.errors?.['required']">Company Id is required! </span>
-                    <span *ngIf="form.get('companyId')?.errors?.['minlength']">Company Id should be minimum 6
+                <span class="err-msg" *ngIf="companyId.touched">
+                    <span *ngIf="companyId.errors?.['required']">Company Id is required! </span>
+                    <span *ngIf="companyId.errors?.['minlength']">Company Id should be minimum 6
                         characters! </span>
                 </span>
             </div>
         </div>
         <div class="form-row">
             <div class="input-data">
-                <input type="text" class="employee-input" name="department" formControlName="department">
+                <input type="text" class="employee-input" name="department" #department='ngModel' ngModel [ngModel]="(this.post?.department) ?? ''" >
                 <div class="underline"></div>
                 <label for="department">Department</label>
-                <span class="err-msg" *ngIf="form.get('department')?.touched">
-                    <span *ngIf="form.get('department')?.errors?.['required']">Department is required! </span>
-                    <span *ngIf="form.get('department')?.errors?.['minlength']">Department should be minimum 2
+                <span class="err-msg" *ngIf="department.touched">
+                    <span *ngIf="department.errors?.['required']">Department is required! </span>
+                    <span *ngIf="department.errors?.['minlength']">Department should be minimum 2
                         characters!
                     </span>
                 </span>
             </div>
             <div class="input-data">
-                <input type="text" class="employee-input" name="employmentType" formControlName="employmentType">
+                <input type="text" class="employee-input" name="employmentType" #employmentType='ngModel' ngModel [ngModel]="(this.post?.employmentType) ?? ''">
                 <div class="underline"></div>
                 <label for="employmentType">Employment type</label>
-                <span class="err-msg" *ngIf="form.get('employmentType')?.touched">
-                    <span *ngIf="form.get('employmentType')?.errors?.['required']">Employment type is required! </span>
-                    <span *ngIf="form.get('employmentType')?.errors?.['minlength']">Employment type should be minimum 4
+                <span class="err-msg" *ngIf="employmentType.touched">
+                    <span *ngIf="employmentType.errors?.['required']">Employment type is required! </span>
+                    <span *ngIf="employmentType.errors?.['minlength']">Employment type should be minimum 4
                         characters! </span>
                 </span>
             </div>
         </div>
         <div class="form-row">
             <div class="input-data">
-                <input type="number" class="employee-input" name="salary" formControlName="salary">
+                <input type="number" class="employee-input" name="salary" #salary='ngModel' ngModel [ngModel]="(this.post?.salary) ?? ''">
                 <div class="underline"></div>
                 <label for="salary">Salary</label>
-                <span class="err-msg" *ngIf="form.get('salary')?.touched">
-                    <span *ngIf="form.get('salary')?.errors?.['required']">Salary is required! </span>
-                    <span *ngIf="form.get('salary')?.errors?.['minlength']">Salary should be minimum 2 characters!
+                <span class="err-msg" *ngIf="salary.touched">
+                    <span *ngIf="salary.errors?.['required']">Salary is required! </span>
+                    <span *ngIf="salary.errors?.['minlength']">Salary should be minimum 2 characters!
                     </span>
                 </span>
             </div>
             <div class="input-data">
-                <input type="text" class="employee-input" name="manager" formControlName="manager">
+                <input type="text" class="employee-input" name="manager" #manager='ngModel' ngModel [ngModel]="(this.post?.manager) ?? ''">
                 <div class="underline"></div>
                 <label for="manager">Manager</label>
-                <span class="err-msg" *ngIf="form.get('manager')?.touched">
-                    <span *ngIf="form.get('manager')?.errors?.['required']">Manager is required! </span>
-                    <span *ngIf="form.get('manager')?.errors?.['minlength']">Manager should be minimum 8
+                <span class="err-msg" *ngIf="manager.touched">
+                    <span *ngIf="manager.errors?.['required']">Manager is required! </span>
+                    <span *ngIf="manager.errors?.['minlength']">Manager should be minimum 8
                         characters! </span>
                 </span>
             </div>
         </div>
         <div class="form-row">
             <div class="input-data">
-                <input type="text" class="employee-input" name="phone" formControlName="phone">
+                <input type="text" class="employee-input" name="phone" #phone='ngModel' ngModel [ngModel]="(this.post?.phone) ?? ''">
                 <div class="underline"></div>
                 <label for="">Phone number</label>
-                <span class="err-msg" *ngIf="form.get('phone')?.touched">
-                    <span *ngIf="form.get('phone')?.errors?.['required']">Phone is required! </span>
-                    <span *ngIf="form.get('phone')?.errors?.['minlength']">Phone should be minimum 8 characters! </span>
+                <span class="err-msg" *ngIf="phone.touched">
+                    <span *ngIf="phone.errors?.['required']">Phone is required! </span>
+                    <span *ngIf="phone.errors?.['minlength']">Phone should be minimum 8 characters! </span>
                 </span>
             </div>
             <div class="input-data">
-                <input type="text" class="employee-input" name="location" formControlName="location">
+                <input type="text" class="employee-input" name="location" #location='ngModel' ngModel [ngModel]="(this.post?.location) ?? ''">
                 <div class="underline"></div>
                 <label for="">Location</label>
-                <span class="err-msg" *ngIf="form.get('location')?.touched">
-                    <span *ngIf="form.get('location')?.errors?.['required']">Location is required! </span>
-                    <span *ngIf="form.get('location')?.errors?.['minlength']">Location should be minimum 3 characters!
+                <span class="err-msg" *ngIf="location.touched">
+                    <span *ngIf="location.errors?.['required']">Location is required! </span>
+                    <span *ngIf="location.errors?.['minlength']">Location should be minimum 3 characters!
                     </span>
                 </span>
             </div>
             <div class="input-data">
-                <input type="date" class="employee-input" name="brd" formControlName="brd">
+                <input type="date" class="employee-input" name="brd" #brd='ngModel' ngModel [ngModel]="(this.post?.brd) ?? ''">
                 <div class="underline"></div>
                 <label for="">Birthday </label>
-                <span class="err-msg" *ngIf="form.get('brd')?.touched">
-                    <span *ngIf="form.get('brd')?.errors?.['required']">Birthday is required! </span>
+                <span class="err-msg" *ngIf="brd.touched">
+                    <span *ngIf="brd.errors?.['required']">Birthday is required! </span>
                 </span>
             </div>
             <div class="input-data">
                 <div class="form-row submit-btn">
                     <div class="input-data">
                         <div class="inner"></div>
-                        <button>{{formStatus}} Employee</button>
+                        <button type="submit" [disabled]="form.invalid">{{formStatus}} Employee</button>
                         <!-- [disabled]="form.invalid" -->
                     </div>
                 </div>
