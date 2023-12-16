@@ -14,25 +14,26 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   constructor(
     private auth: AuthService,
-    private router:Router,
-    private toastr: ToastrService
+    private router: Router,
+    private toastr: ToastrService,
+    private userService: UserDataService
   ) {}
+
+  isEmployee?: boolean;
 
   registerHandler(form: NgForm): void {
     if (form.invalid) {
       return;
     }
-
     const registerData: { email: string; password: string } = form.value;
 
-     this.auth.register(registerData.email!, registerData.password!)
+    this.auth
+      .register(registerData.email!, registerData.password!)
       .then((res) => {
-        const token = res.user?.refreshToken;
         const uid = res.user?.uid;
         localStorage.setItem('uid', uid!);
         localStorage.setItem('user', registerData.email!);
-        this.router.navigate(['user/profile'])
-
+        this.router.navigate(['/']);
       })
       .catch((err) => {
         this.toastr.error('The user or password is incorect!');

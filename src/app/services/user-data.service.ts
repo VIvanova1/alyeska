@@ -33,7 +33,7 @@ export default class UserDataService {
   findEmployee(email: string) {
     return this.firestore
       .collection('/Employees', (ref: any) =>
-        ref.where('email', '==', email || email.toLowerCase()).limit(1)
+        ref.where('email', '==', email.toLowerCase()).limit(1)
       )
       .snapshotChanges()
       .pipe(

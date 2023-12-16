@@ -121,17 +121,7 @@ this.docService.getProfileImage(`profileImg/${this.id}`).getDownloadURL().subscr
 
 }
 
-  // getUser(email: string) {
-  //   this.userService.findEmployee(email).subscribe((res) => {
-  //     res.map((user: any) => {
-  //       this.id = user.id;
-  //       this.id;
-  //       this.experienceInput.id = user.id;
-  //       this.currentEmployee = user.data;
-  //       this.currentEmployee;
-  //     });
-  //   });
-  // }
+
 
   //in OnInit
   // let user: any;

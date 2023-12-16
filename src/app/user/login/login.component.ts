@@ -10,8 +10,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-
-    constructor(private auth: AuthService,  private toastr: ToastrService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   loginHandler(form: NgForm): void {
     if (form.invalid) {
@@ -27,7 +30,7 @@ export class LoginComponent {
         const uid = res.user?.uid;
         localStorage.setItem('uid', uid!);
         localStorage.setItem('user', loginData.email!);
-        this.router.navigate(['user/profile'])
+        this.router.navigate(['/']);
       })
       .catch((err) => {
         this.toastr.error('The user or password is incorect!');

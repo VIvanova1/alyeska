@@ -25,18 +25,19 @@ export class EmployeeContractComponent implements OnInit {
       this.id = params.get('id');
     });
     this.userService.getOneEmployee(this.id).subscribe((user) => {
-     this.employee=user
-     console.log(user);
+      this.employee = user;
+      console.log(user);
     });
   }
 
-  public async SavePDF() {
+  public async SavePDF(name: string) {
+    console.log(name);
     const content = this.pdfContent.nativeElement;
     html2canvas(content).then(function (canvas) {
       const img = canvas.toDataURL('image/png');
       const pdf = new jsPDF();
       pdf.addImage(img, 20, 20, 170, 260);
-      pdf.save('aa.pdf');
+      pdf.save(name + '.pdf');
     });
   }
 }
