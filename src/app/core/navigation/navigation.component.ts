@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { EmployeeData } from 'src/app/model/user-data';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({

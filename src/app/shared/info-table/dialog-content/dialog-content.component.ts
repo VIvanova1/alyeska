@@ -7,18 +7,19 @@ import UserDataService from 'src/app/services/user-data.service';
 @Component({
   selector: 'app-dialog-content',
   templateUrl: './dialog-content.component.html',
-  styleUrls: ['./dialog-content.component.css']
+  styleUrls: ['./dialog-content.component.css'],
 })
 export class DialogContentComponent {
-onCloseClick() {
-  this.dialogRef.close();
-}
+  onCloseClick() {
+    this.dialogRef.close();
+  }
 
   constructor(
-  @Inject(MAT_DIALOG_DATA) public data: any,
-  private employeeService:UserDataService,
-  private toastr: ToastrService,
-  public dialogRef: MatDialogRef<DialogContentComponent>){}
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private employeeService: UserDataService,
+    private toastr: ToastrService,
+    public dialogRef: MatDialogRef<DialogContentComponent>
+  ) {}
 
   onSubmit(form: NgForm) {
     if (form.invalid) {
@@ -29,7 +30,7 @@ onCloseClick() {
       .addAditionalInfo(this.data.id, this.data.infoData.type, formData)
       .then((res) => {
         this.toastr.success('Successfully added');
-        this.onCloseClick()
+        this.onCloseClick();
       })
       .catch((err) => {
         this.toastr.error(err);

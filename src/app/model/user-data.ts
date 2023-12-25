@@ -8,7 +8,7 @@ export interface EmployeeData {
   department: string;
   employmentType: string;
   salary: number;
-  role: string;
+  role: 'regular';
   manager: string;
   brd: Date;
 }

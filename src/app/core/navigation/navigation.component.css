@@ -98,7 +98,7 @@ body {
 }
 
 /* mobile styles */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1000px) {
   .menu-container {
     flex-direction: column;
     align-items: flex-start;
@@ -163,7 +163,7 @@ body {
 }
 
 /* desktop styles */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1000px) {
   .menu-container {
     width: 100%;
   }

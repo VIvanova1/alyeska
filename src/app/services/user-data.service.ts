@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { EmployeeData } from '../model/user-data';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -64,8 +64,8 @@ export default class UserDataService {
       );
   }
 
-  getOneEmployee(id: string) {
-    return this.firestore.collection('/Employees').doc(id).valueChanges();
+  getOneEmployee(id: string): Observable<EmployeeData> {
+    return this.firestore.collection('/Employees').doc(id).valueChanges() as Observable<EmployeeData>;
   }
 
   updateEmployee(data: object, id: string) {

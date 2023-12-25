@@ -34,7 +34,10 @@ export class AddEmployeeComponent implements OnInit {
           this.formStatus = 'Edit';
         }
       });
-    });
+    }),
+    (err:Error)=>{
+      console.log(err);
+    };
   }
 
   ngOnInit(): void {}
