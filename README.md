@@ -1,6 +1,6 @@
 # Alyeska Desktop App
 
-Alyeska is a desktop application designed for companies to manage personnel information efficiently.
+Alyeska is a desktop application engineered to digitize personnel management, ensuring swift and efficient access to essential information. Designed to facilitate rapid retrieval and management of employee data, Alyeska transforms the traditional approach to workforce administration. With a focus on digital efficiency, it offers a centralized platform where organizations can effortlessly create, organize, and access comprehensive employee profiles, ensuring that crucial details are at your fingertips whenever you need them.
 
 **Visit the live application: [Alyeska Live Demo](https://alyeska.vercel.app/)**
 
