@@ -34,6 +34,10 @@
   cursor: pointer;
 }
 
+.table .table-body{
+  text-align: center;
+}
+
 /* Responsive adjustments */
 @media only screen and (max-width: 768px) {
   .table {
