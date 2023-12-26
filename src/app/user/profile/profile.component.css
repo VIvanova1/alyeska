@@ -12,6 +12,8 @@
 }
 
 .profile-menu {
+  max-width: 20%;
+  overflow-x: scroll;
   margin: 0 15px;
   padding: 10px;
   box-shadow: -4px 6px 11px 0 rgb(115 145 201);
@@ -41,6 +43,7 @@
   flex-direction: column;
   align-items: center;
   box-shadow: 9px 5px 10px 0 rgb(115 145 201);
+  overflow-x: scroll;
 }
 
 .wrapper > * {
@@ -107,4 +110,7 @@ img {
   cursor: pointer;
   padding: 7px 17px;
   margin: 15px 0;
+}
+h4{
+  word-break: break-word;
 }

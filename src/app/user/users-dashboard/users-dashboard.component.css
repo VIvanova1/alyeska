@@ -42,7 +42,7 @@ h2 {
 .employee-card .info-row p {
   margin-bottom: 0;
   padding: 0 3px;
-  overflow: hidden;
+  word-break: break-word;
 }
 
 .employee-card .info-label {
