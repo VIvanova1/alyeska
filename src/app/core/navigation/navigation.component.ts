@@ -29,7 +29,7 @@ export class NavigationComponent implements OnInit {
     return this.isLogged();
   }
 
-  isAdmin(){
-    return this.authService.isAdmin()
-  }
+  // isAdmin(){
+  //   return this.authService.isAdmin()
+  // }
 }

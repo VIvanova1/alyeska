@@ -38,14 +38,14 @@ export class AuthService {
     );
   }
 
-  isAdmin(){
-    const user = localStorage.getItem('user');
-    if(user && user == 'admin@admin.com'){
-      return true;
-    }else{
-      return false;
-    }
-  }
+  // isAdmin(){
+  //   const user = localStorage.getItem('user');
+  //   if(user && user == 'admin@admin.com'){
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+  // }
 
   isLogged(){
     if(localStorage.getItem('uid')){

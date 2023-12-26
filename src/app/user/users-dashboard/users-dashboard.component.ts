@@ -23,9 +23,9 @@ export class UsersDashboardComponent implements OnInit {
     this.getAllEmployees();
   }
 
-  isAdmin() {
-    return this.authService.isAdmin();
-  }
+  // isAdmin() {
+  //   return this.authService.isAdmin();
+  // }
 
   onDelete(id: string) {
     const confirm = window.confirm('Do you want to delete this employee?');

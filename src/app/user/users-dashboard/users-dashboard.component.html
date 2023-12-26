@@ -20,7 +20,7 @@
                 <p class="info-label">Email:</p>
                 <p class="info">{{employee.data.email}}</p>
             </div>
-            <div class="btn-row" *ngIf="isAdmin()">
+            <div class="btn-row">
                 <button class="btn" routerLink="/user/profile" [queryParams]="{id: employee.id}">
                     <i class="fa-solid fa-user-pen"></i>
                 </button>

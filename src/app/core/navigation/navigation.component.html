@@ -14,7 +14,7 @@
     <div class="menu">
         <ul *ngIf="isLogged()">
             <!-- <li><a routerLink="/user/profile">Personal Info</a></li> -->
-            <li *ngIf="isAdmin()"><a routerLink="/user/new"> New Employee</a></li>
+            <li><a routerLink="/user/new"> New Employee</a></li>
             <li><a routerLink="/user/personnel">Personnel </a></li>
             <li><a (click)="logout()">Log out</a></li>
         </ul>

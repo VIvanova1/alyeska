@@ -8,15 +8,15 @@ import { LoginComponent } from './user/login/login.component';
 import { AddEmployeeComponent } from './user/add-employee/add-employee.component';
 import { UsersDashboardComponent } from './user/users-dashboard/users-dashboard.component';
 import { authGuard } from './shared/guards/auth.guard';
-import { adminGuard } from './shared/guards/admin.guard';
 import { EmployeeContractComponent } from './shared/documentsExport/employee-contract/employee-contract.component';
 
 const routes: Routes = [
   {path: '', pathMatch:'full', component: AboutComponent},
   {path: 'about', component: AboutComponent },
-  {path: 'user/profile', component: ProfileComponent, canActivate: [authGuard] },
-  {path: 'user/new', component: AddEmployeeComponent,canActivate: [adminGuard] },
-  {path: 'user/personnel', component: UsersDashboardComponent, canActivate: [authGuard]},
+  // {path: 'user/profile', component: ProfileComponent, canActivate: [authGuard] },
+  {path: 'user/profile', component: ProfileComponent},
+  {path: 'user/new', component: AddEmployeeComponent},
+  {path: 'user/personnel', component: UsersDashboardComponent},
   {path: 'trainings', component: TrainingsComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},

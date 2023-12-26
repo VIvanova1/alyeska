@@ -8,18 +8,18 @@ import {
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
-@Injectable({ providedIn: 'root' })
-export class adminGuard implements CanActivate {
-  constructor(private authService: AuthService) {}
+// @Injectable({ providedIn: 'root' })
+// export class adminGuard implements CanActivate {
+//   constructor(private authService: AuthService) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
-    return this.authService.isAdmin()
-  }
-}
+//   canActivate(
+//     route: ActivatedRouteSnapshot,
+//     state: RouterStateSnapshot
+//   ):
+//     | boolean
+//     | UrlTree
+//     | Observable<boolean | UrlTree>
+//     | Promise<boolean | UrlTree> {
+//     return this.authService.isAdmin()
+//   }
+// }
